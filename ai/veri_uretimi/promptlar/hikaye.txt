@@ -1,0 +1,12 @@
+Orta Çağ'da bir Türk krallığında geçen kısa bir hikâye yaz.
+
+Karakter: {karakter}
+Hikâyede şu üç kelime geçsin: {kelimeler}
+{ekstra}
+
+Kurallar:
+- Hikâye 100-150 kelime olsun.
+- Sade, akıcı Türkçe kullan; basit, günlük kelimeler seç.
+- Karakterlere isim verebilirsin; krallığın hükümdarına "kral" ya da "hükümdar" de.
+- Modern kelime kullanma ({yasak} gibi).
+- Başlık, açıklama ya da yorum ekleme. Sadece hikâyeyi yaz.

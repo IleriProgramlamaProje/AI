@@ -1,0 +1,27 @@
+Orta Çağ'da bir Türk krallığında geçen kaydırmalı bir karar oyunu için 1 kart yaz.
+Göstergeler: Yönetim, Halk, Para, Ordu (0-100). Krallığın şu anki durumu: {durum}. Kart bu duruma uygun olsun (ör. Para düşükse kimse "hazine dolu" demez).
+
+Konuşan: {karakter} ({karakter_ton}; görevi: {karakter_gorev})
+Sık kullandığı sözler: {karakter_soz} · Asla: {karakter_asla}
+{ekstra}
+Kartta şu kelimelerden en az biri geçsin: {kelimeler}
+
+Kurallar:
+- Konuşan sadece unvanla yazılır, isim yok. Başka karakterlerden de sadece unvanla bahsedilir.
+- Dert, konuşanın işine uygun olsun.
+- Oyuncu hükümdardır. Ona seslenmek gerekirse "Beyim", "Hatunum", "hünkârım" yazma; yerine {{hitap}} yaz. Hitap şart değil.
+- Metin 20-35 kelime olsun, asla 50 kelimeyi geçmesin.
+- Sol ve sağ, aynı derde verilen iki farklı karar olsun: emir ya da eylem cümlesi, 2-5 kelime. Soyut başlık ya da evet/hayır yazma.
+- Her seçenek 1-3 göstergeyi etkilesin. İki seçenek de en az bir göstergeyi düşürsün.
+- Etkiyi sayıyla değil işaretle yaz: + az, ++ orta, +++ çok (düşüş için -, --, ---). Etkiler kararın mantığına uysun.
+- Her seçenekten sonra o kararın sonucunu anlatan tek bir cümle yaz.
+- Sade Türkçe kullan. Modern kelime kullanma ({yasak} gibi).
+- Sadece kartı yaz; giriş ya da açıklama ekleme.
+
+Biçim:
+Konuşan: [unvan]
+Metin: [20-35 kelime]
+Sol: [karar] | Halk +, Para --
+Sol sonuç: [tek cümle]
+Sağ: [karar] | Yönetim -, Ordu ++
+Sağ sonuç: [tek cümle]

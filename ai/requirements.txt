@@ -1,0 +1,12 @@
+# Öneri: haftası gelince sürümler sabitlenir.
+torch            # model ve eğitim (3. hafta)
+numpy
+tokenizers       # tokenizer eğitimi (2. hafta) · alternatif: sentencepiece
+pyyaml           # model boyut dosyaları (1m.yaml, 10m.yaml, 30m.yaml)
+tqdm
+matplotlib       # kayıp grafikleri, ölçüm grafikleri
+openpyxl         # Torba_Listesi.xlsx okumak için
+pytest           # ai/testler/
+fastapi          # kart üretici sunucusu (5–6. hafta)
+uvicorn
+# Öğretmen model Colab'da çalışır; oradaki paketler defterin içinde kurulur.

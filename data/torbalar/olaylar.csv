@@ -1,0 +1,201 @@
+id,olay,alan,etiket,sol_secenek,sol_etki,sag_secenek,sag_etki
+O001,elçi gelişi,Yönetim,,Elçiyi huzura kabul et,<yonetim+> <para->,Elçiyi geri gönder,<yonetim--> <para+>
+O002,miras kavgası,Yönetim,,Mirası kadıya incelet,<yonetim+> <para->,Ailelerin kendi arasında çözmesini iste,<para+> <halk->
+O003,kayıp mühür,Yönetim,,Mührü aramak için sarayı kapat,<yonetim+> <halk->,Yeni mühür hazırlat,<para-> <yonetim->
+O004,sarayda sahte ferman bulunması,Yönetim,,Fermanı araştır,<yonetim++> <para->,Fermanı geçersiz say,<yonetim+> <halk->
+O005,vezirin görevden ayrılmak istemesi,Yönetim,,Vezirin ayrılmasına izin ver,<yonetim--> <para+>,Görevinde kalmasını iste,<yonetim+> <para->
+O006,iki köyün sınır anlaşmazlığı,Yönetim,,Sınırı kadıların belirlemesini sağla,<yonetim+> <halk->,Köy büyüklerinin uzlaşmasını bekle,<halk+> <yonetim->
+O007,komşu krallığın barış teklifi,Yönetim,,Barışı kabul et,<para+> <ordu->,Teklifi reddet,<ordu+> <para-> <halk->
+O008,bir kadının hükmüne itiraz edilmesi,Yönetim,,Hükmü yeniden görüş,<halk+> <yonetim->,Eski hükmü uygula,<yonetim+> <halk->
+O009,saray kayıtlarının kaybolması,Yönetim,,Kayıtların bulunması için arama başlat,<yonetim+> <para->,Defterleri yeniden yazdır,<para-> <yonetim->
+O010,beylerin divana gelmeyi reddetmesi,Yönetim,,Beyleri huzura çağır,<yonetim+> <ordu->,Yerlerine yeni beyler ata,<yonetim++> <ordu-->
+O011,hükümdara isimsiz şikâyet mektubu,Yönetim,,Mektuptaki iddiayı araştır,<halk+> <yonetim->,Mektubu dikkate alma,<yonetim+> <halk->
+O012,saray görevlilerinin birbirini suçlaması,Yönetim,,Görevlileri ayrı ayrı sorgula,<yonetim+> <para->,Mevcut görev dağılımını koru,<para+> <yonetim->
+O013,bir elçinin gizli görüşme istemesi,Yönetim,,Gizli görüşmeyi kabul et,<yonetim+> <halk->,Herkesin önünde konuşmasını iste,<halk+> <yonetim->
+O014,halktan gelen dilekçelerin saklanması,Yönetim,,Dilekçeleri halka aç,<halk++> <yonetim->,Sorumlu görevlileri gizlice soruştur,<yonetim+> <halk->
+O015,eski bir vasiyetin ortaya çıkması,Yönetim,,Vasiyeti kabul et,<halk+> <para->,Vasiyetin geçerliliğini araştır,<yonetim+> <halk->
+O016,divandaki kararın halka yanlış duyurulması,Yönetim,,Yanlış duyuruyu hemen düzelt,<halk+> <yonetim->,Yeni duyuruyu divana bırak,<yonetim+> <halk->
+O017,saray kapısında sahte görevli yakalanması,Yönetim,,Sahte görevliyi sorgula,<yonetim+> <para->,Saraydan uzaklaştır,<para+> <yonetim->
+O018,uzak bir köyün bağlılık bildirmesi,Yönetim,,Köyün bağlılığını kabul et,<para+> <ordu->,Bağımsız kalmasına izin ver,<ordu+> <yonetim->
+O019,komşu krallığın yeni sınır istemesi,Yönetim,,Yeni sınırı görüşmeye aç,<para+> <yonetim->,Eski sınırda ısrar et,<yonetim+> <ordu->
+O020,görevden alınan kadının geri dönmek istemesi,Yönetim,,Kadıyı yeniden görevlendir,<halk+> <yonetim->,Yeni kadıyı görevde tut,<yonetim+> <halk->
+O021,beyler arasında yetki kavgası,Yönetim,,Yetkileri açıkça bölüştür,<yonetim+> <para->,Bir beyi tek yetkili yap,<ordu+> <yonetim->
+O022,bir fermanın iki farklı nüshasının bulunması,Yönetim,,İki fermanı da incelet,<yonetim+> <para->,Yeni bir ferman yazdır,<yonetim+> <halk->
+O023,sarayın haber taşıyan ulağının gecikmesi,Yönetim,,Ulağı aramak için adam gönder,<yonetim+> <ordu->,Haberi başka ulakla ilet,<para-> <yonetim->
+O024,tahta uzak bir akrabanın hak iddia etmesi,Yönetim,,Akrabanın iddiasını divanda dinle,<halk+> <yonetim-->,Taht iddiasını reddet,<yonetim+> <ordu->
+O025,yabancı bir elçinin hediyesinin reddedilmesi,Yönetim,,Hediyeyi kabul edip görüş,<para+> <yonetim->,Hediyeyi geri gönder,<yonetim+> <ordu->
+O026,sınırda baskın,Ordu,,Sınırdaki köye yardım gönder,<halk+> <para->,Önce saldırının nedenini araştır,<ordu+> <halk->
+O027,at hırsızlığı,Ordu,,Çalınan atları arat,<ordu+> <halk->,Yeni at satın al,<ordu++> <para-->
+O028,kaçak asker,Ordu,,Kaçak askeri bağışla,<halk+> <ordu->,Birliğine geri götür,<ordu+> <halk->
+O029,isyan söylentisi,Ordu,,Söylentiyi soruştur,<yonetim+> <ordu->,Askerlerin önünde açıklama yap,<ordu+> <yonetim->
+O030,esir takası,Ordu,,Esir takasını kabul et,<ordu+> <yonetim->,Esirleri elde tut,<yonetim+> <ordu->
+O031,nöbetçilerin görev yerini terk etmesi,Ordu,,Nöbetçileri cezalandır,<yonetim+> <ordu->,Yeni nöbet düzeni kur,<ordu+> <para->
+O032,askerlerin maaş için toplanması,Ordu,,Askerlere maaş öde,<ordu++> <para-->,Ödemeyi sonraya bırak,<para+> <ordu-->
+O033,kale surlarında çatlak oluşması,Ordu,,Surları hemen onar,<ordu+> <para->,Önce kalenin erzağını güçlendir,<halk+> <ordu->
+O034,sınırda yabancı atlıların görülmesi,Ordu,,Sınırda keşif yaptır,<ordu+> <para->,Geçitleri kapat,<ordu+> <halk->
+O035,kumandanın emre karşı gelmesi,Ordu,,Kumandanı görevden al,<yonetim+> <ordu->,İtaat için son bir fırsat ver,<ordu+> <yonetim->
+O036,asker sayımında eksik çıkması,Ordu,,Eksik askerleri arat,<ordu+> <para->,Birlikleri yeniden say,<para+> <ordu->
+O037,gözcülerin yanlış haber vermesi,Ordu,,Gözcüleri değiştir,<ordu+> <para->,Yeni haber doğrulama düzeni kur,<yonetim+> <ordu->
+O038,kışlada erzak paylaşımı kavgası,Ordu,,Erzağı eşit paylaştır,<ordu+> <para->,Önce nöbetçilere ver,<yonetim+> <ordu->
+O039,askerlerin uzun seferden dönmek istemesi,Ordu,,Askerleri geri döndür,<ordu+> <yonetim->,Seferi sürdür,<yonetim+> <ordu-->
+O040,kale kapısının gece açık bulunması,Ordu,,Kapıyı yeni zincirle güvene al,<ordu+> <para->,Sorumluları soruştur,<yonetim+> <ordu->
+O041,komşu krallığın asker toplaması,Ordu,,Sınıra ek asker gönder,<ordu+> <para->,Elçi yollayıp niyetlerini sor,<yonetim+> <ordu->
+O042,bir askerin haksız yere suçlanması,Ordu,,Askerin suçunu yeniden incelet,<ordu+> <yonetim->,Askeri görevden uzaklaştır,<yonetim+> <ordu->
+O043,eski silahların kullanılamaz hâle gelmesi,Ordu,,Silahları onart,<ordu+> <para->,Yeni silah yaptır,<ordu++> <para-->
+O044,sefer yolundaki geçidin kapanması,Ordu,,Geçidi açmak için işçi gönder,<ordu+> <para->,Başka yoldan ilerle,<para+> <ordu->
+O045,askerlerin eğitim alanını kaybetmesi,Ordu,,Yeni eğitim alanı ayır,<ordu+> <halk->,Eğitimi kale içinde sürdür,<para+> <ordu->
+O046,sınır köylerinin koruma istemesi,Ordu,,Köylere muhafız gönder,<halk+> <ordu->,Köylülere gözcülük görevi ver,<ordu+> <halk->
+O047,orduya katılmak isteyen gönüllülerin gelmesi,Ordu,,Gönüllüleri askere al,<ordu+> <para->,Önce eğitime gönder,<para+> <ordu->
+O048,iki birlik arasında komuta tartışması,Ordu,,Birliklerin görevini ayır,<ordu+> <yonetim->,İki komutanı uzlaştır,<yonetim+> <ordu->
+O049,kale kuyusunun su vermemesi,Ordu,,Kuyu için yeni kazı yaptır,<ordu+> <para->,Başka yerden su taşı,<para+> <ordu->
+O050,askerlerin yiyeceklerinin azalması,Ordu,,Erzağı yeniden dağıt,<para+> <ordu->,Köylerden yiyecek satın al,<ordu+> <para->
+O051,kuraklık,Halk,,Kuyular için kazı yaptır,<halk+> <para->,Suyu köyler arasında paylaştır,<yonetim+> <halk->
+O052,düğün,Halk,,Düğüne saraydan yardım gönder,<halk+> <para->,Kutlamayı köylülere bırak,<para+> <halk->
+O053,salgın,Halk,,Köye hekim gönder,<halk+> <para->,Hastaları ayrı bir yerde dinlendir,<yonetim+> <halk->
+O054,yangın,Halk,,Yanan evleri yeniden yaptır,<halk++> <para-->,Halkı boş evlere yerleştir,<para+> <halk->
+O055,sel,Halk,,Selden etkilenenleri taşı,<halk+> <para->,Yıkılan köprüyü onar,<yonetim+> <halk->
+O056,kıtlık,Halk,,Ambarlardan yiyecek dağıt,<halk++> <para->,Tohumları gelecek hasada sakla,<para+> <halk-->
+O057,kurt saldırısı,Halk,,Sürüler için gözcü görevlendir,<halk+> <ordu->,Çobanları daha güvenli otlağa gönder,<para+> <halk->
+O058,pazar kavgası,Halk,,Kavgayı kadıya götür,<yonetim+> <halk->,Esnafın uzlaşmasını iste,<halk+> <yonetim->
+O059,kayıp çocuk,Halk,,Çocuğu aramak için köylüleri topla,<halk++> <para->,Köy yollarına haberci gönder,<para+> <halk->
+O060,deprem,Halk,,Yıkılan evleri onar,<halk+> <para-->,Halkı güvenli yerlere taşı,<yonetim+> <halk->
+O061,çekirge sürüsü,Halk,,Çekirgelerden kalan ürünü dağıt,<halk+> <para->,Tohumluk ürünü koru,<para+> <halk->
+O062,bayram şenliği,Halk,,Şenliği düzenle,<halk+> <para->,Kutlamayı sade tut,<para+> <halk->
+O063,köyün en yaşlısının ölümü,Halk,,Yaşlı için anma töreni yap,<halk+> <para->,Köy işlerine öncelik ver,<para+> <halk->
+O064,at yarışı,Halk,,Yarışı düzenle,<halk+> <para->,Atları iş için ayır,<ordu+> <halk->
+O065,kuyunun kuruması,Halk,,Başka kuyudan su taşı,<halk+> <para->,Yeni kuyu aç,<halk++> <para-->
+O066,hastalıklı sürü,Halk,,Hasta sürüyü ayır,<yonetim+> <halk->,Hayvanlar için hekim çağır,<halk+> <para->
+O067,büyük ziyafet,Halk,,Büyük ziyafet ver,<halk++> <para-->,Erzağı kış için sakla,<para+> <halk->
+O068,köylülerin ortak otlağı paylaşamaması,Halk,,Otlağı sırayla kullandır,<yonetim+> <halk->,Yeni otlak bul,<halk+> <para->
+O069,bir hekimin köye ulaşamaması,Halk,,Hekime ulaşım sağla,<halk+> <ordu->,Hastaları hekime taşı,<para+> <halk->
+O070,komşular arasında su hakkı tartışması,Halk,,Suyu sırayla dağıt,<yonetim+> <halk->,Önceliği susuz köye ver,<halk+> <yonetim->
+O071,köy yolunun çamurdan kapanması,Halk,,Köy yolunu onart,<halk+> <para->,Yeni geçit belirle,<para+> <halk->
+O072,bir ustanın çırağını suçlaması,Halk,,Çırağı kadıya dinlet,<yonetim+> <halk->,Ustanın zararını karşıla,<halk+> <para->
+O073,köylülerin ormandan odun toplamasının yasaklanması,Halk,,Odun toplamaya izin ver,<halk+> <para->,Ormanı korumak için yasağı sürdür,<para+> <halk->
+O074,düğün için kullanılan meydanın paylaşılmaması,Halk,,Meydanı dönüşümlü kullandır,<yonetim+> <halk->,Düğünü başka yere taşı,<halk+> <yonetim->
+O075,iki ailenin eski bir sözü tartışması,Halk,,Eski sözü kadıda incelet,<yonetim+> <halk->,Aileleri uzlaştır,<halk+> <yonetim->
+O076,kervan soygunu,Para,,Soyulan kervana muhafız gönder,<para+> <ordu->,Tüccarların zararını karşıla,<yonetim+> <para-->
+O077,ambarda çürüyen buğday,Para,,Çürük buğdayı ayır,<halk+> <para->,Ambarı tümüyle boşaltıp temizle,<yonetim+> <para-->
+O078,köprünün yıkılması,Para,,Köprüyü yeniden yaptır,<halk+> <para-->,Kervanları başka yola yönlendir,<para+> <halk->
+O079,yabancı bir tüccarın gelişi,Para,,Tüccara pazarda yer ver,<para+> <halk->,Önce yerli esnafa yer ayır,<halk+> <para->
+O080,sahte akçe,Para,,Sahte paraları toplat,<para+> <halk->,Pazarda yeni tartı ve denetim kur,<yonetim+> <para->
+O081,hazineden altın eksilmesi,Para,,Hazineyi saydır ve soruştur,<yonetim+> <para->,Harcamaları kıs,<para+> <halk-> <ordu->
+O082,pazarda bozuk tartı bulunması,Para,,Bozuk tartıları değiştir,<halk+> <para->,Pazarı sık denetle,<yonetim+> <halk->
+O083,tüccarların vergiyi ödemeyi reddetmesi,Para,,Vergi için esneklik tanı,<halk+> <para->,Borçların toplanmasını iste,<para+> <halk->
+O084,değirmencilerin öğütme payını artırması,Para,,Öğütme payını sınırla,<halk+> <yonetim->,Değirmencilere vergi indir,<halk+> <para->
+O085,kervanların başka yol seçmesi,Para,,Yolu güvenli hâle getir,<para+> <ordu->,Yeni ticaret yolu aç,<halk+> <para-->
+O086,demirci ocaklarına kömür bulunamaması,Para,,Demircilere kömür gönder,<ordu+> <para->,Üretimi bir süre azalt,<para+> <ordu->
+O087,hasat ürünlerinin beklenenden az olması,Para,,Eksik ürünü satın al,<halk+> <para->,Tohumu gelecek hasada sakla,<para+> <halk->
+O088,bir tüccarın borcunu ödeyememesi,Para,,Borcu ertele,<halk+> <para->,Borcu mal ile ödet,<para+> <halk->
+O089,pazarda mal satmak için yer kalmaması,Para,,Yeni pazar alanı aç,<halk+> <para->,Satış günlerini sıraya koy,<yonetim+> <halk->
+O090,ambar anahtarının kaybolması,Para,,Ambar kilidini değiştir,<yonetim+> <para->,Anahtarı bulmak için arama yap,<para+> <yonetim->
+O091,kervan mallarının gümrükte bekletilmesi,Para,,Malları serbest bırak,<halk+> <para->,Vergi hesabını yeniden incele,<para+> <halk->
+O092,esnafın ortak fiyat belirlemesi,Para,,Ortak fiyatı yasakla,<halk+> <para->,Esnafın anlaşmasını denetle,<yonetim+> <halk->
+O093,vergiyi toplayan görevlinin hesap vermemesi,Para,,Görevliyi sorgula,<yonetim+> <para->,Vergileri yeniden saydır,<para+> <halk->
+O094,pazarın bir günlüğüne kapatılması,Para,,Pazarı yeniden aç,<para+> <yonetim->,Kapanış sırasında onarım yaptır,<yonetim+> <para->
+O095,hancının yolculardan fazla ücret istemesi,Para,,Hancının ücretine sınır koy,<halk+> <para->,Yolculara başka han göster,<para+> <halk->
+O096,yeni bir maden damarının bulunması,Para,,Madeni işletmeye aç,<para++> <halk->,Önce cevherin değerini incelet,<yonetim+> <para->
+O097,tüccarların mallarını saklaması,Para,,Saklanan malları pazara çıkart,<halk+> <yonetim->,Yeni mallar gelmesini bekle,<para+> <halk->
+O098,ambarların kışa yetmeyeceğinin anlaşılması,Para,,Kışlık erzak satın al,<halk+> <para-->,Dağıtımı kısıtla,<para+> <halk->
+O099,kuyumcunun eksik ağırlık ölçmesi,Para,,Kuyumcunun ölçüsünü denetle,<yonetim+> <para->,Yeni terazi satın al,<halk+> <para->
+O100,çiftçilerin tohum borcu istemesi,Para,,Çiftçilere tohum borcu ver,<halk+> <para->,Ortak tohum ambarı kur,<yonetim+> <para-->
+O101,iki köyün tek bir kadı istemesi,Yönetim,köylü,İki köye ortak kadı ata,<para+> <yonetim->,Her köye ayrı kadı gönder,<yonetim+> <para->
+O102,bir beyin halktan gizli haraç toplaması,Yönetim,"haraç, vergi",Haraç toplayan beyi soruştur,<halk+> <yonetim->,Toplanan malı hazineye al,<para+> <halk->
+O103,divanda verilen sözün tutulmaması,Yönetim,divan,Tutulmayan sözü yerine getir,<yonetim+> <para->,Sözden vazgeçildiğini açıkla,<para+> <yonetim->
+O104,taht için yapılan eski anlaşmanın bozulması,Yönetim,"taht, divan",Eski anlaşmaya dön,<yonetim+> <ordu->,Yeni bir anlaşma düzenle,<ordu+> <yonetim->
+O105,saray mührünü taşıyan sandığın açılması,Yönetim,"mühür, sandık",Sandığı divan önünde aç,<halk+> <yonetim->,Mührü korunmak üzere sakla,<yonetim+> <halk->
+O106,bir elçinin iki ayrı mektup getirmesi,Yönetim,"elçi, mektup",İki mektubu karşılaştır,<yonetim+> <ordu->,Elçiden tek bir açıklama iste,<ordu+> <yonetim->
+O107,uzak bir beyin buyruğa uymaması,Yönetim,"bey, emir",Beyi huzura çağır,<yonetim+> <ordu->,Görevden al,<yonetim++> <halk->
+O108,sarayda saklanan vergi defterinin bulunması,Yönetim,vergi,Defteri halka göster,<halk+> <yonetim->,Defteri yalnızca kadıya incelet,<yonetim+> <halk->
+O109,bir köyün yeni yönetici istemesi,Yönetim,köylü,Köye yeni yönetici ata,<halk+> <yonetim->,Mevcut yöneticiyi denetle,<yonetim+> <halk->
+O110,beylerin seçtiği kişinin görevden çekilmesi,Yönetim,divan,Görevden çekileni geri çağır,<yonetim+> <para->,Yerine yeni birini ata,<halk+> <yonetim->
+O111,kadıların aynı meseleye ayrı hüküm vermesi,Yönetim,divan,Kadıları ortak duruşmada buluştur,<halk+> <para->,Bir kadının hükmünü seç,<yonetim+> <halk->
+O112,yabancı bir beyin sığınmak istemesi,Yönetim,kral,Yabancı beye sığınma hakkı ver,<yonetim+> <ordu->,Sınırdan geri gönder,<ordu+> <yonetim->
+O113,eski kralın verdiği sözün hatırlatılması,Yönetim,kral,Eski kralın sözünü yerine getir,<yonetim+> <para->,Yeni koşulları görüş,<para+> <yonetim->
+O114,divana halktan birinin alınması isteği,Yönetim,divan,Halktan birini divana al,<halk++> <yonetim->,Divanı olduğu gibi tut,<yonetim+> <halk->
+O115,bir kâtibin yanlış buyruğu düzeltmek istemesi,Yönetim,kâtip,Yanlış buyruğu hemen düzelt,<halk+> <yonetim->,Önce hatanın kaynağını araştır,<yonetim+> <halk->
+O116,saray anahtarının iki kişide bulunması,Yönetim,anahtar,Anahtarları tek kişiye teslim et,<yonetim+> <ordu->,İki sorumluyu da denetle,<ordu+> <para->
+O117,hükümdarın yakın dostuna görev verilmesi,Yönetim,hizmetkâr,Dostunu göreve ata,<yonetim+> <halk->,Görevi en ehline ver,<halk+> <yonetim->
+O118,bir elçinin sınır köyünde tutulması,Yönetim,elçi,Elçinin bırakılmasını iste,<yonetim+> <ordu->,Elçinin tutulma nedenini araştır,<ordu+> <yonetim->
+O119,beylerin savaş kararına karşı çıkması,Yönetim,"divan, sefer",Beylerin itirazını dinle,<yonetim+> <ordu->,Savaş kararını uygula,<ordu+> <yonetim-> <halk->
+O120,halkın suçlanan bir beyi savunması,Yönetim,"bey, köylü",Bey hakkındaki soruşturmayı sürdür,<yonetim+> <halk->,Halkın isteğiyle beyi bırak,<halk+> <yonetim->
+O121,mühürlü mektubun yanlış kişiye verilmesi,Yönetim,"mühür, mektup",Mektubu doğru kişiye ulaştır,<yonetim+> <para->,Önce kimin okuduğunu araştır,<yonetim+> <halk->
+O122,bir kâtibin eski hükmü gizlediğinin anlaşılması,Yönetim,kâtip,Kâtibi görevden al,<yonetim+> <halk->,Gizlenen hükmü yeniden görüş,<halk+> <yonetim->
+O123,saray kapısında adalet isteyen bir kalabalık,Yönetim,divan,Kalabalığı dinlemek için kapıyı aç,<halk+> <ordu->,Aralarından birkaçını divana çağır,<yonetim+> <halk->
+O124,uzak bir beyin anlaşmayı yenilemek istemesi,Yönetim,elçi,Anlaşmayı yenile,<yonetim+> <para->,Eski koşulları koru,<para+> <yonetim->
+O125,bir yöneticinin köylere danışmadan karar vermesi,Yönetim,köylü,Yöneticinin kararını geri al,<halk+> <yonetim->,Kararı koruyup köylüleri dinle,<yonetim+> <halk->
+O126,öncü birliğin dönüş yolunu kaybetmesi,Ordu,"öncü, sefer",Öncüleri aramak için birlik gönder,<ordu+> <para->,Dönüş yolunu korumaya öncelik ver,<para+> <ordu->
+O127,ordu atlarının nalının kırılması,Ordu,"nal, eyer",Atlara yeni nal dövdür,<ordu+> <para->,Atlı seferini ertele,<para+> <ordu->
+O128,sınır gözcülerinin yeni bir geçit bulması,Ordu,"gözcü, sınır",Yeni geçidi gözetlemeye al,<ordu+> <para->,Geçidi hemen kullan,<para+> <ordu->
+O129,kale nöbetinin iki birlik arasında paylaşılması,Ordu,"muhafız, nöbetçi",Nöbeti dönüşümlü yap,<ordu+> <yonetim->,Bir birliği kapıda tut,<yonetim+> <ordu->
+O130,bir muhafızın kilitli kapıda kalması,Ordu,"muhafız, kilit",Kapıyı açmak için asker gönder,<ordu+> <para->,Muhafızı içeriden kurtarmayı bekle,<para+> <ordu->
+O131,sefer için toplanan atların hastalanması,Ordu,eyer,Hasta atları dinlendir,<ordu+> <para->,Sağlam atlarla seferi sürdür,<yonetim+> <ordu->
+O132,orduya verilen sözün tutulmaması,Ordu,sefer,Askerlere verilen sözü tut,<ordu+> <para->,Sözü yeniden konuş,<para+> <ordu->
+O133,askerlerin köyde konaklamak istemesi,Ordu,köylü,Askerleri köyde konaklat,<ordu+> <halk->,Orduyu kalede tut,<halk+> <ordu->
+O134,kale duvarını onaran ustaların ayrılması,Ordu,usta,Ustalara daha fazla ücret öner,<ordu+> <para->,Askerlere onarım yaptır,<para+> <ordu->
+O135,sınırda bulunan yabancı bir sancak,Ordu,sınır,Sancağı araştırmak için gözcü gönder,<ordu+> <para->,Sınırdaki birlikleri hazır tut,<ordu+> <halk->
+O136,komutanın askerleri ikiye ayırmak istemesi,Ordu,kumandan,Orduyu iki kola ayır,<ordu+> <yonetim->,Birlikleri bir arada tut,<yonetim+> <ordu->
+O137,gece yakılan meşalelerin söndürülmesi,Ordu,meşale,Gece meşalelerini yeniden yak,<ordu+> <para->,Karanlıkta nöbet tut,<para+> <ordu->
+O138,gözcülerin uzaktan gelen dumanı fark etmesi,Ordu,"gözcü, duman",Dumanı araştır,<ordu+> <para->,Kaleye savunma buyruğu ver,<ordu+> <halk->
+O139,ordu için ayrılan çizmelerin kaybolması,Ordu,çizme,Yeni çizme dağıt,<ordu+> <para->,Seferi geciktir,<para+> <ordu->
+O140,bir askerin savaşta bulduğu ganimeti saklaması,Ordu,ganimet,Ganimeti ortak ambara al,<para+> <ordu->,Askerde kalmasına izin ver,<ordu+> <para->
+O141,sınır nöbetçilerinin yiyecek için yardım istemesi,Ordu,nöbetçi,Sınıra yiyecek gönder,<ordu+> <para->,Nöbetçileri merkeze çek,<para+> <halk->
+O142,askerlerin ağır yükü taşımayı reddetmesi,Ordu,yük,Yükü hafiflet,<ordu+> <yonetim->,Taşımayı birliklere paylaştır,<yonetim+> <ordu->
+O143,kale kapısındaki zincirin kopması,Ordu,zincir,Zinciri hemen yenile,<ordu+> <para->,Kapıya ek muhafız koy,<para+> <ordu->
+O144,birliğin yağmur yüzünden geç dönmesi,Ordu,sefer,Birliği karşılamak için yardım yolla,<ordu+> <para->,Gecikmeyi kabul edip nöbeti uzat,<para+> <ordu->
+O145,kale muhafızlarının yeni nöbet düzenine itirazı,Ordu,muhafız,Nöbet düzenini değiştir,<ordu+> <yonetim->,Mevcut düzeni koru,<yonetim+> <ordu->
+O146,öncü askerlerin yanlış yola gönderilmesi,Ordu,öncü,Öncülere yeni rehber gönder,<ordu+> <para->,Birliği geri çağır,<para+> <ordu->
+O147,komutanın esirleri salıvermek istemesi,Ordu,kumandan,Esirleri salıver,<yonetim+> <para->,Esirleri takas için tut,<ordu+> <yonetim->
+O148,sefer için alınan atların köylülere geri verilmesi,Ordu,"köylü, sefer",Atları köylülere geri ver,<halk+> <ordu->,Sefer sonuna kadar alıkoy,<ordu+> <halk->
+O149,ordu içindeki iki kardeşin ayrı birliğe düşmesi,Ordu,kumandan,Kardeşleri aynı birliğe koy,<halk+> <ordu->,Görev yerlerini değiştirme,<ordu+> <halk->
+O150,sınırdaki eski köprüyü koruma kararı,Ordu,sınır,Köprüyü askerle koru,<ordu+> <para->,Köprüyü geçişe kapat,<para+> <halk->
+O151,köyde ortak fırının kapatılması,Halk,köylü,Ortak fırını yeniden aç,<halk+> <para->,Ailelere ayrı ocak kurdur,<para+> <halk->
+O152,bir çobanın kayıp sürüyü başka köyde bulması,Halk,çoban,Sürüyü sahibine iade et,<halk+> <yonetim->,Önce çobanın iddiasını araştır,<yonetim+> <halk->
+O153,iki komşunun aynı ağacı sahiplenmesi,Halk,köylü,Ağacı ortak kullanıma aç,<halk+> <yonetim->,Ağacın sahibini kadı belirlesin,<yonetim+> <halk->
+O154,köylülerin yıkılan evler için yardım istemesi,Halk,köylü,Ev onarımına malzeme ver,<halk+> <para->,Köylülerin kendi yardımını destekle,<para+> <halk->
+O155,yaşlı bir köylünün tek başına kalması,Halk,köylü,Yaşlı köylüye barınak sağla,<halk+> <para->,Komşularından yardım iste,<para+> <halk->
+O156,bir ebenin uzak köye çağrılması,Halk,ebe,Ebeyi yola çıkaracak at ver,<halk+> <ordu->,Köyden yardımcılara haber gönder,<para+> <halk->
+O157,köy meydanında yapılan yarışmanın tartışma çıkarması,Halk,köylü,Yarışmayı yeniden düzenle,<halk+> <para->,Yarışı iptal et,<yonetim+> <halk->
+O158,ormana sığınan yolcular için yardım istenmesi,Halk,yolcu,Yolcuları köye kabul et,<yonetim+> <halk->,Yiyeceği sınırdan gönder,<halk+> <para->
+O159,hastaların şifahaneye alınmaması,Halk,hekim,Hastaları şifahaneye kabul et,<halk++> <para-->,Köylerde bakım yeri aç,<halk+> <para->
+O160,çobanların otlak için sıra istemesi,Halk,çoban,Otlağa sıra koy,<yonetim+> <halk->,Sürüleri ayrı yerlere gönder,<halk+> <para->
+O161,köydeki tek fenerin kaybolması,Halk,fener,Yeni fener al,<halk+> <para->,Gece nöbeti düzenle,<para+> <halk->
+O162,bir ailenin terk edilmiş eve yerleşmesi,Halk,köylü,Aileye geçici barınma izni ver,<halk+> <yonetim->,Evi asıl sahibini bulana kadar kapat,<yonetim+> <halk->
+O163,çiftçilerin ortak sabanı paylaşamaması,Halk,"çiftçi, saban",Sabanı sırayla kullandır,<yonetim+> <halk->,Yeni saban yaptır,<halk+> <para->
+O164,köylülerin uzun yolculuğa çıkanları uğurlayamaması,Halk,yolcu,Yolcular için uğurlama düzenle,<halk+> <para->,Yol güvenliğine yardım ayır,<halk+> <ordu->
+O165,bir çocuğun bulduğu yüzüğün sahibini araması,Halk,yüzük,Yüzüğü duyuruyla sahibine ara,<halk+> <yonetim->,Yüzüğü kadıya teslim et,<yonetim+> <halk->
+O166,köyde iki ustanın aynı çırağı istemesi,Halk,"usta, çırak",Çırağın seçim yapmasını sağla,<halk+> <yonetim->,Ustaların sırayla eğitim vermesini iste,<yonetim+> <halk->
+O167,halkın eski bir geleneği sürdürmek istemesi,Halk,köylü,Geleneği sürdür,<halk+> <para->,Geleneği sadeleştir,<para+> <halk->
+O168,evsiz yolcuların handan geri çevrilmesi,Halk,"yolcu, hancı",Yolculara handa yer aç,<halk+> <para->,Köyde ortak barınak kur,<yonetim+> <para-->
+O169,köylülerin susuz kalan bahçeleri için yardım istemesi,Halk,bahçıvan,Bahçelere su taşıt,<halk+> <para->,Önce ortak kuyuyu onart,<yonetim+> <halk->
+O170,bir ozanın köydeki anlaşmazlığı dile getirmesi,Halk,ozan,Ozanın anlattığı sorunu soruştur,<halk+> <yonetim->,Halkı uzlaşmaya çağır,<yonetim+> <halk->
+O171,komşu köyden gelen yoksullara yer aranması,Halk,köylü,Gelen yoksulları barındır,<halk+> <para-->,Yiyecek verip yollarına gönder,<para+> <halk->
+O172,bir hekimin verdiği öğüde halkın karşı çıkması,Halk,hekim,Hekimin öğüdünü uygula,<yonetim+> <halk->,Başka bir hekimden görüş al,<halk+> <para->
+O173,köy halkının ortak kilimi bölüşememesi,Halk,kilim,Kilimi ortak yere ser,<yonetim+> <halk->,Kilimi ihtiyacı olana ver,<halk+> <yonetim->
+O174,yaşlıların gençlere bıraktığı bahçenin tartışılması,Halk,bahçıvan,Bahçeyi gençlere bırak,<halk+> <yonetim->,Yaşlıların hakkını koru,<yonetim+> <halk->
+O175,halkın mezarlık yolunun açılmasını istemesi,Halk,mezar,Mezarlık yolunu aç,<halk+> <para->,Başka bir yol belirle,<para+> <halk->
+O176,iki tüccarın aynı sandığı sahiplenmesi,Para,"tüccar, sandık",Sandığın sahibini kadıya sor,<yonetim+> <para->,Sandığı satışa kapat,<yonetim+> <halk->
+O177,hazine için ayrılan kumaşın eksik gelmesi,Para,"hazine, kumaş",Eksik kumaşın parasını geri iste,<para+> <halk->,Yeniden kumaş sipariş et,<yonetim+> <para->
+O178,pazarda ipek ile yünün takas edilmesi,Para,"ipek, yün, takas",Takası serbest bırak,<halk+> <para->,Her mal için ortak değer belirle,<para+> <halk->
+O179,bir hancının borç karşılığı mal istemesi,Para,"hancı, borç",Borcu malla kapatmayı kabul et,<para+> <halk->,Ödeme için süre tanı,<halk+> <para->
+O180,kervanın taşıdığı yükün yarısının kaybolması,Para,"kervanbaşı, yük",Kayıp yükü arat,<para+> <ordu->,Tüccara kısmi yardım et,<yonetim+> <para->
+O181,kuyumcunun bulduğu yakutun değerinin tartışılması,Para,"kuyumcu, yakut",Yakutu uzmanlara incelet,<yonetim+> <para->,Taşı açık artırmada sat,<para++> <yonetim->
+O182,tüccarların eski teraziyle alışverişi reddetmesi,Para,"tüccar, terazi",Pazara yeni teraziler aldır,<halk+> <para->,Eski terazileri birlikte denetle,<yonetim+> <halk->
+O183,hazine sandığındaki incilerin sayılmaması,Para,"hazine, inci",İncileri tek tek saydır,<yonetim+> <para->,Sandığı mühürleyip sakla,<para+> <yonetim->
+O184,pazarda satılan kumaşın bozuk çıkması,Para,kumaş,Bozuk kumaşı geri aldır,<halk+> <para->,Satıcıdan fiyat indirmesini iste,<para+> <halk->
+O185,iki esnafın aynı dükkân için yarışması,Para,esnaf,Dükkânı sırayla kullandır,<yonetim+> <halk->,Yeni dükkân yaptır,<halk+> <para->
+O186,köylülerin fazla ürünü takas etmek istemesi,Para,"takas, çiftçi",Takas pazarı aç,<halk+> <para->,Fazla ürünü ambara al,<para+> <halk->
+O187,kervan başının zararını hazineden istemesi,Para,"kervanbaşı, zarar",Kervan zararını karşıla,<yonetim+> <para-->,Yalnızca yol güvenliğini artır,<para+> <yonetim->
+O188,bir tüccarın vergiyi mal ile ödemeyi önermesi,Para,"tüccar, vergi, mal",Vergiyi mal ile kabul et,<halk+> <para->,Para ile ödeme iste,<para+> <halk->
+O189,ambar için alınan çuvalların yırtılması,Para,çuval,Yeni çuval satın al,<yonetim+> <para->,Eskileri onar,<para+> <yonetim->
+O190,satılmayan yünün köylüye geri verilmesi,Para,yün,Yünü çiftçiye iade et,<halk+> <para->,Yünü daha ucuza sattır,<para+> <halk->
+O191,bir ustanın yaptığı kazan için fazla mal istemesi,Para,"usta, kazan",Ustanın isteğini kabul et,<halk+> <para->,Başka ustadan teklif al,<para+> <halk->
+O192,pazarda demir ve kumaşın değerinin değişmesi,Para,"demirci, kumaş",Yeni fiyatları denetle,<yonetim+> <para->,Pazarın fiyat belirlemesine izin ver,<para+> <halk->
+O193,bir tüccarın ortak kazancı bölüşmemesi,Para,"tüccar, kâr",Kazancı ortaklar arasında bölüştür,<halk+> <para->,Önce hesapları incelet,<yonetim+> <halk->
+O194,uzak pazardan gelen malların elde kalması,Para,mal,Mallar için yeni pazar bul,<para+> <ordu->,Fiyatları indir,<halk+> <para->
+O195,kale onarımı için ayrılan paranın tartışılması,Para,hazine,Onarım parasını kaleye ayır,<ordu+> <para->,Harcamayı sonraya bırak,<para+> <ordu->
+O196,çiftçilerin ürünlerini erken satmaya zorlanması,Para,çiftçi,Erken satışa son ver,<halk+> <para->,Ürünü hazine adına satın al,<para+> <halk->
+O197,hancıların yolcular için ortak fiyat istemesi,Para,hancı,Ortak fiyatı kabul et,<para+> <halk->,Han ücretlerine sınır koy,<halk+> <para->
+O198,kuyumcunun bulduğu zümrüdü saklaması,Para,"kuyumcu, zümrüt",Zümrüdü hazineye teslim ettir,<para+> <halk->,Taşın sahibini araştır,<yonetim+> <para->
+O199,bir tüccarın borcuna karşılık halı vermesi,Para,"tüccar, halı",Halıyı borca karşılık kabul et,<halk+> <para->,Nakit ödeme için süre ver,<para+> <halk->
+O200,hazine için saklanan ipeğin zarar görmesi,Para,"hazine, ipek",Zarar gören ipeği ucuza sat,<para+> <yonetim->,Yerine yeni ipek al,<yonetim+> <para-->
