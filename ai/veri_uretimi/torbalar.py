@@ -69,10 +69,15 @@ def malzeme_cek(torbalar, tur, rng=random):
         kelimeler=rng.sample(torbalar["kelime"], 3),
     )
     adaylar = list(EKSTRA[tur])
-    if tur == "kart" and rng.random() < SERBEST_KONU_ORANI:
+    ekstra_adet = rng.randint(1, 2)
+    if tur == "kart":
         adaylar.remove("konu")
-        m.ekstra["konu"] = "serbest"
-    for anahtar in rng.sample(adaylar, rng.randint(1, 2)):
+        if rng.random() < SERBEST_KONU_ORANI:
+            m.ekstra["konu"] = "serbest"
+        else:
+            m.ekstra["konu"] = rng.choice(torbalar["konu"])
+            ekstra_adet -= 1
+    for anahtar in rng.sample(adaylar, ekstra_adet):
         m.ekstra[anahtar] = rng.choice(torbalar[anahtar])
     if tur == "kart":
         m.durum = {g: 5 * rng.randint(1, 19) for g in GOSTERGELER}

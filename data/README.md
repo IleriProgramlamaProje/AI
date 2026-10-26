@@ -10,7 +10,7 @@ Burada sadece **küçük** veriler durur. Büyükler:
 
 | Klasör | İçinde |
 | --- | --- |
-| `torbalar/` | `Torba_Listesi.xlsx` (asıl kaynak) + kodun okuduğu dışa aktarımlar (.csv / .txt) |
+| `torbalar/` | Drive’daki `Torba_Listesi` tablosu (asıl kaynak, bu depoda değil) + kodun okuduğu dışa aktarımlar (.csv / .txt) |
 | `altin_set/` | Ekibin elle ürettiği kartlar (bkz. `altin_set/README.md`) |
 | `uretilen/ornekler/` | Öğretmen üretiminden küçük örnekler (okumak için) |
 | `edebiyat/` | Lisansı temiz metinler (Dede Korkut vb.) + kaynak/lisans notu (2. hafta) |

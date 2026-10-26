@@ -18,10 +18,11 @@ Kurallar:
 - Sade Türkçe kullan. Modern kelime kullanma ({yasak} gibi).
 - Sadece kartı yaz; giriş ya da açıklama ekleme.
 
-Biçim:
-Konuşan: [unvan]
-Metin: [20-35 kelime]
-Sol: [karar] | Halk +, Para --
-Sol sonuç: [tek cümle]
-Sağ: [karar] | Yönetim -, Ordu ++
-Sağ sonuç: [tek cümle]
+Biçim (köşeli parantezlerin yerine metni yaz; gösterge adları yonetim, halk, para, ordu):
+<kart> [20-35 kelimelik metin]
+<sol> [karar] <halk+> <para-->
+<sonuc> [sol kararın sonucu, tek cümle]
+<sag> [karar] <yonetim-> <ordu++>
+<sonuc> [sağ kararın sonucu, tek cümle]
+</kart>
+Etiketleri koru; örnek etkileri kararına göre değiştir. Konuşan başlığı veya durum satırı yazma; bunlar kod tarafından eklenir.

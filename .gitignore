@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+/docs
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.bin
+.env
+.env.*
+!.env.example
+data/uretilen/*
+!data/uretilen/ornekler/
