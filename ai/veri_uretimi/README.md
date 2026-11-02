@@ -17,7 +17,7 @@ Akış: `torbalar.py` → `istek_olusturucu.py` → `uretici.py` → ham JSONL. 
 ## Çalıştırma
 Colab ve Kaggle: `uretim.ipynb` (aynı defter, ikisinde aynı anda açılabilir). Colab'da T4 → 12B 4-bit; Kaggle'da 2×T4 → 12B 8-bit.
 4-bit yazımı biraz bozar (ünlü uyumu, "Alp,in"); filtre ayıklayacak.
-Gemini: defterde `OGRETMEN = 'gemini'` (GPU gerekmez, Secrets'a `GEMINI_API_KEY`); komut satırında `--motor gemini --model gemini-flash-latest`. Kota dolunca motor bekleyip yeniden dener; dosya adına `_gemini` eklenir.
+Gemini: ayrı defter `uretim_gemini.ipynb` (GPU gerekmez, Secrets'a `GEMINI_API_KEY`); komut satırında `--motor gemini --model gemini-flash-latest`. Kota dolunca motor bekleyip yeniden dener; dosya adına `_gemini` eklenir.
 
 ```sh
 python -m ai.veri_uretimi.uretici --tur kart --adet 100 --grup 4 --motor transformers4bit --tohum mert-kart --cikti ham/kart.jsonl
