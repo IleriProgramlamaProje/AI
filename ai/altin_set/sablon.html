@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Altın Set Prompt Üretici</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@500;700&family=Alegreya+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Divan defteri: koyu mürekkep yeşili zemin üstünde kâğıt kartlar, altın vurgu. Üç sekme: Üret · Kartlar · Veri */
+  --bg: #eef1ee;
+  --surface: #ffffff;
+  --ink: #18241f;
+  --muted: #5b6b63;
+  --line: #d5ddd8;
+  --accent: #a87412;
+  --accent-ink: #ffffff;
+  --accent-soft: #f6ecd6;
+  --ok: #2f7a4a; --ok-soft: #e2f1e7;
+  --warn: #9a6a00; --warn-soft: #fbf0d4;
+  --bad: #b23a2c; --bad-soft: #f8e1dd;
+  --font-display: "Alegreya SC", Georgia, serif;
+  --font-body: "Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111a16; --surface: #18231e; --ink: #e5ece8; --muted: #93a49b; --line: #2a3832;
+    --accent: #e0aa3e; --accent-ink: #1b1405; --accent-soft: #3a2f17;
+    --ok: #6fcf8f; --ok-soft: #1c3526; --warn: #e8c15a; --warn-soft: #3a3016; --bad: #f08a7c; --bad-soft: #3d201c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111a16; --surface: #18231e; --ink: #e5ece8; --muted: #93a49b; --line: #2a3832;
+  --accent: #e0aa3e; --accent-ink: #1b1405; --accent-soft: #3a2f17;
+  --ok: #6fcf8f; --ok-soft: #1c3526; --warn: #e8c15a; --warn-soft: #3a3016; --bad: #f08a7c; --bad-soft: #3d201c;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+main { max-width: 1080px; margin: 0 auto; padding: 24px 16px 64px; display: grid; gap: 20px; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; line-height: 1.15; text-wrap: balance; }
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0; }
+button, select, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.muted { color: var(--muted); }
+.mono { font-family: var(--font-mono); font-size: 0.82rem; }
+
+header.top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; }
+.status { display: flex; align-items: center; gap: 8px; font-size: 0.92rem; color: var(--muted); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--muted); flex: none; }
+.dot.on { background: var(--ok); }
+.tally { display: flex; gap: 10px; flex-wrap: wrap; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 14px; min-width: 120px; }
+.tile b { display: block; font-size: 1.35rem; font-variant-numeric: tabular-nums; }
+.tile span { font-size: 0.82rem; color: var(--muted); }
+
+nav.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+nav.tabs button { background: none; border: none; padding: 10px 16px; border-bottom: 3px solid transparent; color: var(--muted); font-weight: 700; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+.panel { display: grid; gap: 16px; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 12px; }
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.spread { justify-content: space-between; }
+label.field { display: grid; gap: 4px; font-size: 0.85rem; color: var(--muted); }
+select, input[type="search"], input[type="number"] { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 4px 14px; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 6px; padding: 7px 14px; font-weight: 500; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn.small { padding: 3px 10px; font-size: 0.85rem; }
+
+.prompt { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; max-height: 340px; overflow: auto; white-space: pre-wrap; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.55; margin: 0; }
+textarea { width: 100%; min-height: 220px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px; font-family: var(--font-mono); font-size: 0.8rem; resize: vertical; }
+
+.sumbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pill { display: inline-block; border-radius: 999px; padding: 1px 10px; font-size: 0.8rem; font-weight: 700; white-space: nowrap; }
+.pill.ok { background: var(--ok-soft); color: var(--ok); }
+.pill.warn { background: var(--warn-soft); color: var(--warn); }
+.pill.bad { background: var(--bad-soft); color: var(--bad); }
+.pill.neutral { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px; padding: 12px 14px; display: grid; gap: 8px; align-content: start; }
+.card.ok { border-left-color: var(--ok); }
+.card.warn { border-left-color: var(--warn); }
+.card.bad { border-left-color: var(--bad); }
+.card .who { display: flex; justify-content: space-between; gap: 8px; font-size: 0.85rem; color: var(--muted); }
+.card .who b { color: var(--ink); }
+.card .metin { font-size: 0.97rem; }
+.opt { display: grid; gap: 2px; font-size: 0.88rem; border-top: 1px dashed var(--line); padding-top: 6px; }
+.opt .k { font-weight: 700; }
+.opt .e { font-family: var(--font-mono); font-size: 0.76rem; color: var(--muted); }
+.reasons { margin: 0; padding-left: 18px; font-size: 0.82rem; }
+.reasons li.bad { color: var(--bad); }
+.reasons li.warn { color: var(--warn); }
+
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); }
+th { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 700; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.table-wrap { overflow-x: auto; }
+
+.toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 10; }
+.toast.show { opacity: 1; }
+.empty { color: var(--muted); font-size: 0.92rem; padding: 8px 0; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+@media (max-width: 420px) { h1 { font-size: 1.5rem; } .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div style="display:grid;gap:6px">
+      <h1>Altın Set</h1>
+      <div class="status"><span class="dot" id="dot"></span><span id="statusText">Ortak listeye bağlanıyor…</span></div>
+    </div>
+    <div class="tally">
+      <div class="tile"><b id="tToplam">0</b><span>toplam kart</span></div>
+      <div class="tile"><b id="tEkip">0</b><span>bugün ekip</span></div>
+      <div class="tile"><b id="tBen">0</b><span>bugün sen</span></div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-uret" aria-selected="true" data-tab="uret">Üret</button>
+    <button role="tab" id="tab-kartlar" aria-selected="false" data-tab="kartlar">Kartlar</button>
+    <button role="tab" id="tab-veri" aria-selected="false" data-tab="veri">Veri</button>
+  </nav>
+
+  <!-- ÜRET -->
+  <section class="panel" id="p-uret">
+    <div class="box">
+      <div class="row spread">
+        <h2>1 · Prompt</h2>
+        <span class="muted" id="paketBilgi"></span>
+      </div>
+      <div class="row" style="gap:18px">
+        <div class="field" style="display:grid;gap:4px;font-size:0.85rem;color:var(--muted)">Kart sayısı
+          <div class="chips" id="adetler"></div>
+        </div>
+        <label class="field" for="karakterSec">Konuşan
+          <select id="karakterSec"><option value="">Karışık (önerilen)</option></select>
+        </label>
+      </div>
+      <pre class="prompt" id="prompt"></pre>
+      <div class="row">
+        <button class="btn primary" id="kopyala">Prompt'u kopyala</button>
+        <button class="btn" id="yenile">Yeni malzeme</button>
+        <button class="btn" id="claudeUret" hidden>Claude ile üret</button>
+        <span class="muted" id="uretDurum"></span>
+      </div>
+      <p class="muted" style="font-size:0.88rem">Prompt'u kendi yapay zekâna (Claude, Gemini, ChatGPT…) yapıştır. Her kartın konuşanı, gösterge durumu ve kelimeleri prompt'ta hazır; cevabı aşağıya yapıştırınca kartlar bu malzemeyle eşleşir.</p>
+    </div>
+
+    <div class="box">
+      <div class="row spread">
+        <h2>2 · Cevap</h2>
+        <label class="field" for="model">Hangi model
+          <select id="model">
+            <option>Claude</option><option>Gemini</option><option>ChatGPT</option><option>Diğer</option>
+          </select>
+        </label>
+      </div>
+      <textarea id="cevap" placeholder="Modelin cevabını buraya yapıştır. KART 1, Metin:, Sol:, Sol sonuç:, Sol etki:, Sağ:, Sağ sonuç:, Sağ etki: satırları okunur."></textarea>
+      <div class="sumbar" id="ozet"></div>
+      <div class="row">
+        <button class="btn primary" id="kaydet" disabled>Kaydet</button>
+        <button class="btn" id="temizle">Temizle</button>
+      </div>
+    </div>
+
+    <div class="cards" id="sonuclar"></div>
+  </section>
+
+  <!-- KARTLAR -->
+  <section class="panel" id="p-kartlar" hidden>
+    <div class="box">
+      <div class="row">
+        <label class="field" for="ara">Ara
+          <input type="search" id="ara" placeholder="metin, karar, sonuç…">
+        </label>
+        <label class="field" for="kimFiltre">Kim
+          <select id="kimFiltre"><option value="">Herkes</option><option value="ben">Ben</option></select>
+        </label>
+        <label class="field" for="konusanFiltre">Konuşan
+          <select id="konusanFiltre"><option value="">Hepsi</option></select>
+        </label>
+        <label class="field" for="modelFiltre">Model
+          <select id="modelFiltre"><option value="">Hepsi</option><option>Claude</option><option>Gemini</option><option>ChatGPT</option><option>Diğer</option></select>
+        </label>
+        <span class="muted" id="kartSayi"></span>
+      </div>
+    </div>
+    <div class="cards" id="kartListe"></div>
+    <div class="row"><button class="btn" id="dahaFazla" hidden>Daha fazla göster</button></div>
+    <div class="box">
+      <h2>Paketlerim</h2>
+      <p class="muted" style="font-size:0.88rem">Yanlış kaydettiğin bir paketi buradan silebilirsin.</p>
+      <div class="table-wrap"><table><thead><tr><th>Ne zaman</th><th>Model</th><th class="n">Kart</th><th></th></tr></thead><tbody id="paketlerim"></tbody></table></div>
+    </div>
+  </section>
+
+  <!-- VERİ -->
+  <section class="panel" id="p-veri" hidden>
+    <div class="box">
+      <h2>Kişi kişi</h2>
+      <div class="table-wrap"><table><thead><tr><th>Kim</th><th class="n">Bugün</th><th class="n">Toplam</th><th>Modeller</th></tr></thead><tbody id="kisiTablo"></tbody></table></div>
+    </div>
+    <div class="box">
+      <h2>İndir</h2>
+      <div class="row">
+        <label class="field" for="indKim">Kimin
+          <select id="indKim"><option value="">Herkesin</option><option value="ben">Benim</option></select>
+        </label>
+        <label class="field" for="indZaman">Ne zaman
+          <select id="indZaman"><option value="">Hepsi</option><option value="bugun">Bugün</option></select>
+        </label>
+        <span class="muted" id="indSayi"></span>
+      </div>
+      <div class="row">
+        <button class="btn primary" data-ind="json">Oyun JSON (.json)</button>
+        <button class="btn" data-ind="egitim">Eğitim metni (.txt)</button>
+        <button class="btn" data-ind="jsonl">Ham kayıt (.jsonl)</button>
+        <button class="btn" data-ind="csv">Tablo (.csv)</button>
+      </div>
+      <ul class="muted" style="margin:0;padding-left:18px;font-size:0.88rem">
+        <li><b>Oyun JSON:</b> <span class="mono">kart_formati.md</span> 3. bölüm; <span class="mono">kaynak: altin_set</span>, <span class="mono">lisans: sadece_ders</span>. Yedek deste ve Godot için.</li>
+        <li><b>Eğitim metni:</b> 2. bölümdeki etiketli biçim, durum satırıyla. İnce ayar verisine doğrudan girer.</li>
+        <li><b>Ham kayıt:</b> öğretmen üretimiyle aynı alanlar (<span class="mono">malzeme</span>, <span class="mono">cikti</span>); filtre (S1) okuyabilir.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const VERI = /*VERI*/null;
+const GOSTERGE = [['yonetim','Yönetim'],['halk','Halk'],['para','Para'],['ordu','Ordu']];
+const ADETLER = [10, 20, 30, 50];
+const HITAP_YASAK = ['beyim','hatunum','hünkârım','hünkarım','sultanım','efendim','padişahım','beyefendi','hanımefendi','hakanım','kralım'];
+const KAR = Object.fromEntries(VERI.karakterler.map(k => [k.unvan, k]));
+
+const S = { tab: 'uret', adet: 30, karakter: '', paket: null, parsed: [], paketler: [], me: null, names: {}, sayfa: 1, online: false };
+let DB = null, USER = null, DL = null, SAMPLE = null, uretAbort = null;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const low = s => String(s ?? '').toLocaleLowerCase('tr');
+const gun = d => { const x = new Date(d); return x.getFullYear() + '-' + String(x.getMonth() + 1).padStart(2, '0') + '-' + String(x.getDate()).padStart(2, '0'); };
+const bugun = () => gun(new Date());
+const kelimeler = s => String(s || '').split(/\s+/).filter(w => /[\p{L}\d]/u.test(w));
+const tokenler = s => low(s).split(/[^a-zçğıöşüâîû{}]+/u).filter(Boolean);
+const norm = s => tokenler(s).join(' ');
+let toastT = null;
+function toast(m) { const t = $('toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2400); }
+const sec = (a, r) => a[Math.floor(r() * a.length)];
+function karistir(a, r) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+/* ---------- paket: her kart için malzeme ---------- */
+function paketUret() {
+  const r = Math.random;
+  const sira = S.karakter ? [S.karakter] : karistir(VERI.karakterler.map(k => k.unvan), r);
+  const kartlar = [];
+  for (let i = 0; i < S.adet; i++) {
+    const m = { karakter: sira[i % sira.length], durum: {}, kelimeler: [sec(VERI.isim, r), sec(VERI.sifat, r)], ekstra: {} };
+    GOSTERGE.forEach(([k, ad]) => m.durum[ad] = 5 * (1 + Math.floor(r() * 19)));
+    m.ekstra.konu = r() < 0.15 ? 'serbest' : sec(VERI.konu, r);
+    if (r() < 0.6) { const t = sec(['olay', 'yer', 'ruh', 'ikilem'], r); m.ekstra[t] = sec(VERI[t], r); }
+    kartlar.push(m);
+  }
+  const ornekHavuz = VERI.ornekler.filter(o => !kartlar.some(k => k.karakter === o.karakter));
+  const ornek = sec(ornekHavuz.length ? ornekHavuz : VERI.ornekler, r);
+  S.paket = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), adet: S.adet, kartlar, ornek };
+  try { localStorage.setItem('altin3-paket', JSON.stringify(S.paket)); } catch (e) {}
+}
+const EKSTRA_AD = { konu: 'Konu', olay: 'Olay', yer: 'Yer', ruh: 'Ruh hâli', ikilem: 'İkilem' };
+function malzemeSatiri(m, i) {
+  const ek = Object.entries(m.ekstra).map(([k, v]) => k === 'konu' && v === 'serbest' ? 'Konu: serbest (derdi sen seç)' : `${EKSTRA_AD[k]}: ${v}`);
+  return `KART ${i + 1} · Konuşan: ${m.karakter} · Durum: ${Object.entries(m.durum).map(([g, v]) => g + ' ' + v).join(', ')} · Kelimeler: ${m.kelimeler.join(', ')} · ${ek.join(' · ')}`;
+}
+function promptMetni() {
+  const p = S.paket, n = p.kartlar.length;
+  const roller = [...new Set(p.kartlar.map(k => k.karakter))].map(u => { const k = KAR[u]; return `- ${u}: ${k.ton}; görevi: ${k.gorev.replace(/\.$/, '')}. Sık sözleri: ${k.sik_sozler}. Asla: ${k.asla}.`; });
+  const o = p.ornek;
+  return `Orta Çağ'da bir Türk krallığında geçen kaydırmalı bir karar oyunu için ${n} kart yaz.
+Oyuncu hükümdardır. Her kartta bir kişi gelir, derdini anlatır; oyuncu sola ya da sağa kaydırarak iki karardan birini seçer.
+Göstergeler: Yönetim, Halk, Para, Ordu (0-100). Düşük gösterge sıkıntı, yüksek gösterge bolluk demektir.
+
+Konuşanlar:
+${roller.join('\n')}
+
+Her kart için konuşan, krallığın o anki durumu ve malzeme:
+${p.kartlar.map(malzemeSatiri).join('\n')}
+
+Kurallar:
+- Metin, konuşanın hükümdara söylediği 20-35 kelimelik sözdür: somut bir dert ve neden önemli olduğu. Dert konuşanın işine uygun olsun; konu onun işinden uzaksa konuyu onun gözünden anlat.
+- Dert o kartın durumuna uysun (ör. Para düşükse kimse "hazine dolu" demez).
+- Verilen iki kelimeden en az birini kullan; derde uymayanı kullanma.
+- Herkesin hemen anlayacağı kadar açık yaz: ne oldu, kim ne istiyor. Tuhaf benzetme ve süslü söz kullanma.
+- Hükümdara seslenmek gerekirse "Beyim", "Hatunum", "hünkârım" yazma; yerine {hitap} yaz. Hitap şart değil.
+- İki karar aynı derde verilen iki farklı cevaptır. Her biri 2-5 kelimelik emir cümlesidir ("Ambarı aç", "Ustalara altın öde"). Evet/hayır ya da soyut başlık yazma.
+- Her kararın sonucu, o karar verilince ne olduğunu anlatan tek cümledir.
+- Etkiyi sonuca bakarak yaz: sonuçta ne artıyorsa +, ne azalıyorsa -. + az, ++ orta, +++ çok (düşüş: -, --, ---). Sayı yazma.
+- Her karar 1-3 göstergeyi etkiler ve her kararda en az bir gösterge düşer. Hangi göstergelerin değişeceğini derde göre seç; her kartta aynı göstergeleri kullanma.
+- Sade Türkçe. Modern kelime kullanma (${VERI.yasak.slice(0, 10).join(', ')} gibi). Başka kişilerden sadece unvanla bahset, isim verme.
+- Kartlar birbirini tekrar etmesin: aynı derdi, aynı açılışı, aynı kararları kullanma.
+- Sadece kartları yaz; giriş, açıklama ya da kontrol listesi ekleme. Kartları sırayla, hiçbirini atlamadan yaz.
+
+Her kart şu 8 satırdır:
+KART 1
+Metin: ...
+Sol: ...
+Sol sonuç: ...
+Sol etki: ...
+Sağ: ...
+Sağ sonuç: ...
+Sağ etki: ...
+
+Biçim için bir örnek (başka bir konu; sadece biçimine bak, içeriğini ve etkilerini kopyalama):
+KART 0
+Metin: ${o.metin}
+Sol: ${o.sol}
+Sol sonuç: ${o.sol_sonuc}
+Sol etki: ${o.sol_etki}
+Sağ: ${o.sag}
+Sağ sonuç: ${o.sag_sonuc}
+Sağ etki: ${o.sag_etki}`;
+}
+
+/* ---------- ayrıştırma ve kontrol ---------- */
+const ETIKET = [
+  ['sol_sonuc', /^sol\s*sonu[cç]u?$/], ['sol_etki', /^sol\s*etki(si|leri)?$/], ['sag_sonuc', /^sa[gğ]\s*sonu[cç]u?$/], ['sag_etki', /^sa[gğ]\s*etki(si|leri)?$/],
+  ['metin', /^metin$/], ['sol', /^sol(\s*karar)?$/], ['sag', /^sa[gğ](\s*karar)?$/],
+];
+function satirTemizle(s) { return s.replace(/\*\*|__/g, '').replace(/^\s*(?:[-*•>]|\d+[.)])\s+/, '').trim(); }
+function ayristir(metin) {
+  const bloklar = []; let cur = null, sirali = 0;
+  for (const ham of String(metin).split(/\r?\n/)) {
+    const s = satirTemizle(ham); if (!s) continue;
+    const h = s.match(/^#*\s*kart\s*(\d+)\b/i);
+    if (h) { cur = { no: +h[1], alan: {} }; bloklar.push(cur); continue; }
+    const m = s.match(/^([^:]{2,20}):\s*(.*)$/);
+    if (!m) { if (cur && cur.son) cur.alan[cur.son] += ' ' + s; continue; }
+    const etiket = low(m[1]).replace(/\s+/g, ' ').trim();
+    const e = ETIKET.find(([, re]) => re.test(etiket));
+    if (!e) continue;
+    if (!cur || (e[0] === 'metin' && cur.alan.metin !== undefined)) { cur = { no: null, alan: {} }; bloklar.push(cur); }
+    cur.alan[e[0]] = m[2].trim(); cur.son = e[0];
+  }
+  bloklar.forEach(b => { sirali++; if (b.no === null) b.no = sirali; });
+  return bloklar.filter(b => Object.keys(b.alan).length);
+}
+function etkiOku(s) {
+  const out = {}, hata = [];
+  const parcalar = String(s || '').replace(/[−–—]/g, '-').split(/[,;]|\s+ve\s+/).map(x => x.trim()).filter(Boolean);
+  for (const p of parcalar) {
+    const m = p.match(/^([\p{L}]+)\s*:?\s*([+-]+)$/u);
+    if (!m) { hata.push(/\d/.test(p) ? `etkide sayı var ("${p}")` : `okunamayan etki ("${p}")`); continue; }
+    const g = GOSTERGE.find(([k, ad]) => low(m[1]) === low(ad) || low(m[1]) === k);
+    if (!g) { hata.push(`bilinmeyen gösterge ("${m[1]}")`); continue; }
+    if (!(m[2] in VERI.kademe)) { hata.push(`geçersiz işaret ("${m[2]}")`); continue; }
+    if (g[0] in out) { hata.push(`${g[1]} iki kez yazılmış`); continue; }
+    out[g[0]] = VERI.kademe[m[2]];
+  }
+  return { etki: out, hata };
+}
+function kelimeGecer(tok, k) {
+  const kok = low(k); const adaylar = [kok];
+  if (kok.length > 3 && /[pçtk]$/.test(kok)) adaylar.push(kok.slice(0, -1) + { p: 'b', ç: 'c', t: 'd', k: 'ğ' }[kok.slice(-1)]);
+  if (kok.length > 4 && /(mak|mek)$/.test(kok)) adaylar.push(kok.slice(0, -3));
+  return tok.some(t => adaylar.some(a => t.startsWith(a)));
+}
+function kontrol(b, mevcutMetinler, paketMetinler) {
+  const a = b.alan, hatalar = [], uyarilar = [];
+  const spec = S.paket && S.paket.kartlar[b.no - 1];
+  if (!spec) hatalar.push(`KART ${b.no} bu pakette yok`);
+  const eksik = ['metin', 'sol', 'sol_sonuc', 'sol_etki', 'sag', 'sag_sonuc', 'sag_etki'].filter(k => !a[k]);
+  if (eksik.length) hatalar.push('eksik satır: ' + eksik.map(k => k.replace('_', ' ').replace('sag', 'sağ').replace('sonuc', 'sonuç')).join(', '));
+  const w = kelimeler(a.metin).length;
+  if (a.metin) { if (w < 12 || w > 50) hatalar.push(`metin ${w} kelime (12–50 olmalı)`); else if (w < 20 || w > 35) uyarilar.push(`metin ${w} kelime (hedef 20–35)`); }
+  const sol = etkiOku(a.sol_etki), sag = etkiOku(a.sag_etki);
+  [['Sol', a.sol, sol], ['Sağ', a.sag, sag]].forEach(([ad, karar, e]) => {
+    if (karar) {
+      const kw = kelimeler(karar).length;
+      if (kw < 1 || kw > 6) hatalar.push(`${ad} karar ${kw} kelime (1–6)`); else if (kw > 5) uyarilar.push(`${ad} karar ${kw} kelime`);
+      if (/^(evet|hayır|hayir|tamam|olmaz)\b/i.test(low(karar))) hatalar.push(`${ad} karar evet/hayır`);
+    }
+    e.hata.forEach(h => hatalar.push(`${ad}: ${h}`));
+    const n = Object.keys(e.etki).length;
+    if (!e.hata.length && (n < 1 || n > 3)) hatalar.push(`${ad} ${n} gösterge etkiliyor (1–3)`);
+    if (n && !Object.values(e.etki).some(v => v < 0)) hatalar.push(`${ad} hiçbir göstergeyi düşürmüyor`);
+  });
+  const hepsi = [a.metin, a.sol, a.sol_sonuc, a.sag, a.sag_sonuc].join(' ');
+  const tok = tokenler(hepsi);
+  const hitap = tok.filter(t => HITAP_YASAK.includes(t));
+  if (hitap.length) hatalar.push(`hitap elle yazılmış ("${hitap[0]}"); {hitap} olmalı`);
+  const yasak = tok.filter(t => VERI.yasak.some(y => t === y || (y.length >= 6 && t.startsWith(y))));
+  if (yasak.length) hatalar.push(`modern kelime: ${[...new Set(yasak)].join(', ')}`);
+  if (spec && a.metin && !spec.kelimeler.some(k => kelimeGecer(tok, k))) hatalar.push(`kelimelerden hiçbiri yok (${spec.kelimeler.join(', ')})`);
+  if (/\{(?!hitap\})[^}]*\}/.test(hepsi)) hatalar.push('{hitap} dışında süslü parantez');
+  const nm = norm(a.metin);
+  if (nm && mevcutMetinler.has(nm)) hatalar.push('aynı metin ortak listede var');
+  else if (nm && paketMetinler.get(nm) > 1) hatalar.push('aynı metin bu pakette iki kez');
+  const o = S.paket && S.paket.ornek;
+  if (o && !sol.hata.length && !sag.hata.length && JSON.stringify(sol.etki) === JSON.stringify(etkiOku(o.sol_etki).etki) && JSON.stringify(sag.etki) === JSON.stringify(etkiOku(o.sag_etki).etki)) uyarilar.push('etkiler örnekle aynı (kopyalanmış olabilir)');
+  return { no: b.no, alan: a, spec, sol, sag, hatalar, uyarilar, durum: hatalar.length ? 'bad' : uyarilar.length ? 'warn' : 'ok' };
+}
+function cevapIsle() {
+  const bloklar = ayristir($('cevap').value);
+  const mevcut = new Set(); S.paketler.forEach(p => (p.kartlar || []).forEach(k => mevcut.add(norm(k.metin))));
+  const say = new Map(); bloklar.forEach(b => { const n = norm(b.alan.metin); if (n) say.set(n, (say.get(n) || 0) + 1); });
+  S.parsed = bloklar.map(b => kontrol(b, mevcut, say));
+  renderSonuclar();
+}
+
+/* ---------- kart nesneleri ---------- */
+function kartNesnesi(p) {
+  const a = p.alan, m = p.spec;
+  return {
+    konusan: KAR[m.karakter].anahtar, konusan_unvan: m.karakter, konu: m.ekstra.konu,
+    durum: Object.fromEntries(GOSTERGE.map(([k, ad]) => [k, m.durum[ad]])), kelimeler: m.kelimeler, ekstra: m.ekstra,
+    metin: a.metin.trim(),
+    sol: { etiket: a.sol.trim(), etki: p.sol.etki, sonuc: a.sol_sonuc.trim() },
+    sag: { etiket: a.sag.trim(), etki: p.sag.etki, sonuc: a.sag_sonuc.trim() },
+    satirli: `Metin: ${a.metin}\nSol: ${a.sol}\nSol sonuç: ${a.sol_sonuc}\nSol etki: ${a.sol_etki}\nSağ: ${a.sag}\nSağ sonuç: ${a.sag_sonuc}\nSağ etki: ${a.sag_etki}`,
+    uyari: p.uyarilar,
+  };
+}
+const asciiKonu = s => low(s).replace(/ç/g, 'c').replace(/ğ/g, 'g').replace(/ı/g, 'i').replace(/ö/g, 'o').replace(/ş/g, 's').replace(/ü/g, 'u').replace(/[âà]/g, 'a').replace(/î/g, 'i').replace(/û/g, 'u').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
+const ISARET = Object.fromEntries(Object.entries(VERI.kademe).map(([k, v]) => [v, k]));
+const etkiEtiket = e => GOSTERGE.filter(([k]) => k in e).map(([k]) => `<${k}${ISARET[e[k]]}>`).join(' ');
+const etkiYazi = e => GOSTERGE.filter(([k]) => k in e).map(([k, ad]) => `${ad} ${ISARET[e[k]]}`).join(', ');
+function egitimMetni(k) {
+  const d = GOSTERGE.map(([g]) => `<${g}:${k.durum[g]}>`).join(' ');
+  return `${d} <konu:${String(k.konu).replace(/\s+/g, '_')}> <konuşan:${k.konusan}>\n<kart> ${k.metin}\n<sol> ${k.sol.etiket} ${etkiEtiket(k.sol.etki)}\n<sonuc> ${k.sol.sonuc}\n<sag> ${k.sag.etiket} ${etkiEtiket(k.sag.etki)}\n<sonuc> ${k.sag.sonuc}\n</kart>`;
+}
+const oyunJson = k => ({ konusan: k.konusan, konu: asciiKonu(k.konu), metin: k.metin, sol: k.sol, sag: k.sag, kaynak: 'altin_set', lisans: 'sadece_ders' });
+
+/* ---------- çizim ---------- */
+function kartHTML(k, ek) {
+  return `<div class="who"><b>${esc(k.konusan_unvan || k.konusan)}</b><span>${esc(k.konu === 'serbest' ? 'serbest konu' : k.konu || '')}</span></div>
+  <div class="metin">${esc(k.metin)}</div>
+  <div class="opt"><span><span class="k">⬅ ${esc(k.sol.etiket)}</span> <span class="e">${esc(etkiYazi(k.sol.etki))}</span></span><span class="muted">${esc(k.sol.sonuc)}</span></div>
+  <div class="opt"><span><span class="k">➡ ${esc(k.sag.etiket)}</span> <span class="e">${esc(etkiYazi(k.sag.etki))}</span></span><span class="muted">${esc(k.sag.sonuc)}</span></div>${ek || ''}`;
+}
+function renderPrompt() {
+  $('adetler').innerHTML = ADETLER.map(n => `<button class="chip" aria-pressed="${n === S.adet}" data-adet="${n}">${n}</button>`).join('');
+  $('prompt').textContent = promptMetni();
+  const roller = new Set(S.paket.kartlar.map(k => k.karakter)).size;
+  $('paketBilgi').textContent = `${S.paket.kartlar.length} kart · ${roller} konuşan`;
+}
+function renderSonuclar() {
+  const P = S.parsed, ok = P.filter(p => p.durum === 'ok').length, warn = P.filter(p => p.durum === 'warn').length, bad = P.filter(p => p.durum === 'bad').length;
+  const beklenen = S.paket ? S.paket.kartlar.length : 0;
+  $('ozet').innerHTML = P.length ? `<span class="pill ok">${ok} geçti</span><span class="pill warn">${warn} uyarılı</span><span class="pill bad">${bad} hatalı</span><span class="pill neutral">${P.length} / ${beklenen} kart okundu</span>` +
+    (bad ? '<span class="muted" style="font-size:0.85rem">Hatalılar kaydedilmez.</span>' : '') : '';
+  const kayit = ok + warn;
+  $('kaydet').disabled = !kayit || !S.online;
+  $('kaydet').textContent = kayit ? `${kayit} kartı kaydet` : 'Kaydet';
+  $('sonuclar').innerHTML = P.map(p => {
+    const sebep = [...p.hatalar.map(h => `<li class="bad">${esc(h)}</li>`), ...p.uyarilar.map(h => `<li class="warn">${esc(h)}</li>`)].join('');
+    const k = { konusan_unvan: p.spec ? p.spec.karakter : '?', konu: p.spec ? p.spec.ekstra.konu : '', metin: p.alan.metin || '', sol: { etiket: p.alan.sol || '', etki: p.sol.etki, sonuc: p.alan.sol_sonuc || '' }, sag: { etiket: p.alan.sag || '', etki: p.sag.etki, sonuc: p.alan.sag_sonuc || '' } };
+    const pill = p.durum === 'ok' ? '<span class="pill ok">geçti</span>' : p.durum === 'warn' ? '<span class="pill warn">uyarılı</span>' : '<span class="pill bad">hatalı</span>';
+    return `<article class="card ${p.durum}"><div class="row spread"><span class="mono">KART ${p.no}</span>${pill}</div>${kartHTML(k, sebep ? `<ul class="reasons">${sebep}</ul>` : '')}</article>`;
+  }).join('');
+}
+function tumKartlar() {
+  const out = [];
+  S.paketler.forEach(p => (p.kartlar || []).forEach((k, i) => out.push({ ...k, _paket: p.id, _i: i, ekleyen: p.ekleyen, model: p.model, eklendi: p.eklendi })));
+  out.sort((a, b) => String(b.eklendi).localeCompare(String(a.eklendi)) || a._i - b._i);
+  return out;
+}
+function renderTally() {
+  const t = bugun(); let top = 0, ekip = 0, ben = 0;
+  S.paketler.forEach(p => { const n = (p.kartlar || []).length; top += n; if (gun(p.eklendi) === t) { ekip += n; if (p.ekleyen && p.ekleyen === S.me) ben += n; } });
+  $('tToplam').textContent = top.toLocaleString('tr-TR'); $('tEkip').textContent = ekip.toLocaleString('tr-TR'); $('tBen').textContent = ben.toLocaleString('tr-TR');
+}
+function filtreli() {
+  const q = low($('ara').value).trim(), kim = $('kimFiltre').value, kon = $('konusanFiltre').value, mod = $('modelFiltre').value;
+  return tumKartlar().filter(k => (!kim || k.ekleyen === S.me) && (!kon || k.konusan_unvan === kon) && (!mod || k.model === mod) &&
+    (!q || low([k.metin, k.sol.etiket, k.sol.sonuc, k.sag.etiket, k.sag.sonuc, k.konusan_unvan, k.konu].join(' ')).includes(q)));
+}
+function renderKartlar() {
+  const L = filtreli(), n = S.sayfa * 60;
+  $('kartSayi').textContent = `${L.length.toLocaleString('tr-TR')} kart`;
+  $('kartListe').innerHTML = L.length ? L.slice(0, n).map(k => `<article class="card">${kartHTML(k, `<div class="who"><span>${esc(k.model || '')}</span><span>${esc(isim(k.ekleyen))} · ${esc(new Date(k.eklendi).toLocaleDateString('tr-TR'))}</span></div>`)}</article>`).join('') : '<p class="empty">Henüz kart yok. Üret sekmesinden ilk paketi kaydet.</p>';
+  $('dahaFazla').hidden = L.length <= n;
+  const benim = S.paketler.filter(p => p.ekleyen && p.ekleyen === S.me).sort((a, b) => String(b.eklendi).localeCompare(String(a.eklendi)));
+  $('paketlerim').innerHTML = benim.length ? benim.map(p => `<tr><td>${esc(new Date(p.eklendi).toLocaleString('tr-TR'))}</td><td>${esc(p.model)}</td><td class="n">${(p.kartlar || []).length}</td><td><button class="btn small" data-sil="${esc(p.id)}">Sil</button></td></tr>`).join('') : '<tr><td colspan="4" class="empty">Kaydettiğin paket yok.</td></tr>';
+}
+const isim = id => !id ? 'bilinmiyor' : id === S.me ? 'sen' : (S.names[id] || 'ekip üyesi');
+function renderVeri() {
+  const t = bugun(), kisi = {};
+  S.paketler.forEach(p => { const id = p.ekleyen || '?'; const x = kisi[id] || (kisi[id] = { bugun: 0, toplam: 0, model: {} }); const n = (p.kartlar || []).length; x.toplam += n; if (gun(p.eklendi) === t) x.bugun += n; x.model[p.model] = (x.model[p.model] || 0) + n; });
+  const sira = Object.entries(kisi).sort((a, b) => b[1].toplam - a[1].toplam);
+  $('kisiTablo').innerHTML = sira.length ? sira.map(([id, x]) => `<tr><td>${esc(isim(id))}</td><td class="n">${x.bugun.toLocaleString('tr-TR')}</td><td class="n">${x.toplam.toLocaleString('tr-TR')}</td><td>${esc(Object.entries(x.model).map(([m, n]) => m + ' ' + n).join(' · '))}</td></tr>`).join('') : '<tr><td colspan="4" class="empty">Henüz kart yok.</td></tr>';
+  $('indSayi').textContent = `${indirilecek().length.toLocaleString('tr-TR')} kart`;
+}
+function render() {
+  ['uret', 'kartlar', 'veri'].forEach(t => { $('p-' + t).hidden = S.tab !== t; $('tab-' + t).setAttribute('aria-selected', String(S.tab === t)); });
+  renderTally();
+  if (S.tab === 'kartlar') renderKartlar();
+  if (S.tab === 'veri') renderVeri();
+}
+async function isimleriYukle() {
+  if (!USER) return;
+  const ids = [...new Set(S.paketler.map(p => p.ekleyen).filter(Boolean))].filter(id => !(id in S.names) && id !== S.me);
+  if (!ids.length) return;
+  try { const ps = await USER.profiles(ids); ids.forEach(id => S.names[id] = (ps[id] && ps[id].name) || ''); render(); } catch (e) {}
+}
+
+/* ---------- kaydet, sil, indir ---------- */
+async function kaydet() {
+  const iyi = S.parsed.filter(p => p.durum !== 'bad');
+  if (!iyi.length || !DB) return;
+  $('kaydet').disabled = true;
+  try {
+    await DB.collection('paketler3').add({ surum: 3, paket: S.paket.id, model: $('model').value, ekleyen: S.me || null, eklendi: new Date().toISOString(), adet: S.paket.kartlar.length, kartlar: iyi.map(kartNesnesi) });
+    toast(`${iyi.length} kart kaydedildi.`);
+    $('cevap').value = ''; S.parsed = []; paketUret(); renderPrompt(); renderSonuclar();
+  } catch (e) { toast(e && e.code === 'permission_denied' ? 'Kaydetme iznin yok; sayfa sahibinden düzenleme izni iste.' : 'Kaydedilemedi, tekrar dene.'); $('kaydet').disabled = false; }
+}
+async function paketSil(id) {
+  if (!DB) return;
+  const b = document.querySelector(`[data-sil="${CSS.escape(id)}"]`);
+  if (b && b.dataset.onay !== '1') { b.dataset.onay = '1'; b.textContent = 'Emin misin?'; setTimeout(() => { if (b.isConnected) { b.dataset.onay = ''; b.textContent = 'Sil'; } }, 3000); return; }
+  try { await DB.collection('paketler3').doc(id).delete(); toast('Paket silindi.'); } catch (e) { toast('Silinemedi.'); }
+}
+function indirilecek() {
+  const kim = $('indKim').value, z = $('indZaman').value, t = bugun();
+  return tumKartlar().filter(k => (!kim || k.ekleyen === S.me) && (!z || gun(k.eklendi) === t)).reverse();
+}
+const csvHucre = s => '"' + String(s ?? '').replace(/"/g, '""') + '"';
+async function indir(tur) {
+  const L = indirilecek(); if (!L.length) { toast('İndirilecek kart yok.'); return; }
+  const ek = ($('indKim').value ? '_benim' : '') + ($('indZaman').value ? '_' + bugun() : '');
+  let ad, veri, mime;
+  if (tur === 'json') { ad = `altin_set${ek}.json`; veri = JSON.stringify(L.map(oyunJson), null, 2); mime = 'application/json'; }
+  else if (tur === 'egitim') { ad = `altin_set_egitim${ek}.txt`; veri = L.map(egitimMetni).join('\n\n') + '\n'; mime = 'text/plain'; }
+  else if (tur === 'jsonl') {
+    ad = `altin_set_ham${ek}.jsonl`; mime = 'application/x-ndjson';
+    veri = L.map((k, i) => JSON.stringify({ surum: 3, id: `altin-${String(i + 1).padStart(7, '0')}`, tur: 'kart', kaynak: 'altin_set',
+      malzeme: { tur: 'kart', karakter: k.konusan_unvan, kelimeler: k.kelimeler, ekstra: k.ekstra, durum: Object.fromEntries(GOSTERGE.map(([g, a]) => [a, k.durum[g]])) },
+      cikti: k.satirli, model: k.model, eklendi: k.eklendi })).join('\n') + '\n';
+  } else {
+    ad = `altin_set${ek}.csv`; mime = 'text/csv';
+    const bas = ['konusan', 'konu', 'metin', 'sol', 'sol_etki', 'sol_sonuc', 'sag', 'sag_etki', 'sag_sonuc', 'model', 'eklendi'];
+    veri = '﻿' + [bas.join(','), ...L.map(k => [k.konusan_unvan, k.konu, k.metin, k.sol.etiket, etkiYazi(k.sol.etki), k.sol.sonuc, k.sag.etiket, etkiYazi(k.sag.etki), k.sag.sonuc, k.model, k.eklendi].map(csvHucre).join(','))].join('\n');
+  }
+  if (DL) {
+    try { await DL.save({ filename: ad, data: new Blob([veri], { type: mime }) }); toast('İndirildi.'); return; }
+    catch (e) { if (e && e.code === 'declined') return; if (e && e.code === 'rate_limited') { toast('Biraz bekleyip tekrar dene.'); return; } }
+  }
+  try { await navigator.clipboard.writeText(veri); toast('İndirme açık değil; içerik panoya kopyalandı.'); } catch (e) { toast('İndirilemedi.'); }
+}
+
+/* ---------- Claude ile üret ---------- */
+async function claudeUret() {
+  if (!SAMPLE) return;
+  if (uretAbort) { uretAbort.abort(); return; }
+  uretAbort = new AbortController();
+  $('claudeUret').textContent = 'Durdur'; $('uretDurum').textContent = 'Claude yazıyor…'; $('model').value = 'Claude';
+  try {
+    const r = await SAMPLE(promptMetni(), { signal: uretAbort.signal, modelTier: 'default', onText: ({ text }) => { $('cevap').value = text; } });
+    $('cevap').value = r.text; $('uretDurum').textContent = r.truncated ? 'Cevap yarıda kesildi; okunan kartlar aşağıda.' : 'Bitti.';
+  } catch (e) {
+    if (e && e.code === 'not_granted') { $('claudeUret').hidden = true; $('uretDurum').textContent = ''; }
+    else if (e && e.text) { $('cevap').value = e.text; $('uretDurum').textContent = 'Durdu; okunan kartlar aşağıda.'; }
+    else $('uretDurum').textContent = e && e.code === 'rate_limited' ? 'Sınıra takıldı, biraz bekle.' : 'Üretilemedi.';
+  }
+  uretAbort = null; $('claudeUret').textContent = 'Claude ile üret'; cevapIsle();
+}
+
+/* ---------- olaylar ---------- */
+document.querySelector('nav.tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (!b) return; S.tab = b.dataset.tab; try { localStorage.setItem('altin3-tab', S.tab); } catch (x) {} render(); });
+$('adetler').addEventListener('click', e => { const b = e.target.closest('[data-adet]'); if (!b) return; S.adet = +b.dataset.adet; try { localStorage.setItem('altin3-adet', String(S.adet)); } catch (x) {} paketUret(); renderPrompt(); if ($('cevap').value) cevapIsle(); });
+$('karakterSec').addEventListener('change', e => { S.karakter = e.target.value; paketUret(); renderPrompt(); if ($('cevap').value) cevapIsle(); });
+$('yenile').addEventListener('click', () => { paketUret(); renderPrompt(); if ($('cevap').value) cevapIsle(); toast('Yeni malzeme hazır.'); });
+$('kopyala').addEventListener('click', async () => { try { await navigator.clipboard.writeText(promptMetni()); toast('Prompt kopyalandı.'); } catch (e) { const r = document.createRange(); r.selectNodeContents($('prompt')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Kopyalanamadı; metin seçildi, Ctrl+C ile kopyala.'); } });
+$('claudeUret').addEventListener('click', claudeUret);
+let isleT = null;
+$('cevap').addEventListener('input', () => { clearTimeout(isleT); isleT = setTimeout(cevapIsle, 250); });
+$('temizle').addEventListener('click', () => { $('cevap').value = ''; S.parsed = []; renderSonuclar(); });
+$('kaydet').addEventListener('click', kaydet);
+$('model').addEventListener('change', () => { try { localStorage.setItem('altin3-model', $('model').value); } catch (e) {} });
+['ara', 'kimFiltre', 'konusanFiltre', 'modelFiltre'].forEach(id => $(id).addEventListener('input', () => { S.sayfa = 1; renderKartlar(); }));
+$('dahaFazla').addEventListener('click', () => { S.sayfa++; renderKartlar(); });
+$('paketlerim').addEventListener('click', e => { const b = e.target.closest('[data-sil]'); if (b) paketSil(b.dataset.sil); });
+['indKim', 'indZaman'].forEach(id => $(id).addEventListener('change', renderVeri));
+document.querySelectorAll('[data-ind]').forEach(b => b.addEventListener('click', () => indir(b.dataset.ind)));
+
+/* ---------- başlangıç ---------- */
+VERI.karakterler.forEach(k => { $('karakterSec').insertAdjacentHTML('beforeend', `<option>${esc(k.unvan)}</option>`); $('konusanFiltre').insertAdjacentHTML('beforeend', `<option>${esc(k.unvan)}</option>`); });
+try {
+  const t = localStorage.getItem('altin3-tab'); if (['uret', 'kartlar', 'veri'].includes(t)) S.tab = t;
+  const a = +localStorage.getItem('altin3-adet'); if (ADETLER.includes(a)) S.adet = a;
+  const m = localStorage.getItem('altin3-model'); if (m) $('model').value = m;
+  const p = JSON.parse(localStorage.getItem('altin3-paket') || 'null'); if (p && p.kartlar && p.kartlar.every(k => KAR[k.karakter])) { S.paket = p; S.adet = p.adet; }
+} catch (e) {}
+if (!S.paket) paketUret();
+renderPrompt(); renderSonuclar(); render();
+
+(async () => {
+  const use = n => { try { return Promise.resolve(window.claude?.use?.(n) ?? null).catch(() => null); } catch (e) { return Promise.resolve(null); } };
+  const [db, user, dl, sample] = await Promise.all(['db', 'user', 'downloads', 'sample'].map(use));
+  USER = user; DL = dl; SAMPLE = sample;
+  if (SAMPLE) $('claudeUret').hidden = false;
+  if (USER) { try { S.me = await USER.id(); } catch (e) {} }
+  if (!db) { $('statusText').textContent = 'Ortak liste kapalı · prompt üretebilirsin, kaydetme yok'; return; }
+  DB = db; S.online = true; $('dot').className = 'dot on'; $('statusText').textContent = 'Ortak listeye bağlı · kaydettiklerin herkese gider';
+  renderSonuclar();
+  db.collection('paketler3').limit(5000).onSnapshot(snap => {
+    S.paketler = snap.docs.map(d => ({ id: d.id, ...(d.data() || {}) }));
+    render(); isimleriYukle();
+    if ($('cevap').value) cevapIsle();
+  }, () => toast('Ortak liste yüklenemedi.'));
+})();
+</script>
+</body>
+</html>

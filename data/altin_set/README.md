@@ -2,11 +2,10 @@
 
 | Dosya | Ne |
 | --- | --- |
-| `ham/` | Sohbet ekranından gelen, henüz okunmamış kartlar (kişi başına bir dosya önerilir: `ham/mert.jsonl`) |
-| `iyi.jsonl` | Çapraz okumadan "iyi" alanlar |
+| `ham/` | Sayfanın Veri sekmesinden indirilen dosyalar (`altin_set_ham*.jsonl`, `altin_set*.json`) |
 | `sinav.jsonl` | 200 kart (4. hafta). **Modele hiç gösterilmez** |
 | `yedek_deste.json` | En iyi kartlar (hedef 600). Godot'ye kopyalanır |
 
 - Biçim: `docs/kart_formati.md` 3. bölüm (Godot JSON), `"kaynak": "altin_set"`, `"lisans": "sadece_ders"`.
-- Hız: haftada ~310 iyi kart, kişi başı günde ~11.
-- Okuma sırası: Mert → Sokul'un · Sokul → Kara'nın · Kara → Muhammet'in · Muhammet → Mert'in.
+- Hız: 10–50 kartlık paketlerle kişi başı günde 1000+ kart hedeflenir (2 Kasım).
+- Kartlar `ai/altin_set/` sayfasında üretilir; 2 Kasım'dan beri okuma yok, kurallar otomatik kontrol edilir. Sayfanın Veri sekmesinden indirilen dosyalar buraya konur.
