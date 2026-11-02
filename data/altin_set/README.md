@@ -7,5 +7,5 @@
 | `yedek_deste.json` | En iyi kartlar (hedef 600). Godot'ye kopyalanır |
 
 - Biçim: `docs/kart_formati.md` 3. bölüm (Godot JSON), `"kaynak": "altin_set"`, `"lisans": "sadece_ders"`.
-- Hız: 10–50 kartlık paketlerle kişi başı günde 1000+ kart hedeflenir (2 Kasım).
+- Hız: 10–100 kartlık paketlerle kişi başı günde 1000+ kart hedeflenir (2 Kasım).
 - Kartlar `ai/altin_set/` sayfasında üretilir; 2 Kasım'dan beri okuma yok, kurallar otomatik kontrol edilir. Sayfanın Veri sekmesinden indirilen dosyalar buraya konur.

@@ -251,7 +251,7 @@ td.n { text-align: right; font-variant-numeric: tabular-nums; }
 <script>
 const VERI = /*VERI*/null;
 const GOSTERGE = [['yonetim','Yönetim'],['halk','Halk'],['para','Para'],['ordu','Ordu']];
-const ADETLER = [10, 20, 30, 50];
+const ADETLER = [10, 20, 30, 50, 100];
 const HITAP_YASAK = ['beyim','hatunum','hünkârım','hünkarım','sultanım','efendim','padişahım','beyefendi','hanımefendi','hakanım','kralım'];
 const KAR = Object.fromEntries(VERI.karakterler.map(k => [k.unvan, k]));
 
@@ -321,7 +321,7 @@ Kurallar:
 - Kartlar birbirini tekrar etmesin: aynı derdi, aynı açılışı, aynı kararları kullanma.
 - Sadece kartları yaz; giriş, açıklama ya da kontrol listesi ekleme. Kartları sırayla, hiçbirini atlamadan yaz.
 - Her kartın ilk satırı, yukarıdaki listede o kartın satırıdır: "KART n · Konuşan: …" satırını hiç değiştirmeden aynen kopyala.
-
+${n > 50 ? '- Cevabın yarıda kesilirse "devam et" denince kaldığın karttan devam et; yazdığın kartları tekrar yazma.\n' : ''}
 Her kart şu 8 satırdır:
 KART 1 · Konuşan: … · Durum: … · Kelimeler: … (listedeki satırın aynısı)
 Metin: ...

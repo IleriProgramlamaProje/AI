@@ -6,6 +6,6 @@ claude.ai'de yayında: **Altın Set Prompt Üretici** (ortak liste orada tutulur
 - `sayfa_olustur.py`: torbalar + `tema.json` + kart örnekleriyle `index.html` üretir: `python -m ai.altin_set.sayfa_olustur`
 - `index.html`: yayınlanan sayfa. Torbalar değişince yeniden üretilip yayınlanır.
 
-Akış: kart sayısını seç (10/20/30/50) → prompt'u kopyala → kendi yapay zekâna ver → cevabı yapıştır → sayfa kartları ayrıştırıp kontrol eder → hatasızları kaydet. Okuma (iyi/at) yok; kurallar otomatik kontrol edilir (`kart_formati.md` 4. bölüm, `yz_gorevleri.md` S1 kart kuralları).
+Akış: kart sayısını seç (10/20/30/50/100) → prompt'u kopyala → kendi yapay zekâna ver → cevabı yapıştır → sayfa kartları ayrıştırıp kontrol eder → hatasızları kaydet. Okuma (iyi/at) yok; kurallar otomatik kontrol edilir (`kart_formati.md` 4. bölüm, `yz_gorevleri.md` S1 kart kuralları).
 
 İndirmeler: oyun JSON'u (3. bölüm, `kaynak: altin_set`, `lisans: sadece_ders`), eğitim metni (2. bölüm), ham JSONL (öğretmen üretimiyle aynı alanlar), CSV.
