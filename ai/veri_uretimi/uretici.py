@@ -106,17 +106,23 @@ class GeminiMotor:
                 raise RuntimeError("GEMINI_API_KEY ortam değişkeni yok (Colab/Kaggle Secrets'a ekleyin)")
             istemci = genai.Client(api_key=anahtar)
         self.istemci, self.model, self.paralel, self.bekleme = istemci, model, paralel, bekleme
-        self.dusunme_kapat = True   # model düşünme bütçesini desteklemiyorsa bir kez denenip kapatılır
+        self.dusunme = 0   # DUSUNME_AYARLARI'ndan hangisi; model reddederse (400) sıradakine geçilir
+
+    # Düşünmeyi kapatmanın yolu modele göre değişiyor: 2.5'te bütçe 0, 3'te seviye; hiçbiri olmazsa ayarsız
+    # (o zaman düşünme çıktı sınırından yemesin diye sınır büyütülür).
+    DUSUNME_AYARLARI = ({"thinking_budget": 0}, {"thinking_level": "minimal"}, {"thinking_level": "low"}, None)
 
     def _ayar(self):
+        dusunme = self.DUSUNME_AYARLARI[self.dusunme]
         ayar = {"temperature": URETIM_AYARI["temperature"], "top_p": URETIM_AYARI["top_p"],
-                "max_output_tokens": URETIM_AYARI["max_tokens"]}
-        if self.dusunme_kapat:
-            ayar["thinking_config"] = {"thinking_budget": 0}
+                "max_output_tokens": URETIM_AYARI["max_tokens"] if self.dusunme == 0 else 4096}
+        if dusunme is not None:
+            ayar["thinking_config"] = dusunme
         return ayar
 
     def _tek(self, prompt):
-        for i in range(len(self.bekleme) + 1):
+        i = 0
+        while True:
             try:
                 yanit = self.istemci.models.generate_content(model=self.model, contents=prompt, config=self._ayar())
                 metin = temizle(getattr(yanit, "text", None) or "")
@@ -125,11 +131,14 @@ class GeminiMotor:
                 return metin, token
             except Exception as hata:
                 ileti = str(hata)
-                if self.dusunme_kapat and "thinking" in ileti.lower():
-                    self.dusunme_kapat = False      # bu model düşünme ayarını kabul etmiyor
+                if ("400" in ileti or "INVALID_ARGUMENT" in ileti or "thinking" in ileti.lower()) \
+                        and self.dusunme < len(self.DUSUNME_AYARLARI) - 1:
+                    self.dusunme += 1          # bu model bu düşünme ayarını kabul etmiyor; sıradakini dene
+                    print(f"Gemini düşünme ayarı değişti: {self.DUSUNME_AYARLARI[self.dusunme]}")
                     continue
                 if i < len(self.bekleme) and any(k in ileti for k in ("429", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE")):
                     time.sleep(self.bekleme[i])
+                    i += 1
                     continue
                 raise
 

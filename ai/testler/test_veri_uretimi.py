@@ -247,3 +247,20 @@ def test_gemini_motoru_sahte_istemciyle(tmp_path):
     uretici.uret("kart", 3, yol, motor_adi="gemini", grup=3, tohum="g", model="gemini-test", motor=motor)
     kayitlar = [json.loads(s) for s in yol.read_text(encoding="utf-8").splitlines()]
     assert len(kayitlar) == 3 and all(k["model"] == "gemini-test" and k["token"] == 7 for k in kayitlar)
+
+
+def test_gemini_dusunme_ayari_reddedilirse_siradakine_gecer():
+    class Modeller:
+        def __init__(self):
+            self.ayarlar = []
+        def generate_content(self, model, contents, config):
+            self.ayarlar.append(config.get("thinking_config"))
+            if len(self.ayarlar) < 3:
+                raise RuntimeError("400 INVALID_ARGUMENT. Request contains an invalid argument.")
+            return type("Y", (), {"text": "tamam", "usage_metadata": None})()
+
+    istemci = type("I", (), {})()
+    istemci.models = Modeller()
+    motor = uretici.GeminiMotor("gemini-test", istemci=istemci, paralel=1, bekleme=())
+    assert motor.uret(["merhaba"]) == [("tamam", 0)]
+    assert istemci.models.ayarlar == [{"thinking_budget": 0}, {"thinking_level": "minimal"}, {"thinking_level": "low"}]
