@@ -137,6 +137,8 @@ class GeminiMotor:
                     print(f"Gemini düşünme ayarı değişti: {self.DUSUNME_AYARLARI[self.dusunme]}")
                     continue
                 if i < len(self.bekleme) and any(k in ileti for k in ("429", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE")):
+                    neden = "kota doldu (429)" if ("429" in ileti or "RESOURCE_EXHAUSTED" in ileti) else "Google yoğun (503)"
+                    print(f"Gemini: {neden}, {self.bekleme[i]} sn bekleniyor ({i + 1}/{len(self.bekleme)})", flush=True)
                     time.sleep(self.bekleme[i])
                     i += 1
                     continue
