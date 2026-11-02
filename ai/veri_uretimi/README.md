@@ -1,7 +1,7 @@
 # Veri üretimi
 
 Akış: `torbalar.py` → `istek_olusturucu.py` → `uretici.py` → ham JSONL. Sonraki adımlar görev: filtre (`ai/filtre/filtre.py`, S1) ve dönüştürücü (`ai/ortak/kart_bicimi.py`, S2); bkz. `Docs/yz_gorevleri.md`.
-Öğretmen: **Gemma 4 12B** (`ai/ortak/ayarlar.py`). 1 Kasım'da aynı 40 promptla E4B / 12B / Gemini karşılaştırıldı; E4B anlamsız yazdı, Gemini çıktısıyla eğitim Google kurallarına aykırı, Gemma 4 Apache 2.0.
+Öğretmen: **Gemma 4 12B** (`ai/ortak/ayarlar.py`), yanında **Gemini** (2 Kasım kararı, `Docs/kararlar.md`). 1 Kasım'da aynı 40 promptla E4B / 12B / Gemini karşılaştırıldı; E4B anlamsız yazdı, 12B en tutarlısıydı. Gemini çıktısı ayrı dosyaya (`gemini` adlı) yazılır, filtre ikisini birden okur.
 
 ## Kurallar (malzeme)
 - **Hikâye:** karakter + 3 kelime (1 isim + 1 fiil + 1 sıfat, üçü istenir) + diğer torbalardan 1–2.
@@ -17,6 +17,7 @@ Akış: `torbalar.py` → `istek_olusturucu.py` → `uretici.py` → ham JSONL. 
 ## Çalıştırma
 Colab ve Kaggle: `uretim.ipynb` (aynı defter, ikisinde aynı anda açılabilir). Colab'da T4 → 12B 4-bit; Kaggle'da 2×T4 → 12B 8-bit.
 4-bit yazımı biraz bozar (ünlü uyumu, "Alp,in"); filtre ayıklayacak.
+Gemini: defterde `OGRETMEN = 'gemini'` (GPU gerekmez, Secrets'a `GEMINI_API_KEY`); komut satırında `--motor gemini --model gemini-flash-latest`. Kota dolunca motor bekleyip yeniden dener; dosya adına `_gemini` eklenir.
 
 ```sh
 python -m ai.veri_uretimi.uretici --tur kart --adet 100 --grup 4 --motor transformers4bit --tohum mert-kart --cikti ham/kart.jsonl

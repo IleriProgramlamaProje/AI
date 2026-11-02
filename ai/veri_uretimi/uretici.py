@@ -7,6 +7,7 @@ Colab'da kullanım (uretim.ipynb bunu yapar):
 - Dosya zaten varsa kaldığı yerden devam eder (Colab koparsa sorun değil).
 - Motorlar: "vllm" (hızlı, toplu), "transformers" (yedek), "transformers4bit" (12B'yi tek T4'e sığdırır;
   yazımı biraz bozar, filtre ayıklamalı), "transformers8bit" (2 GPU'lu Kaggle'da 12B, daha temiz). "auto" önce vllm'i dener.
+  "gemini": Google Gemini API (GPU gerekmez; anahtar GEMINI_API_KEY ortam değişkeninde, `pip install google-genai`).
 - Defterde model bir kez açılıp `motor=` ile iki tür için kullanılabilir.
 """
 import argparse
@@ -91,12 +92,61 @@ class TransformersMotor:
         return sonuc
 
 
-MOTORLAR = ("auto", "vllm", "transformers", "transformers4bit", "transformers8bit")
+GEMINI_MODEL = "gemini-flash-latest"   # Google'ın güncel Flash modeline giden takma ad; defterde değiştirilebilir
+
+
+class GeminiMotor:
+    """Gemini API: istekler paralel gönderilir. Kota/hız sınırında (429, 503) bekleyip yeniden dener."""
+
+    def __init__(self, model=GEMINI_MODEL, istemci=None, paralel=8, bekleme=(10, 20, 40, 60, 60)):
+        if istemci is None:
+            from google import genai
+            anahtar = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+            if not anahtar:
+                raise RuntimeError("GEMINI_API_KEY ortam değişkeni yok (Colab/Kaggle Secrets'a ekleyin)")
+            istemci = genai.Client(api_key=anahtar)
+        self.istemci, self.model, self.paralel, self.bekleme = istemci, model, paralel, bekleme
+        self.dusunme_kapat = True   # model düşünme bütçesini desteklemiyorsa bir kez denenip kapatılır
+
+    def _ayar(self):
+        ayar = {"temperature": URETIM_AYARI["temperature"], "top_p": URETIM_AYARI["top_p"],
+                "max_output_tokens": URETIM_AYARI["max_tokens"]}
+        if self.dusunme_kapat:
+            ayar["thinking_config"] = {"thinking_budget": 0}
+        return ayar
+
+    def _tek(self, prompt):
+        for i in range(len(self.bekleme) + 1):
+            try:
+                yanit = self.istemci.models.generate_content(model=self.model, contents=prompt, config=self._ayar())
+                metin = temizle(getattr(yanit, "text", None) or "")
+                kullanim = getattr(yanit, "usage_metadata", None)
+                token = int(getattr(kullanim, "candidates_token_count", 0) or 0)
+                return metin, token
+            except Exception as hata:
+                ileti = str(hata)
+                if self.dusunme_kapat and "thinking" in ileti.lower():
+                    self.dusunme_kapat = False      # bu model düşünme ayarını kabul etmiyor
+                    continue
+                if i < len(self.bekleme) and any(k in ileti for k in ("429", "503", "RESOURCE_EXHAUSTED", "UNAVAILABLE")):
+                    time.sleep(self.bekleme[i])
+                    continue
+                raise
+
+    def uret(self, promptlar):
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=min(self.paralel, len(promptlar))) as havuz:
+            return list(havuz.map(self._tek, promptlar))
+
+
+MOTORLAR = ("auto", "vllm", "transformers", "transformers4bit", "transformers8bit", "gemini")
 
 
 def motor_ac(ad, model=OGRETMEN_MODEL):
     if ad not in MOTORLAR:
         raise ValueError(f"Bilinmeyen motor: {ad}")
+    if ad == "gemini":
+        return GeminiMotor(GEMINI_MODEL if model == OGRETMEN_MODEL else model), ad
     if ad in ("transformers4bit", "transformers8bit"):
         return TransformersMotor(model, bit=4 if ad.endswith("4bit") else 8), ad
     if ad in ("auto", "vllm"):
