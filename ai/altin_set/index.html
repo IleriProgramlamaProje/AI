@@ -164,7 +164,7 @@ td.n { text-align: right; font-variant-numeric: tabular-nums; }
         <button class="btn" id="claudeUret" hidden>Claude ile üret</button>
         <span class="muted" id="uretDurum"></span>
       </div>
-      <p class="muted" style="font-size:0.88rem">Prompt'u kendi yapay zekâna (Claude, Gemini, ChatGPT…) yapıştır. Her kartın konuşanı, gösterge durumu ve kelimeleri prompt'ta hazır; cevabı aşağıya yapıştırınca kartlar bu malzemeyle eşleşir.</p>
+      <p class="muted" style="font-size:0.88rem">Prompt'u kendi yapay zekâna (Claude, Gemini, ChatGPT…) yapıştır. Her kartın konuşanı, durumu ve kelimeleri prompt'ta hazır; model bunları her kartın ilk satırına geri yazar. Bu yüzden birkaç sohbeti aynı anda açabilirsin: her sohbet için <b>Yeni malzeme</b> → <b>Kopyala</b>, sonra cevapları sırayla yapıştırıp kaydet.</p>
     </div>
 
     <div class="box">
@@ -320,9 +320,10 @@ Kurallar:
 - Sade Türkçe. Modern kelime kullanma (${VERI.yasak.slice(0, 10).join(', ')} gibi). Başka kişilerden sadece unvanla bahset, isim verme.
 - Kartlar birbirini tekrar etmesin: aynı derdi, aynı açılışı, aynı kararları kullanma.
 - Sadece kartları yaz; giriş, açıklama ya da kontrol listesi ekleme. Kartları sırayla, hiçbirini atlamadan yaz.
+- Her kartın ilk satırı, yukarıdaki listede o kartın satırıdır: "KART n · Konuşan: …" satırını hiç değiştirmeden aynen kopyala.
 
 Her kart şu 8 satırdır:
-KART 1
+KART 1 · Konuşan: … · Durum: … · Kelimeler: … (listedeki satırın aynısı)
 Metin: ...
 Sol: ...
 Sol sonuç: ...
@@ -332,7 +333,7 @@ Sağ sonuç: ...
 Sağ etki: ...
 
 Biçim için bir örnek (başka bir konu; sadece biçimine bak, içeriğini ve etkilerini kopyalama):
-KART 0
+KART 0 · Konuşan: ${o.karakter} · Durum: Yönetim 50, Halk 40, Para 25, Ordu 60 · Kelimeler: un, pahalı · Konu: ekmek
 Metin: ${o.metin}
 Sol: ${o.sol}
 Sol sonuç: ${o.sol_sonuc}
@@ -352,8 +353,8 @@ function ayristir(metin) {
   const bloklar = []; let cur = null, sirali = 0;
   for (const ham of String(metin).split(/\r?\n/)) {
     const s = satirTemizle(ham); if (!s) continue;
-    const h = s.match(/^#*\s*kart\s*(\d+)\b/i);
-    if (h) { cur = { no: +h[1], alan: {} }; bloklar.push(cur); continue; }
+    const h = s.match(/^#*\s*kart\s*(\d+)\b(.*)$/i);
+    if (h) { cur = { no: +h[1], alan: {}, baslik: baslikOku(h[2]) }; bloklar.push(cur); continue; }
     const m = s.match(/^([^:]{2,20}):\s*(.*)$/);
     if (!m) { if (cur && cur.son) cur.alan[cur.son] += ' ' + s; continue; }
     const etiket = low(m[1]).replace(/\s+/g, ' ').trim();
@@ -364,6 +365,20 @@ function ayristir(metin) {
   }
   bloklar.forEach(b => { sirali++; if (b.no === null) b.no = sirali; });
   return bloklar.filter(b => Object.keys(b.alan).length);
+}
+const BASLIK_EK = { 'konu': 'konu', 'olay': 'olay', 'yer': 'yer', 'ruh hâli': 'ruh', 'ruh hali': 'ruh', 'ikilem': 'ikilem' };
+function baslikOku(s) {
+  const m = { karakter: '', durum: {}, kelimeler: [], ekstra: {} };
+  String(s || '').split(/\s*[·|]\s*/).forEach(parca => {
+    const x = parca.match(/^([^:]{2,15}):\s*(.+)$/); if (!x) return;
+    const k = low(x[1]).trim(), v = x[2].trim();
+    if (k === 'konuşan' || k === 'konusan') m.karakter = (VERI.karakterler.find(c => low(c.unvan) === low(v)) || {}).unvan || '';
+    else if (k === 'durum') GOSTERGE.forEach(([g, ad]) => { const y = v.match(new RegExp(ad + '\\s*:?\\s*(\\d{1,3})', 'iu')); if (y) m.durum[ad] = +y[1]; });
+    else if (k === 'kelimeler') m.kelimeler = v.split(/\s*,\s*/).filter(Boolean).slice(0, 3);
+    else if (BASLIK_EK[k]) m.ekstra[BASLIK_EK[k]] = BASLIK_EK[k] === 'konu' && /^serbest/i.test(v) ? 'serbest' : v;
+  });
+  if (!m.ekstra.konu) m.ekstra.konu = 'serbest';
+  return m.karakter && Object.keys(m.durum).length === 4 && m.kelimeler.length ? m : null;
 }
 function etkiOku(s) {
   const out = {}, hata = [];
@@ -387,8 +402,9 @@ function kelimeGecer(tok, k) {
 }
 function kontrol(b, mevcutMetinler, paketMetinler) {
   const a = b.alan, hatalar = [], uyarilar = [];
-  const spec = S.paket && S.paket.kartlar[b.no - 1];
-  if (!spec) hatalar.push(`KART ${b.no} bu pakette yok`);
+  let spec = b.baslik;
+  if (!spec) { spec = S.paket && S.paket.kartlar[b.no - 1]; if (spec) uyarilar.push('malzeme satırı yok; sayfadaki paketle eşlendi'); }
+  if (!spec) hatalar.push(`KART ${b.no}: malzeme satırı yok ve sayfadaki pakette de yok`);
   const eksik = ['metin', 'sol', 'sol_sonuc', 'sol_etki', 'sag', 'sag_sonuc', 'sag_etki'].filter(k => !a[k]);
   if (eksik.length) hatalar.push('eksik satır: ' + eksik.map(k => k.replace('_', ' ').replace('sag', 'sağ').replace('sonuc', 'sonuç')).join(', '));
   const w = kelimeler(a.metin).length;
@@ -466,7 +482,7 @@ function renderPrompt() {
 }
 function renderSonuclar() {
   const P = S.parsed, ok = P.filter(p => p.durum === 'ok').length, warn = P.filter(p => p.durum === 'warn').length, bad = P.filter(p => p.durum === 'bad').length;
-  const beklenen = S.paket ? S.paket.kartlar.length : 0;
+  const beklenen = P.length ? Math.max(...P.map(p => p.no)) : 0;
   $('ozet').innerHTML = P.length ? `<span class="pill ok">${ok} geçti</span><span class="pill warn">${warn} uyarılı</span><span class="pill bad">${bad} hatalı</span><span class="pill neutral">${P.length} / ${beklenen} kart okundu</span>` +
     (bad ? '<span class="muted" style="font-size:0.85rem">Hatalılar kaydedilmez.</span>' : '') : '';
   const kayit = ok + warn;
