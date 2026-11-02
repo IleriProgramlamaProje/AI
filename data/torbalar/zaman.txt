@@ -2,16 +2,16 @@ kış ortası
 hasat vakti
 gece yarısı
 bayram sabahı
-sabah ezanı
-ikindi vakti
+horoz ötünce
+akşamüstü
 gün batımı
 ilk kar
 bahar başı
 yaz sıcağı
 güz yağmuru
-ramazan
+kış hazırlığında
 düğün haftası
-pazar günü
+hasat şenliğinde
 savaş ertesi
 kıtlık yılı
 dolunay gecesi
@@ -21,15 +21,15 @@ fırtınalı gece
 sisli sabah
 yaylaya çıkış zamanı
 yayladan dönüş
-kurban bayramı
-cuma namazı sonrası
+panayır günü
+pazar dağılırken
 sel ertesi
 uzun kuraklık
 ay tutulması
 yılın son günü
 nevruz
 kuşluk vakti
-yatsı vakti
+gece nöbeti başlarken
 pazar kurulurken
 hasat bitince
 bahar yağmurlarında

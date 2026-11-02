@@ -1,28 +1,33 @@
 Orta Çağ'da bir Türk krallığında geçen kaydırmalı bir karar oyunu için 1 kart yaz.
-Göstergeler: Yönetim, Halk, Para, Ordu (0-100). Krallığın şu anki durumu: {durum}. Kart bu duruma uygun olsun (ör. Para düşükse kimse "hazine dolu" demez).
+Oyuncu hükümdardır. Bir kişi gelir, derdini anlatır; oyuncu sola ya da sağa kaydırarak iki karardan birini seçer.
+Göstergeler: Yönetim, Halk, Para, Ordu (0-100). Krallığın şu anki durumu: {durum}.
 
-Konuşan: {karakter} ({karakter_ton}; görevi: {karakter_gorev})
+Kartta konuşan: {karakter} ({karakter_ton}; görevi: {karakter_gorev}).
 Sık kullandığı sözler: {karakter_soz} · Asla: {karakter_asla}
 {ekstra}
-Kartta şu kelimelerden en az biri geçsin: {kelimeler}
+Metinde şu iki kelimeden en az birini kullan; derde uymayanı kullanma: {kelimeler}
 
 Kurallar:
-- Konuşan sadece unvanla yazılır, isim yok. Başka karakterlerden de sadece unvanla bahsedilir.
-- Dert, konuşanın işine uygun olsun.
-- Oyuncu hükümdardır. Ona seslenmek gerekirse "Beyim", "Hatunum", "hünkârım" yazma; yerine {{hitap}} yaz. Hitap şart değil.
-- Metin 20-35 kelime olsun, asla 50 kelimeyi geçmesin.
-- Sol ve sağ, aynı derde verilen iki farklı karar olsun: emir ya da eylem cümlesi, 2-5 kelime. Soyut başlık ya da evet/hayır yazma.
-- Her seçenek 1-3 göstergeyi etkilesin. İki seçenek de en az bir göstergeyi düşürsün.
-- Etkiyi sayıyla değil işaretle yaz: + az, ++ orta, +++ çok (düşüş için -, --, ---). Etkiler kararın mantığına uysun.
-- Her seçenekten sonra o kararın sonucunu anlatan tek bir cümle yaz.
-- Sade Türkçe kullan. Modern kelime kullanma ({yasak} gibi).
-- Sadece kartı yaz; giriş ya da açıklama ekleme.
+- Metin, konuşanın hükümdara söylediği 20-35 kelimelik sözdür: somut bir dert ve neden önemli olduğu. Dert onun işine uygun olsun; konu onun işinden uzaksa konuyu onun gözünden anlat (ör. Akıncı Beyi kuyu kazmayı atların suyu için ister).
+- Dert krallığın durumuna uysun: düşük bir gösterge sıkıntı, yüksek bir gösterge bolluk demektir (ör. Para düşükse kimse "hazine dolu" demez).
+- Herkesin hemen anlayacağı kadar açık yaz: ne oldu, kim ne istiyor. Tuhaf benzetme ve süslü söz kullanma.
+- Her karar, metindeki derde doğrudan cevap versin; sonucu da o kararın akla yatkın sonucu olsun.
+- Hükümdara seslenmek gerekirse "Beyim", "Hatunum", "hünkârım" yazma; yerine {{hitap}} yaz. Hitap şart değil.
+- İki karar aynı derde verilen iki farklı cevaptır. Her biri 2-5 kelimelik emir cümlesidir ("Ambarı aç", "Ustalara altın öde"). Evet/hayır ya da soyut başlık yazma.
+- Her kararın sonucu, o karar verilince ne olduğunu anlatan tek cümledir.
+- Etkiyi sonuca bakarak yaz: sonuçta ne artıyorsa +, ne azalıyorsa -. + az, ++ orta, +++ çok (düşüş: -, --, ---).
+- Her karar 1-3 göstergeyi etkiler ve her kararda en az bir gösterge düşer. Hangi göstergelerin değişeceğini derde göre sen seç; her kartta aynı göstergeleri kullanma.
+- Sade Türkçe. Modern kelime kullanma ({yasak} gibi). Başka kişilerden sadece unvanla bahset, isim verme.
+- Sadece aşağıdaki 7 satırı yaz; başka hiçbir şey ekleme.
 
-Biçim (köşeli parantezlerin yerine metni yaz; gösterge adları yonetim, halk, para, ordu):
-<kart> [20-35 kelimelik metin]
-<sol> [karar] <halk+> <para-->
-<sonuc> [sol kararın sonucu, tek cümle]
-<sag> [karar] <yonetim-> <ordu++>
-<sonuc> [sağ kararın sonucu, tek cümle]
-</kart>
-Etiketleri koru; örnek etkileri kararına göre değiştir. Konuşan başlığı veya durum satırı yazma; bunlar kod tarafından eklenir.
+Biçim:
+Metin: ...
+Sol: ...
+Sol sonuç: ...
+Sol etki: ...
+Sağ: ...
+Sağ sonuç: ...
+Sağ etki: ...
+
+Biçim için bir örnek (başka bir konu; sadece biçimine bak, içeriğini ve etkilerini kopyalama):
+{ornek}

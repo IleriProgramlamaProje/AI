@@ -3,13 +3,13 @@ kale
 pazar
 yayla
 sınır boyu
-cami avlusu
+çınar altı
 değirmen
 köy meydanı
 saray
 divan odası
 kışla
-tekke
+dokumacı tezgâhı
 demirci dükkânı
 hamam
 çarşı
@@ -32,7 +32,7 @@ saray bahçesi
 hazine odası
 saray mutfağı
 ahır
-cephanelik
+zırh odası
 sur üstü
 gözetleme kulesi
 ordugâh
@@ -46,9 +46,9 @@ kervansaray
 maden ocağı
 kumaşçı dükkânı
 fırın
-medrese
-mescit
-türbe
+okçu meydanı
+at pazarı
+eski harabe
 bostan
 mağara
 göl kıyısı

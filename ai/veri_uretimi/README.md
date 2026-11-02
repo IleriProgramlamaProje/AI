@@ -1,29 +1,28 @@
 # Veri üretimi
 
-Mevcut kod: `torbalar.py` → `istek_olusturucu.py` → `uretici.py`. Öğretmen model ayarı `ai/ortak/ayarlar.py` içindedir. Önce Colab'da `hiz_olcumu.ipynb`, sonra `uretim.ipynb` çalıştırılır. Gerçek GPU denemesi ve paket sürümlerinin sabitlenmesi henüz tamamlanmadı.
+Akış: `torbalar.py` → `istek_olusturucu.py` → `uretici.py` → ham JSONL. Sonraki adımlar görev: filtre (`ai/filtre/filtre.py`, S1) ve dönüştürücü (`ai/ortak/kart_bicimi.py`, S2); bkz. `Docs/yz_gorevleri.md`.
+Öğretmen: **Gemma 4 12B** (`ai/ortak/ayarlar.py`). 1 Kasım'da aynı 40 promptla E4B / 12B / Gemini karşılaştırıldı; E4B anlamsız yazdı, Gemini çıktısıyla eğitim Google kurallarına aykırı, Gemma 4 Apache 2.0.
 
-Her istekte karakter + üç kelime vardır. Ek torbalardan 1–2 tanesi seçilir. Kartta konu yaklaşık %85 belirli, %15 serbesttir: belirli konu 1–2 ek torbanın birini oluşturur; serbest konu işaretine ek olarak 1–2 torba seçilir. Rol/konu uyumunu garanti eden bir tablo henüz yoktur; prompt bunu öğretmenden ister.
+## Kurallar (malzeme)
+- **Hikâye:** karakter + 3 kelime (1 isim + 1 fiil + 1 sıfat, üçü istenir) + diğer torbalardan 1–2.
+- **Kart:** karakter + 2 kelime (1 isim + 1 sıfat, en az biri istenir) + konu (~%15 serbest) + gösterge durumu.
 
-`promptlar/hikaye.txt` hikâye, `promptlar/kart.txt` etiketli kart gövdesi ister. Üretici ham çıktıyı kaydeder; biçim/içerik doğrulaması ve JSON karta dönüştürme henüz uygulanmadı. Eski `Metin: / Sol:` biçimli çıktılarla yeni etiketli çıktıları aynı dosyaya eklemeyin.
+## Promptlar (`promptlar/`)
+- `hikaye.txt`: önce mantık (sorun → yapılan → sonuç), kısa açık cümle, kelimeyi zorla sokma.
+- `kart.txt`: öğretmen **satırlı** biçimde yazar: `Metin / Sol / Sol sonuç / Sol etki / Sağ / Sağ sonuç / Sağ etki`. Etki sonuca bakılarak yazılır.
+  Eğitimdeki etiketli biçime (`<kart> <sol> … </kart>`) `kart_bicimi.py` çevirecek (görev). Etiketli gövde istendiğinde ve tek sabit örnek verildiğinde
+  model örneğin etkilerini kopyalıyordu (ilk denemede kartların %31'i).
+- `kart_ornekler.json`: 8 örnek kart; her istekte farklı biri gösterilir (konuşanla aynı rol seçilmez).
 
-## Çalıştırma ve devam
-
-AI depo kökünden, öğretmen bağımlılıklarının kurulu olduğu GPU ortamında:
+## Çalıştırma
+Colab ve Kaggle: `uretim.ipynb` (aynı defter, ikisinde aynı anda açılabilir). Colab'da T4 → 12B 4-bit; Kaggle'da 2×T4 → 12B 8-bit.
+4-bit yazımı biraz bozar (ünlü uyumu, "Alp,in"); filtre ayıklayacak.
 
 ```sh
-python -m ai.veri_uretimi.uretici --tur kart --adet 100 --grup 8 --tohum 42 --cikti /tmp/kartlar.jsonl
+python -m ai.veri_uretimi.uretici --tur kart --adet 100 --grup 4 --motor transformers4bit --tohum mert-kart --cikti ham/kart.jsonl
 ```
 
-`adet` eklenecek kayıt sayısı değil, dosyanın ulaşacağı toplamdır. `grup` pozitif olmalı. `auto` önce vLLM, açılmazsa Transformers dener; grup boyutunu GPU belleğine göre ölçerek artırın. CPU ortamında bu komutun performansı doğrulanmadı.
-
-Her satırda `surum`, `id`, `tur`, `malzeme`, `prompt`, `cikti`, `model`, `tohum`, `token`, `saniye` bulunur. Kayıt sürümü 2'dir. Devam etmeden tür/model/tohum/sürüm, sıra numarası, boş çıktı ve JSONL satır sonları kontrol edilir. Uyuşmazlıkta dosyaya yazılmaz. Eski sürüm dosyalarını koruyup yeni çıktı adı seçin; bozuk dosyayı yedekleyip incelemeden satır silmeyin.
-
-Aynı kod, torbalar ve tohumla devam, önceki malzemeleri atlayarak sürer; dil modelinin çıktısının birebir aynı olması garanti edilmez. Torbalar veya prompt değişirse yeni dosya kullanın. Aynı dosyaya eşzamanlı iki üretici yazmamalı; notebook'ta hesap/gece adları ayrı tutulur.
-
-Her grup diske aktarılır. Kesintide yarım JSON satırı kalırsa sonraki çalışma açık hata verir. Eksik/boş motor cevabı grubu yazmadan reddedilir. Çıktı kalitesi için filtre yine gereklidir.
-
-## Colab
-
-Notebook AI ve Docs depolarını ayrı klonlar, mevcut kopyaları silmez. GitHub token'ı gizli girişten alınır ve yalnız Git alt sürecine geçici yetki olarak verilir. Token'ı hücreye veya URL'ye koymayın. Hugging Face model erişimi ayrıca gerekir.
-
-Hız ölçümü yeni zaman damgalı dosya kullanır; böylece önceki ölçümün kayıtlarını okuyup üretimi atlamaz. Ölçülen süre model yüklemesini içermez. Gece hedefleri ham kayıt sayısıdır; nihai eğitim karışımı token sayısı üzerinden hazırlanacaktır.
+`adet` dosyanın ulaşacağı toplamdır. Kayıt sürümü 3 (1 Kasım; sürüm 2 dosyalarına eklenmez, yeni dosya açın): devam etmeden tür/model/tohum/sürüm, sıra, boş çıktı ve satır sonları kontrol edilir; uyuşmazlıkta dosyaya yazılmaz.
+Aynı tohumla devam önceki malzemeleri atlar (`--tohum` artık metin; eski sayısal tohumlu dosyalar "Tohum uyuşmuyor" verir).
+Defter `tolerans=True` (hatalı/boş çıktı yalnız o istek için yeniden denenir, olmazsa `[BOŞ ÇIKTI]` yazılır, filtre elemeli; art arda 3 grup tamamen boşsa kalıcı hata sayılıp durur), `onar=True` (kesintide yarım kalan son satır silinir) ve `bitis=` (süre dolunca yeni grup başlamaz) ile çalışır; komut satırında bunlar kapalıdır. Torbalar veya prompt değişirse yeni dosya (yeni tohum) kullanın. Aynı dosyaya iki üretici yazmamalı;
+defter dosya adına kişi + ortam (+ Kaggle'da oturum) koyar.

@@ -14,6 +14,6 @@ python -m pytest ai/testler -q
 
 Kod kardeş `../Docs/tema.json` dosyasını bulur; eski `docs/` yolu da desteklenir. Farklı yerleşim için `PROJE_DOCS_DIR` değişkenini Docs klasörüne ayarlayın. Sembolik bağlantı zorunlu değildir.
 
-Mevcut kod: torbalar → prompt → öğretmen motoru → JSONL. Model, filtre, tokenizer, eğitim ve oyun sunucusu henüz uygulanmadı. `ai/` altındaki README dosyaları hedef görevleri gösterir.
+Mevcut kod: torbalar → prompt → öğretmen motoru (Gemma 4 12B) → JSONL. Filtre, kart biçimi dönüştürücüsü, model, tokenizer, eğitim ve oyun sunucusu henüz uygulanmadı. `ai/` altındaki README dosyaları hedef görevleri gösterir.
 
 Colab ve devam etme kuralları: [veri üretimi](ai/veri_uretimi/README.md). Yerel testler sahte motor kullanır; gerçek GPU üretiminin başarısını veya içerik kalitesini kanıtlamaz. Büyük çıktılar/ağırlıklar Drive veya Hugging Face'te saklanır.

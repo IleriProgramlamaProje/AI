@@ -1,17 +1,18 @@
-# Torbalar · 25 Ekim 2026
+# Torbalar
 
-**Asıl kaynak:** Ekibin Drive'daki `Torba_Listesi` tablosu. Buradakiler kodun okuduğu dışa aktarımlar.
-
-| Dosya | Sayı | Biçim / not |
+| Dosya | Sayı | Sütunlar |
 | --- | --- | --- |
-| `kelimeler.csv` | **2000** (733 isim · 640 fiil · 627 sıfat) | kelime, tur, ekleyen |
-| `karakterler.csv` | **23 rol** (Yönetim 7 · Ordu 4 · Halk 6 · Para 6) | rol, ton, gorev, ornek, alan, cinsiyet, sik_sozler, asla, farki (kimlik kartı). Örneklerde hitap `{hitap}` |
-| `olaylar.csv` | **200** (her alanda 50) | id, olay, alan, etiket, sol_secenek, sol_etki, sag_secenek, sag_etki (onaylı etkiler, model biçiminde: `<para-> <halk+>`) |
-| `Olay_Etkileri_Oneri.xlsx` | 200 | Eski ve yeni etkiler yan yana (onaylandı, arşiv) |
+| `kelimeler.csv` | 1500 (613 isim · 475 fiil · 412 sıfat) | kelime, tur |
+| `karakterler.csv` | 23 rol (Yönetim 7 · Ordu 4 · Halk 6 · Para 6) | rol, ton, gorev, ornek, alan, cinsiyet, sik_sozler, asla, farki |
+| `olaylar.csv` | 200 (her alanda 50) | id, olay, alan, etiket, sol_secenek, sol_etki, sag_secenek, sag_etki |
 | `konular.txt` | 100 | her satırda bir konu |
-| `yer.txt` | 60 | |
-| `usluplar.txt` | 60 | Gemma'nın iyi taklit edemediği üsluplar denemeden sonra çıkarılacak |
+| `yer.txt` | 60 | her satırda bir yer |
+| `usluplar.txt` | 60 | her satırda bir üslup |
 | `ikilem.csv` | 60 | taraf1, taraf2 |
-| `ozellikler.txt`, `ruh_hali.txt`, `zaman.txt` | 40'ar | |
+| `ozellikler.txt` | 40 | her satırda bir özellik |
+| `ruh_hali.txt` | 40 | her satırda bir ruh hâli |
+| `zaman.txt` | 40 | her satırda bir zaman |
 
-Kurallar: `docs/hazirlik_haftasi.md` 2. bölüm.
+`Docs/tema.json` (kardeş depo): göstergeler, etki kademeleri, sonlar, karakter kimlikleri, yasak kelimeler.
+
+Kullanım (1 Kasım kararı): hikâyede karakter + 3 kelime (1 isim, 1 fiil, 1 sıfat), kartta karakter + 2 kelime (1 isim, 1 sıfat); diğer torbalardan rastgele 1–2. Kodda henüz 3 rastgele kelime çekiliyor; türe göre çekme görev M1 (Docs/yz_gorevleri.md).

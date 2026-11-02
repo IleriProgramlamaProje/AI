@@ -6,13 +6,15 @@ import random
 
 from ai.veri_uretimi import uretici
 from ai.veri_uretimi.istek_olusturucu import prompt_olustur
-from ai.veri_uretimi.torbalar import EKSTRA, malzeme_cek, torbalari_yukle
+from ai.veri_uretimi.istek_olusturucu import ORNEKLER, ornek_sec
+from ai.veri_uretimi.torbalar import EKSTRA, KELIME_TURU, malzeme_cek, torbalari_yukle
 
 T = torbalari_yukle()
 
 
 def test_torba_boyutlari():
-    assert len(T["kelime"]) == 2000
+    assert len(T["kelime"]) > 1400                                   # 1 Kasım sadeleştirmesi (~1500)
+    assert all(len(T["kelime_tur"][t]) > 300 for t in ("isim", "fiil", "sıfat"))
     assert len(T["karakter"]) == 23
     assert len(T["olay"]) == 200
 
@@ -22,7 +24,9 @@ def test_malzeme_kurali():
     for tur in ("hikaye", "kart"):
         for _ in range(200):
             m = malzeme_cek(T, tur, rng)
-            assert m.karakter and len(m.kelimeler) == 3          # her zaman var
+            turler = KELIME_TURU[tur]                              # hikâye: isim+fiil+sıfat · kart: isim+sıfat
+            assert m.karakter and len(m.kelimeler) == len(turler)
+            assert all(m.kelimeler[i] in T["kelime_tur"][t] for i, t in enumerate(turler))
             secilen = [k for k in m.ekstra if m.ekstra[k] != "serbest"]
             assert 1 <= len(secilen) <= 2                          # 1-2 ekstra
             assert set(secilen) <= set(EKSTRA[tur])
@@ -63,11 +67,24 @@ def test_konu_orani():
     assert 0.12 < oran < 0.18
 
 
-def test_kart_promptu_etiketli():
+def test_kart_promptu_satirli():
+    # Öğretmen etiketli gövde yerine satırlı biçim yazar (karar → sonuç → etki); eğitim metnine
+    # ai/ortak/kart_bicimi.py çevirir. Sabit örnekte model etkileri kopyalıyordu (ilk denemede %31).
     p = prompt_olustur(malzeme_cek(T, 'kart', random.Random(1)), T)
-    for etiket in ('<kart>', '<sol>', '<sag>', '<sonuc>', '</kart>'):
-        assert etiket in p
-    assert 'Sol sonuç:' not in p
+    for satir in ('Metin:', 'Sol:', 'Sol sonuç:', 'Sol etki:', 'Sağ:', 'Sağ sonuç:', 'Sağ etki:'):
+        assert satir in p
+    assert 'en az birini kullan' in p
+
+
+def test_ornek_her_istekte_degisir():
+    rng = random.Random(5)
+    secilen = set()
+    for _ in range(60):
+        m = malzeme_cek(T, 'kart', rng)
+        o = ornek_sec(m)
+        assert o['karakter'] != m.karakter
+        secilen.add(o['karakter'])
+    assert len(secilen) >= 6 and len(ORNEKLER) == 8
 
 
 def test_devam_malzemeleri_tekrarlamaz(tmp_path, monkeypatch):
@@ -140,3 +157,69 @@ def test_eski_kayit_surumu_reddedilir(tmp_path, monkeypatch):
     with pytest.raises(ValueError, match='Eski kayıt biçimi'):
         uretici.uret('kart', 2, yol)
     assert yol.read_bytes() == once
+
+
+def test_tolerans_ve_yarim_satir_onarimi(tmp_path, monkeypatch):
+    class AraSiraBozuk:
+        def __init__(self): self.n = 0
+        def uret(self, promptlar):
+            self.n += 1
+            if self.n == 1:
+                raise RuntimeError("probability tensor contains inf")      # ilk deneme çöker
+            return [("" if i == 0 else "metin", 3) for i, _ in enumerate(promptlar)]
+    yol = tmp_path / "t.jsonl"
+    uretici.uret("kart", 3, yol, grup=3, tohum="t", motor=AraSiraBozuk(), tolerans=True)
+    kayitlar = [json.loads(s) for s in yol.read_text(encoding="utf-8").splitlines()]
+    assert len(kayitlar) == 3 and uretici.BOS_CIKTI in [k["cikti"] for k in kayitlar]
+    yol.write_bytes(yol.read_bytes() + b'{"surum": 3, "id": "kart-00')          # kesinti: yarım satır
+    uretici.uret("kart", 4, yol, grup=1, tohum="t", motor=SahteMotor(), onar=True)
+    assert len(yol.read_text(encoding="utf-8").splitlines()) == 4
+
+
+def test_dusunce_etiketi_temizlenir():
+    assert uretici.temizle("thought\nMetin: Kuzey yolu kapandı.") == "Metin: Kuzey yolu kapandı."
+
+
+def test_belge_klasoru_kucuk_harf(tmp_path, monkeypatch):
+    from ai.ortak.ayarlar import belge_klasoru
+    monkeypatch.delenv('PROJE_DOCS_DIR', raising=False)
+    (tmp_path / 'AI').mkdir(); (tmp_path / 'docs').mkdir()
+    assert belge_klasoru(tmp_path / 'AI') == tmp_path / 'docs'
+
+
+def test_kalici_hata_durur_ve_sure_siniri(tmp_path):
+    import pytest, time
+    class HepBozuk:
+        def uret(self, promptlar):
+            raise RuntimeError("device-side assert")
+    yol = tmp_path / "k.jsonl"
+    with pytest.raises(RuntimeError, match="Art arda 3 grup"):
+        uretici.uret("kart", 50, yol, grup=5, tohum="k", motor=HepBozuk(), tolerans=True)
+    assert not yol.exists() or yol.read_text() == ""          # boş gruplar yazılmaz
+    uretici.uret("kart", 50, yol, grup=5, tohum="k", motor=SahteMotor(), bitis=time.time() - 1)
+    assert yol.read_text() == ""                               # süre dolmuşsa yeni grup başlamaz
+
+
+def test_sadece_bozuk_olan_yeniden_denenir(tmp_path):
+    class Sayac:
+        def __init__(self): self.cagri = 0
+        def uret(self, promptlar):
+            self.cagri += 1
+            return [("" if (len(promptlar) > 1 and i == 0) else "metin", 3) for i, _ in enumerate(promptlar)]
+    m = Sayac()
+    uretici.uret("kart", 8, tmp_path / "s.jsonl", grup=8, tohum="s", motor=m, tolerans=True)
+    assert m.cagri == 2                                         # 1 grup + 1 tekli yeniden deneme
+
+
+def test_bos_grup_sonrasi_devam_malzemeyi_tekrarlamaz(tmp_path):
+    class IkinciGrupBos:
+        def __init__(self): self.n = 0
+        def uret(self, promptlar):
+            self.n += 1
+            return [("" if self.n in (2, 3) else "metin", 1) for _ in promptlar]   # 2. grup (ve tekrarı) boş
+    yol, ref = tmp_path / "a.jsonl", tmp_path / "ref.jsonl"
+    uretici.uret("kart", 10, yol, grup=5, tohum="r", motor=IkinciGrupBos(), tolerans=True)
+    uretici.uret("kart", 20, yol, grup=5, tohum="r", motor=SahteMotor(), tolerans=True)
+    uretici.uret("kart", 20, ref, grup=5, tohum="r", motor=SahteMotor())
+    oku = lambda p: [json.loads(s)["malzeme"] for s in p.read_text(encoding="utf-8").splitlines()]
+    assert oku(yol) == oku(ref)

@@ -1,7 +1,8 @@
 """Torbaları okur ve her istek için rastgele malzeme çeker.
 
-Kural (25 Ekim kararı):
-- Karakter ve 3 kelime HER ZAMAN var.
+Kural (25 Ekim, 1 Kasım kararları):
+- Karakter HER ZAMAN var. Kelimeler türüne göre: hikâyede 3 (1 isim + 1 fiil + 1 sıfat, üçü istenir),
+  kartta 2 (1 isim + 1 sıfat, en az biri istenir).
 - Diğer torbalardan rastgele 1-2 tanesi eklenir.
 - Kartlarda ayrıca gösterge durumu (rastgele sayılar) ve ara sıra "serbest konu" var.
 """
@@ -17,6 +18,7 @@ EKSTRA = {
     "kart": ["konu", "olay", "yer", "ruh", "ikilem"],
 }
 SERBEST_KONU_ORANI = 0.15  # kartların ~%15'inde konu verilmez, model kendi derdini bulur
+KELIME_TURU = {"hikaye": ("isim", "fiil", "sıfat"), "kart": ("isim", "sıfat")}
 
 
 def _satirlar(dosya):
@@ -35,6 +37,7 @@ def torbalari_yukle():
         "karakter": [r["rol"] for r in _csv("karakterler.csv")],
         "karakter_bilgi": {r["rol"]: r for r in _csv("karakterler.csv")},
         "kelime": [r["kelime"] for r in _csv("kelimeler.csv")],
+        "kelime_tur": {t: [r["kelime"] for r in _csv("kelimeler.csv") if r["tur"] == t] for t in ("isim", "fiil", "sıfat")},
         "konu": _satirlar("konular.txt"),
         "olay": [r["olay"] for r in _csv("olaylar.csv")],
         "yer": _satirlar("yer.txt"),
@@ -66,7 +69,7 @@ def malzeme_cek(torbalar, tur, rng=random):
     m = Malzeme(
         tur=tur,
         karakter=rng.choice(torbalar["karakter"]),
-        kelimeler=rng.sample(torbalar["kelime"], 3),
+        kelimeler=[rng.choice(torbalar["kelime_tur"][t]) for t in KELIME_TURU[tur]],
     )
     adaylar = list(EKSTRA[tur])
     ekstra_adet = rng.randint(1, 2)

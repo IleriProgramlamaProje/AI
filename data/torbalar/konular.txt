@@ -15,7 +15,7 @@ hırsızlık
 kadı kararı
 tüccar şikâyeti
 Ahi loncası anlaşmazlığı
-tekkeye bağış
+yol yapımı
 hekim ihtiyacı
 şenlik
 at sürüsü
@@ -45,7 +45,7 @@ ulak ve haberler
 rehine
 elçi hediyesi
 dalkavuklar
-uzak eyaletin yönetimi
+uzak yurtların yönetimi
 kale savunması
 akın
 sefer hazırlığı
@@ -74,9 +74,9 @@ yoksullara yardım
 köyler arası kavga
 hastalıklı sürü
 ebe ihtiyacı
-mescit onarımı
+çeşme onarımı
 kuyu kazma
-medrese
+çırak yetiştirme
 halkın şikâyet türküleri
 yaşlıların bakımı
 eski gelenekler
@@ -96,5 +96,5 @@ ekmek fiyatı
 mal saklayan tüccarlar
 tefeciler
 yabancı tüccar
-vakıf gelirleri
+han gelirleri
 kervansaray yapımı
