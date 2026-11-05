@@ -3,6 +3,7 @@
     python -m ai.altin_set.sayfa_olustur
 
 sablon.html + torbalar (data/torbalar) + tema.json + kart örnekleri -> index.html.
+Sayfa iki tür üretir: kart ve hikâye (hikâye malzemesi: isim + fiil + sıfat, olay/yer/zaman/ruh/özellik/üslup).
 index.html claude.ai'deki "Altın Set Prompt Üretici" sayfasına yüklenir (ortak liste orada).
 Torbalar değişince bu komutu çalıştırıp sayfayı yeniden yayınlayın.
 """
@@ -31,10 +32,14 @@ def veri():
                         for c in tema["karakterler"]],
         "isim": [r["kelime"] for r in kelimeler if r["tur"] == "isim"],
         "sifat": [r["kelime"] for r in kelimeler if r["tur"] == "sıfat"],
+        "fiil": [r["kelime"] for r in kelimeler if r["tur"] == "fiil"],
         "konu": _satirlar("konular.txt"),
         "olay": [r["olay"] for r in _csv("olaylar.csv")],
         "yer": _satirlar("yer.txt"),
+        "zaman": _satirlar("zaman.txt"),
         "ruh": _satirlar("ruh_hali.txt"),
+        "ozellik": _satirlar("ozellikler.txt"),
+        "uslup": _satirlar("usluplar.txt"),
         "ikilem": [f'{r["taraf1"]} ↔ {r["taraf2"]}' for r in _csv("ikilem.csv")],
         "yasak": tema["yasak_kelimeler"],
         "kademe": tema["etki_kademeleri"],

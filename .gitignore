@@ -13,3 +13,6 @@ __pycache__/
 !.env.example
 data/uretilen/*
 !data/uretilen/ornekler/
+
+# tokenizer çıktısı Hugging Face'e gider (yol_haritasi.md)
+ai/tokenizer/cikti/
