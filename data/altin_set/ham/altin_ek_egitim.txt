@@ -1,0 +1,752 @@
+<yonetim:5> <halk:45> <para:20> <ordu:15> <konu:han_ücretleri> <konuşan:ozan>
+<kart> {hitap}, hanlar yolcuya çok ücret alıyor; yolcular mağara gibi soğuk yerlerde yatıyor. Türkülerde bile han ücreti yakınılıyor. Han ücretine bir sınır gerek.
+<sol> Han ücretine sınır koy <halk+> <para->
+<sonuc> Yolcular hana döndü, hanlar az kazandı, ama halk türküde seni andı.
+<sag> Hanları kendi hâline bırak <halk-> <para+>
+<sonuc> Hanlar kazandı, hazineye akçe geldi, ama yolcular çekildi ve hanlar boş kaldı.
+</kart>
+
+<yonetim:45> <halk:60> <para:65> <ordu:90> <konu:saray_harcamaları> <konuşan:dervis>
+<kart> {hitap}, sarayda sofra kurulurken kışlada asker ekmeği paylaşamıyor. Bir abla çocuğuyla kapıda perişan bekliyor. Saray harcamasını azalt, payı kışlaya ve yoksula ver.
+<sol> Saray harcamasını kıs <yonetim-> <ordu+>
+<sonuc> Kışla erzağı arttı, asker sustu, ama sarayda işler yavaşladı.
+<sag> Saray sofrasını sürdür <yonetim+> <halk-> <ordu-->
+<sonuc> Sarayda düzen bozulmadı, ama kışlada kavga büyüdü ve yoksul kapıdan gitti.
+</kart>
+
+<yonetim:50> <halk:35> <para:60> <ordu:10> <konu:deprem> <konuşan:vezir>
+<kart> {hitap}, bahar gelmeden deprem oldu; kocaman taşlar yolu kapattı. Ordumuz az, kılıçla yol açamayız. İlim ehliyle ölçüp yolu açmak, halkı da rahatlatır.
+<sol> İlim ehlini çağır, yolu ölçtür <halk+> <para->
+<sonuc> Yol ölçülüp açıldı, halk rahatladı, ama iş uzun sürdü ve hazine yoruldu.
+<sag> Askeri yola sür <halk-> <ordu-->
+<sonuc> Asker taşları kaldıramadı, yol kapalı kaldı, ordu yorgun düştü.
+</kart>
+
+<yonetim:40> <halk:85> <para:85> <ordu:65> <konu:divan_düzeni> <konuşan:beylerbeyi>
+<kart> {hitap}, divanda beyler dost gibi neşeyle oturuyor ama buyruk kimden çıkacağı belli değil. Uzak yurtlardan gelen beyler kendi başına iş yapıyor. Divana bir düzen koy.
+<sol> Divana sıra ve buyruk koy <yonetim++> <ordu->
+<sonuc> Buyruklar tek yerden çıktı, beyler bağlandı, ama bazı beyler küstü.
+<sag> Beyleri serbest bırak <yonetim--> <halk+>
+<sonuc> Beyler neşeyle iş gördü, ama sınır boyunda buyruk karıştı ve düzen bozuldu.
+</kart>
+
+<yonetim:25> <halk:35> <para:50> <ordu:10> <konu:serbest> <konuşan:kadi>
+<kart> {hitap}, iki köylü bir destanı kendi malı sayıp davalık oldu; şahit yok, delil zayıf. Kararlı bir hüküm gerek, yoksa herkes kendi hakkını kılıçla arar.
+<sol> Davayı kendi önünde gör <yonetim-> <halk+>
+<sonuc> Hüküm kesin çıktı, taraflar sustu, ama kadının işi uzadı ve yönetim yoruldu.
+<sag> Davayı köy kethüdasına bırak <yonetim-> <halk-->
+<sonuc> Köyde taraf tutuldu, biri galip geldi, öteki küstü ve dava büyüdü.
+</kart>
+
+<yonetim:35> <halk:75> <para:80> <ordu:60> <konu:komutanlar_arası_kavga> <konuşan:koy_kethudasi>
+<kart> {hitap}, iki komutan pazarda halkın önünde birbirine girdi; köylü kurak tarladan gelip bunu gördü. Asker birbirine düşerse köyü kim korur? Bu kavgayı hemen kes.
+<sol> İki komutanı divana çağır <yonetim+> <ordu->
+<sonuc> Komutanlar divanda sustu, kavga kesildi, ama orduda kırgınlık kaldı.
+<sag> Komutanları yerinde cezalandır <halk-> <ordu+>
+<sonuc> Cezayı gören asker korktu, kavga bitti, ama halk cezayı sert buldu.
+</kart>
+
+<yonetim:65> <halk:65> <para:70> <ordu:80> <konu:yangın> <konuşan:hekim>
+<kart> {hitap}, mahallede yangın çıktı; bir çuval unu kurtarmak için koşan yaşlı yandı. Askeri su taşımaya versek yangın söner; ama kışlada nöbet boş kalır. Affedici ol, halkı koru.
+<sol> Askeri su taşımaya ver <halk+> <ordu->
+<sonuc> Yangın söndü, halk rahatladı, ama kışlada nöbet zayıfladı.
+<sag> Askeri kışlada tut <halk--> <ordu+>
+<sonuc> Nöbet sağlam kaldı, ama yangın büyüdü ve mahalle yandı.
+</kart>
+
+<yonetim:45> <halk:40> <para:15> <ordu:10> <konu:serbest> <konuşan:hazinedar>
+<kart> {hitap}, hazine boş; bir çırak upuzun bir gider defteri getirdi, her kalemde borç var. Askerin nalı, köylünün tohumu borçla alınıyor. Bir yerden kısmak gerek, yoksa defter kapanmaz.
+<sol> Saray giderini kıs <yonetim-> <para+>
+<sonuc> Hazine biraz nefes aldı, ama sarayda işler aksadı.
+<sag> Vergiyi hemen topla <halk--> <para++>
+<sonuc> Hazine doldu, ama köylü vergiyi veremedi ve tarlayı bıraktı.
+</kart>
+
+<yonetim:50> <halk:35> <para:45> <ordu:85> <konu:göç_edenler> <konuşan:elci>
+<kart> {hitap}, komşu krallıktan göç edenler sınıra geldi; aralarında dilenci de var, alçak da. Komşu krallık onları geri istiyor. Onları alırsak komşuyla söz bozulur, almazsak yol açık kalır.
+<sol> Göç edenleri içeri al <halk+> <ordu->
+<sonuc> Gelenler yerleşti, tarla açtı, ama komşu krallık sınıra asker yığdı.
+<sag> Göç edenleri geri çevir <yonetim+> <halk->
+<sonuc> Komşu krallık memnun kaldı, ama sınırda yolcular perişan oldu ve halk söylendi.
+</kart>
+
+<yonetim:10> <halk:65> <para:80> <ordu:75> <konu:evlilik> <konuşan:hanci>
+<kart> {hitap}, handa iki genç evlenmek istiyor; kızın babası başka köyden, oğlanın ailesi terazi gibi tartıp başlık istiyor. Atak bir söz gerek, yoksa iki köy birbirine girecek.
+<sol> Başlığı yasakla, düğünü yaptır <yonetim-> <halk+>
+<sonuc> Gençler evlendi, iki köy barıştı, ama başlık isteyen aileler küstü.
+<sag> Başlığı aileye bırak <yonetim+> <halk-->
+<sonuc> Aileler kendi arasında anlaştı, ama fakir oğlan kızı alamadı ve köyde kavga çıktı.
+</kart>
+
+<yonetim:30> <halk:30> <para:85> <ordu:60> <konu:beylerin_bağlılığı> <konuşan:akinci_beyi>
+<kart> {hitap}, uzak yurtların beyleri şölene gelmiyor, bağlılık sözü vermiyor. Atlılar hazır, hız bizim işimiz. Bir akınla beyleri yerine getirirsek bağlılık sağlanır, ama kan dökülür.
+<sol> Beylere akın yap <yonetim+> <halk--> <ordu+>
+<sonuc> Beyler yerine geldi, bağlılık sağlandı, ama iki beyin köyü yandı ve halk korktu.
+<sag> Beyleri şölende bekle <yonetim--> <halk->
+<sonuc> Şölen boş geçti, beyler bağlılık sözü vermedi, uzak yurtlarda buyruk zayıfladı.
+</kart>
+
+<yonetim:10> <halk:40> <para:65> <ordu:35> <konu:mal_saklayan_tüccarlar> <konuşan:tuccar>
+<kart> {hitap}, sevilen bir kâtip malları ambarda saklıyor, pazarda fiyat yükseliyor. Herkes kazanacak diyor ama kazanan sadece o. Ambara bakılsa mal çıkar, pazar açılır.
+<sol> Saklanan mala el koy <halk+> <para->
+<sonuc> Ambar açıldı, mal pazara indi, ama tüccarlar korktu ve alışveriş durdu.
+<sag> Tüccara kendi hâlini bırak <halk-> <para+>
+<sonuc> Tüccar kazandı, hazineye akçe geldi, ama pazar pahalandı ve halk yakındı.
+</kart>
+
+<yonetim:40> <halk:25> <para:70> <ordu:30> <konu:serbest> <konuşan:ahi_ustasi>
+<kart> {hitap}, bağda bir aşçı berrak üzüm suyunu sulandırıp satıyor, esnafın adı bozuluyor. Dürüst tartı isteyen ustalar sana bakıyor. Bu hileye bir son ver.
+<sol> Hileli satışı yasakla <halk+> <para->
+<sonuc> Hile bitti, esnafın adı düzeldi, ama aşçı ve yandaşları küstü.
+<sag> Esnafa kendi cezasını bırak <halk-> <para->
+<sonuc> Ustalar aşçıyı dışladı, ama hile sürdü ve alıcılar kaçtı.
+</kart>
+
+<yonetim:20> <halk:65> <para:60> <ordu:80> <konu:serbest> <konuşan:saray_hatun>
+<kart> {hitap}, sarayda endişe var; hanedandan bir çocuk kayboldu, çobanlar yaylada onu arıyor. Asker sınıra gidecek diye arama yarım kalır. Gerekli olan, önce çocuğu bulmak.
+<sol> Askeri aramaya ver <halk+> <ordu->
+<sonuc> Çocuk bulundu, hanedan rahatladı, ama sınırda nöbet zayıfladı.
+<sag> Askeri sınıra gönder <yonetim-> <halk-> <ordu+>
+<sonuc> Sınır sağlam kaldı, ama çocuk bulunamadı ve sarayda endişe büyüdü.
+</kart>
+
+<yonetim:60> <halk:60> <para:10> <ordu:35> <konu:elçi> <konuşan:baskatip>
+<kart> {hitap}, komşu krallığın elçisi kule gibi yüksek bir hediye istiyor; hazine boş, defterde akçe yok. Elçi mutlu giderse anlaşma olur, ama hediyeyi köylüden toplamak gerek.
+<sol> Hediyeyi köylüden topla <yonetim+> <halk->
+<sonuc> Elçi memnun gitti, anlaşma oldu, ama köylü vergiden yakındı.
+<sag> Elçiye sade hediye ver <yonetim-> <para+>
+<sonuc> Elçi gücendi, anlaşma gecikti, ama hazine ve köylü rahat kaldı.
+</kart>
+
+<yonetim:10> <halk:20> <para:85> <ordu:45> <konu:serbest> <konuşan:sinir_beyi>
+<kart> {hitap}, sur üstünde nöbet tutan savaşçılar soğukta titriyor; sıcak yemek yerine kuru ekmek veriliyor. Lezzetli bir aş yoksa asker nöbette uyukluyor. Sınıra sıcak yemek gönder.
+<sol> Sınıra sıcak aş gönder <para-> <ordu+>
+<sonuc> Asker ısındı, nöbet canlandı, ama hazineden akçe gitti.
+<sag> Kuru ekmeği sürdür <para+> <ordu->
+<sonuc> Hazine rahat kaldı, ama nöbette uyuyan asker yüzünden bir geçit açık kaldı.
+</kart>
+
+<yonetim:95> <halk:95> <para:70> <ordu:5> <konu:serbest> <konuşan:coban>
+<kart> {hitap}, kuzular için çuval çuval yün topladık ama ordu yok; dağdan inen kurtlar sürüyü dağıtıyor. Şirin köyümüzde kimse silah tutmuyor. Sürüyü koruyacak birkaç asker gerek.
+<sol> Köye birkaç asker ver <halk+> <ordu->
+<sonuc> Kurtlar uzaklaştı, sürü kurtuldu, ama sarayda asker kalmadı.
+<sag> Köylüye kendi sürüsünü korut <halk--> <para->
+<sonuc> Köylü sopayla kurtları kovaladı, sürünün yarısı gitti, yün pahalandı.
+</kart>
+
+<yonetim:90> <halk:80> <para:95> <ordu:15> <konu:saray_harcamaları> <konuşan:gozcu_basi>
+<kart> {hitap}, vergiyi toplayan görevli pahalı kumaşlar giyip hesap vermiyor; halkın bakışı sana döndü. Kulelerden görüyorum, köylü öfkeyle toplanıyor. Bu görevliden hesap sor.
+<sol> Görevliden hesap sor <yonetim-> <halk+>
+<sonuc> Görevli hesap verdi, halk rahatladı, ama sarayda bazıları tedirgin oldu.
+<sag> Görevliyi koru <halk--> <para+>
+<sonuc> Görevli işine devam etti, hazine doldu, ama köylü öfkesi büyüdü.
+</kart>
+
+<yonetim:10> <halk:80> <para:5> <ordu:20> <konu:maden> <konuşan:demirci_usta>
+<kart> {hitap}, ocakta demir kalmadı; kırılan aletler yara gibi iş görmez. Heybetli bir maden bulundu ama çıkarmak için para yok. Madene akçe ver, ocak yine yansın.
+<sol> Madene akçe ver <halk+> <para->
+<sonuc> Ocak yandı, aletler yapıldı, ama hazine iyice boşaldı.
+<sag> Madeni kendi hâline bırak <halk--> <para+>
+<sonuc> Ocak söndü, tarlada alet kalmadı, köylü ekin ekip biçemedi.
+</kart>
+
+<yonetim:85> <halk:95> <para:15> <ordu:65> <konu:esirler> <konuşan:soytari>
+<kart> {hitap}, esirler kafeste aç bekliyor; namuslu bir mızrak taşıyıcı bile hâline acıyor. Herkes başını sallıyor ama kimse ses çıkarmıyor. Esirleri serbest bıraksak mı, söyleyeyim mi?
+<sol> Esirleri serbest bırak <halk+> <ordu->
+<sonuc> Esirler gitti, halk rahatladı, ama ordu elindeki iş gücünü kaybetti.
+<sag> Esirleri kafeste tut <halk-> <ordu+>
+<sonuc> İş gücü kaldı, ama halk soytarının sözünü tuttu ve sana kızdı.
+</kart>
+
+<yonetim:75> <halk:35> <para:25> <ordu:90> <konu:hekim_ihtiyacı> <konuşan:kale_kumandani>
+<kart> {hitap}, kalede yanık ve yaralı askerler için hekim yok; sofra başında yaralı inliyor. Hekim gelmezse asker kalede ölüyor. Kaleye bir hekim gönder.
+<sol> Kaleye hekim gönder <para-> <ordu+>
+<sonuc> Yaralılar iyileşti, asker güçlendi, ama hazineden akçe gitti.
+<sag> Yaralıları köye gönder <halk-> <ordu->
+<sonuc> Kale hafifledi, ama köyde salgın korkusu çıktı ve asker morale düştü.
+</kart>
+
+<yonetim:35> <halk:25> <para:75> <ordu:80> <konu:yetimler> <konuşan:ciftci>
+<kart> {hitap}, köyde üç yetim kaldı; tohumları yok, tarlayı süremiyorlar. Güçlü ordu tarlayı korur ama yetim ekmezse köy aç kalır. Yetimlere tohum ve çift hayvanı ver.
+<sol> Yetimlere tohum ver <halk+> <para->
+<sonuc> Yetimler tarla sürdü, köy rahatladı, ama hazineden akçe çıktı.
+<sag> Yetimleri başkasına bırak <halk--> <para->
+<sonuc> Kimse sahip çıkmadı, tarla boş kaldı ve köyde hasat azaldı.
+</kart>
+
+<yonetim:40> <halk:90> <para:40> <ordu:55> <konu:ulak_ve_haberler> <konuşan:ozan>
+<kart> {hitap}, bir asker haksız yere suçlandı; anası kedi gibi sürekli kapında ağlıyor. Halk meydanda bu işi türkü yaptı. Ulağı gönder, gerçeği araştır.
+<sol> Ulağı gönder, işi araştır <halk+> <ordu->
+<sonuc> Gerçek çıktı, asker aklandı, halk sevindi, ama komutanlar tedirgin oldu.
+<sag> Suçlamayı olduğu gibi kabul et <yonetim-> <halk-->
+<sonuc> Asker cezalandı, ama halk meydanda türküyü sana karşı söyledi.
+</kart>
+
+<yonetim:80> <halk:60> <para:15> <ordu:30> <konu:serbest> <konuşan:dervis>
+<kart> {hitap}, kalede mancınık çürümüş, ordumuz zayıf; ama halk her yıl aynı şeyi yapıp kimse sormuyor. Alışkanlık bizi kör etmiş. Aklı öne çıkar, kaleyi onar.
+<sol> Kaleyi akılla onar <para-> <ordu+>
+<sonuc> Mancınık yenilendi, kale güçlendi, ama hazineden akçe çıktı.
+<sag> Eski düzeni sürdür <yonetim-> <ordu->
+<sonuc> Kimse bir şey sormadı, ama kale çürüdü ve sınır zayıfladı.
+</kart>
+
+<yonetim:70> <halk:15> <para:80> <ordu:90> <konu:serbest> <konuşan:vezir>
+<kart> {hitap}, halk arasında yasa bozuldu; köylü kendi başına hüküm veriyor. Şifalı bir söz gerek, yoksa herkes kılıca sarılır. Yeni bir düzen koy, ölçülü olsun.
+<sol> Yeni düzen koy <yonetim+> <halk->
+<sonuc> Düzen geri geldi, halk sustu, ama eski alışkanlıklar direndi.
+<sag> Halkı kendi hâline bırak <yonetim--> <ordu->
+<sonuc> Köylü kendi hükmünü verdi, düzen bozuldu ve ordu karıştı.
+</kart>
+
+<yonetim:70> <halk:85> <para:70> <ordu:5> <konu:köyler_arası_kavga> <konuşan:kadi>
+<kart> {hitap}, iki köy pınar başında kavgaya tutuştu; sevimsiz bir gün geçti, taşlar havada uçtu. Şahitler var, delil de var. Hükmü hemen ver, yoksa kan dökülür.
+<sol> Pınarı iki köye paylaştır <yonetim-> <halk+>
+<sonuc> Kavga dindi, iki köy suyu bölüştü, ama kimse tam memnun olmadı.
+<sag> Pınarı güçlü köye ver <yonetim+> <halk-->
+<sonuc> Güçlü köy kazandı, öteki köy kuyu kazdı ve kin büyüdü.
+</kart>
+
+<yonetim:75> <halk:15> <para:40> <ordu:60> <konu:serbest> <konuşan:koy_kethudasi>
+<kart> {hitap}, karda yollar kapandı; cesaretli birkaç köylü yardım istemek için saraya yürüdü ama kapıda bekletiliyor. Köyde erzak bitiyor. Yolu açtır, yardım gönder.
+<sol> Yolu açtır, yardım gönder <halk+> <para->
+<sonuc> Yol açıldı, erzak gitti, köy rahatladı, ama hazineden akçe çıktı.
+<sag> Köylüyü kapıda beklet <yonetim-> <halk-->
+<sonuc> Köylü öfkelendi, erzak gelmedi ve köyde açlık başladı.
+</kart>
+
+<yonetim:50> <halk:75> <para:30> <ordu:45> <konu:çekirge> <konuşan:hekim>
+<kart> {hitap}, çekirge bulutu tarlaya indi; temel ekin gitti. Saygılı köylü kapında ağlıyor, kışın aç kalacağız diyor. Ambardan tohum ver, yoksa köy boşalır.
+<sol> Ambardan tohum ver <halk+> <para->
+<sonuc> Köylü yeniden ekti, kış atlatıldı, ama ambar boşaldı.
+<sag> Ambardan tohum verme <halk--> <para+>
+<sonuc> Ambar doldu, ama köylü tarlayı bıraktı ve kışın açlık çıktı.
+</kart>
+
+<yonetim:50> <halk:10> <para:5> <ordu:35> <konu:su_hakkı> <konuşan:hazinedar>
+<kart> {hitap}, su hakkı davası hazineye yük oldu; yakın köyler sulama için akçe istiyor, hazinede ise yenilgi gibi boşluk var. Suyu olmayan tarla kurur. Su hakkını düzene koy.
+<sol> Su hakkını düzene koy <halk+> <para->
+<sonuc> Su paylaşıldı, tarlalar sulandı, ama hazineden akçe gitti.
+<sag> Suyu akçeyle sat <halk--> <para+>
+<sonuc> Hazine biraz doldu, ama fakir köylü suyu alamadı ve tarla kurudu.
+</kart>
+
+<yonetim:60> <halk:30> <para:70> <ordu:50> <konu:taht_varisi> <konuşan:elci>
+<kart> {hitap}, hamamda sis içinde iri bir yabancı taht varisi olduğunu söylüyor. Komşu krallık bu söylentiyi duymuş. Sözü kesmezsek karışıklık çıkar. Hemen elçi gönder, söylentiyi sor.
+<sol> Elçi gönder, söylentiyi sor <yonetim+> <halk->
+<sonuc> Söylenti yatıştı, komşu krallık ikna oldu, ama sarayda tedirginlik kaldı.
+<sag> Söylentiyi görmezden gel <yonetim--> <halk->
+<sonuc> Söylenti büyüdü, halk arasında taht kavgası konuşuldu ve düzen sarsıldı.
+</kart>
+
+<yonetim:60> <halk:25> <para:65> <ordu:60> <konu:miras> <konuşan:hanci>
+<kart> {hitap}, handa iki kardeş miras yüzünden birbirine girdi; biri eğri fikirle malı saklıyor. Yolcular olanları dinliyor. Kadıya gönder, mirası hakça böl.
+<sol> Mirası kadıya götür <yonetim-> <halk+>
+<sonuc> Miras hakça bölündü, kardeşler sustu, ama handa söylenti bitti.
+<sag> Kardeşleri kendi hâline bırak <halk--> <para->
+<sonuc> Kardeşler kavga etti, handa yolcular kaçtı ve ticaret azaldı.
+</kart>
+
+<yonetim:30> <halk:55> <para:65> <ordu:35> <konu:han_gelirleri> <konuşan:akinci_beyi>
+<kart> {hitap}, han gelirleri eridi; çoban sevecen bir yolcu gibi handa oturup vergi bekliyor. Atlılar hazır, hızla yol açsak hanlar dolar. Bir akınla ticaret yolunu açalım mı?
+<sol> Ticaret yolunu akınla aç <para+> <ordu->
+<sonuc> Yol açıldı, kervanlar geçti, hanlar doldu, ama sınırda çatışma çıktı.
+<sag> Hanlara yardım et <halk+> <para->
+<sonuc> Hanlar ayakta kaldı, ama yol kapalı kaldı ve gelir artmadı.
+</kart>
+
+<yonetim:5> <halk:20> <para:75> <ordu:35> <konu:mühür> <konuşan:tuccar>
+<kart> {hitap}, değerli mallar mühürsüz geçiyor; şahin gibi hızlı kaçakçılar sınırdan mal indiriyor. Mühür olmazsa pazar karışır. Her mala mühür vurdur.
+<sol> Her mala mühür vurdur <halk-> <para+>
+<sonuc> Kaçakçılık azaldı, pazar düzeldi, ama tüccar mühür parasından yakındı.
+<sag> Mührü kaldır <yonetim-> <para-->
+<sonuc> Ticaret hızlandı, ama kaçak mal pazarı sardı ve hazine zarar gördü.
+</kart>
+
+<yonetim:50> <halk:30> <para:75> <ordu:45> <konu:nöbet_düzeni> <konuşan:ahi_ustasi>
+<kart> {hitap}, esnaf nöbet düzeninde yardımsever sesini duyuramıyor; nöbeti hep aynı ustalar tutuyor, çıraklar kaçıyor. Nöbeti hakça böl, yoksa esnaf iş bırakır.
+<sol> Nöbeti hakça böl <yonetim-> <halk+>
+<sonuc> Çıraklar rahatladı, esnaf işine döndü, ama nöbetler biraz aksadı.
+<sag> Nöbeti eski düzende bırak <halk--> <para->
+<sonuc> Aynı ustalar nöbete devam etti, çıraklar kaçtı ve esnaf işi durdu.
+</kart>
+
+<yonetim:75> <halk:75> <para:85> <ordu:70> <konu:kuraklık> <konuşan:kervan_basi>
+<kart> {hitap}, kuraklık kervan yolunu kuruttu; kıskanç bir bey kuyu başını tutuyor, yolcular tepside su bekliyor. Kuyuyu halka açtır, yoksa kervan yürümez.
+<sol> Kuyuyu halka açtır <yonetim-> <halk+>
+<sonuc> Su paylaşıldı, kervan yürüdü, ama o bey sana küstü.
+<sag> Kuyuyu beye bırak <halk-> <para->
+<sonuc> Bey kazandı, kervan susuz kaldı ve yol kapanınca ticaret azaldı.
+</kart>
+
+<yonetim:35> <halk:5> <para:15> <ordu:60> <konu:silah_ve_zırh> <konuşan:saray_hatun>
+<kart> {hitap}, askerin yüzü durgun; zırhı eskimiş, silahı kırık. Halk fakir, hazine boş ama sınırda düşman atlısı var. Eldeki akçeyle silah ve zırh al.
+<sol> Silah ve zırh al <para-> <ordu++>
+<sonuc> Askerin silahı yenilendi, ordu güçlendi, ama hazine iyice boşaldı.
+<sag> Askeri eski silahla bırak <para+> <ordu-->
+<sonuc> Hazine rahat kaldı, ama sınırda bir çatışmada ordu geri çekildi.
+</kart>
+
+<yonetim:25> <halk:30> <para:35> <ordu:45> <konu:komutanlar_arası_kavga> <konuşan:baskatip>
+<kart> {hitap}, kışlada iki komutan kavga etti; birinin cenazesi bile kalkmadan öteki suçlamaya başladı. Uyanık kâtip kayıtları tutuyor. Kayıtları aç, kavgayı divanda çöz.
+<sol> Kayıtları aç, divanda çöz <yonetim+> <ordu->
+<sonuc> Kayıtlar gerçeği gösterdi, kavga divanda bitti, ama komutanlardan biri küstü.
+<sag> Kavgayı kışlada bastır <yonetim-> <ordu-->
+<sonuc> Kışlada kavga büyüdü, iki asker yaralandı ve nöbet aksadı.
+</kart>
+
+<yonetim:80> <halk:10> <para:15> <ordu:5> <konu:yaşlı_askerlerin_hakkı> <konuşan:sinir_beyi>
+<kart> {hitap}, sınırda yaşlı askerler hastalık içinde nöbet tutuyor; güçlü asker yok, hepsi yorgun. Buyruğumla yaşlıları terhis et, yerlerine genç al.
+<sol> Yaşlıları terhis et <halk+> <ordu->
+<sonuc> Yaşlılar rahatladı, ama sınırda asker kalmadı ve geçit zayıfladı.
+<sag> Yaşlıları nöbette tut <halk--> <ordu+>
+<sonuc> Sınır sağlam kaldı, ama yaşlı askerler hastalandı ve halk isyan etti.
+</kart>
+
+<yonetim:80> <halk:55> <para:55> <ordu:60> <konu:otlak_kavgası> <konuşan:coban>
+<kart> {hitap}, kayalık tepede iki oba otlak yüzünden kavga ediyor; çobanlar ter içinde sürüleri ayırıyor. Otlak yetmezse sürüler telef olur. Otlağı iki obaya böl.
+<sol> Otlağı ikiye böl <yonetim-> <halk+>
+<sonuc> Kavga dindi, sürüler otladı, ama iki oba da az otlakla yetindi.
+<sag> Otlağı büyük obaya ver <halk--> <para->
+<sonuc> Büyük oba kazandı, küçük oba dağa çıktı ve sürüsünü kurtlara kaptırdı.
+</kart>
+
+<yonetim:85> <halk:15> <para:70> <ordu:10> <konu:hastalıklı_sürü> <konuşan:gozcu_basi>
+<kart> {hitap}, kuzeyden hastalıklı sürü geldi; kızgın halk suçlanan beyi savunuyor, tabak gibi kırılan sözler dolaşıyor. Salgın yayılırsa köy boşalır. Sürüyü karantinaya al.
+<sol> Sürüyü karantinaya al <halk+> <para->
+<sonuc> Salgın durdu, halk rahatladı, ama ticaret yavaşladı.
+<sag> Sürüyü pazara sok <halk--> <para+>
+<sonuc> Pazar canlandı, ama salgın köye yayıldı ve hayvanlar telef oldu.
+</kart>
+
+<yonetim:85> <halk:45> <para:90> <ordu:30> <konu:han_ücretleri> <konuşan:demirci_usta>
+<kart> {hitap}, çeşme başında handa keyifsiz yolcular oturuyor; han ücreti yüksek, soy sop sorulup yolcu aşağılanıyor. Bu hâl yolcuları kaçırıyor. Han ücretini düşür, yolcuyu ağırla.
+<sol> Han ücretini düşür <halk+> <para->
+<sonuc> Yolcular hana döndü, handa canlılık arttı, ama han geliri azaldı.
+<sag> Han ücretini yüksek tut <halk-> <para+>
+<sonuc> Han sahibi kazandı, ama yolcular handan kaçtı ve gelir düştü.
+</kart>
+
+<yonetim:80> <halk:75> <para:10> <ordu:50> <konu:at_sürüsü> <konuşan:soytari>
+<kart> {hitap}, mevsim döndü, at sürüsü dağda kaldı; seyisler garip bir hâlde bekliyor. Atlar gelmezse ordu yürüyemez. Ama acı gerçeği söylemek de gerek: bakıcı yok.
+<sol> Atlara bakıcı gönder <para-> <ordu+>
+<sonuc> Atlar sağ salim indi, ordu hazırlandı, ama hazineden akçe gitti.
+<sag> Sürüyü kendi hâline bırak <para+> <ordu-->
+<sonuc> Atlar dağda kaldı, soğukta birkaçı telef oldu ve ordu zayıfladı.
+</kart>
+
+<yonetim:60> <halk:10> <para:95> <ordu:40> <konu:köyler_arası_kavga> <konuşan:kale_kumandani>
+<kart> {hitap}, ağaçlı yolda iki köy kavga ediyor; kuyruk gibi uzayan yolcular geçemiyor. Kale kapısını kapatırsak köyler korunur ama özgürlük kısıtlanır. Sen karar ver.
+<sol> Kale kapısını kapat <para-> <ordu+>
+<sonuc> Köyler korundu, ama yolcular kapıda kaldı ve ticaret durdu.
+<sag> Kapıyı açık tut <halk-> <ordu->
+<sonuc> Yolcular geçti, ama kavga büyüdü ve köylerde can kaybı oldu.
+</kart>
+
+<yonetim:40> <halk:35> <para:45> <ordu:10> <konu:asker_toplama> <konuşan:ciftci>
+<kart> {hitap}, asker toplama zamanı; geniş tarlada çalışan oğlumuzu alıyorlar, patika kurudu. Tarla boş kalırsa ekin olmaz. Asker toplamayı hasattan sonraya bırak.
+<sol> Asker toplamayı hasat sonrasına bırak <halk+> <ordu->
+<sonuc> Hasat kurtuldu, köylü rahatladı, ama orduya geç asker katıldı.
+<sag> Askeri hemen topla <halk-> <ordu+>
+<sonuc> Ordu doldu, ama tarla boş kaldı ve hasat yarıya indi.
+</kart>
+
+<yonetim:85> <halk:60> <para:85> <ordu:85> <konu:serbest> <konuşan:ozan>
+<kart> {hitap}, sınırda güçlü bir kale var ama kapıda bekleyen yolculara zarar veriyor; halk türküde özgürlük istiyor. Kapıyı sıkı tutarsak korunuruz, açarsak özgürlük gelir.
+<sol> Kapıyı sıkı tut <halk-> <ordu+>
+<sonuc> Sınır korundu, ama yolcular kapıda perişan oldu ve halk söylendi.
+<sag> Kapıyı aç <halk+> <ordu->
+<sonuc> Yolcular geçti, halk sevindi, ama sınırdan bir casus girdi.
+</kart>
+
+<yonetim:75> <halk:90> <para:65> <ordu:25> <konu:sel> <konuşan:dervis>
+<kart> {hitap}, sel geliyor; deveci cahil, köylü duymamış, hâlâ tarlada. Gönül istiyor ki herkes kurtulsun. Hemen haber sal, köyü yüksek yere taşı.
+<sol> Köyü yüksek yere taşı <halk++> <para->
+<sonuc> Selden kimse ölmedi, halk sevindi, ama tarlalar su altında kaldı.
+<sag> Köyü yerinde bırak <yonetim-> <halk-->
+<sonuc> Sel köyü vurdu, hayvanlar telef oldu ve halk sana küstü.
+</kart>
+
+<yonetim:20> <halk:90> <para:70> <ordu:75> <konu:hekim_ihtiyacı> <konuşan:vezir>
+<kart> {hitap}, kervan başı zararını hazineden istiyor; saygılı bir hekim ise yolda yaralılara bakacak kimse yok diyor. Hekim ve yol güvenliği aynı akçeye bağlı. Önce hekimi gönder.
+<sol> Hekimi yola gönder <halk+> <para->
+<sonuc> Yaralılar iyileşti, kervan yola devam etti, ama hazineden akçe çıktı.
+<sag> Kervan başına akçe öde <halk-> <para->
+<sonuc> Kervan başı sustu, hazine zayıfladı, ama yolda yaralılar kaldı.
+</kart>
+
+<yonetim:45> <halk:15> <para:90> <ordu:75> <konu:eşkıya> <konuşan:beylerbeyi>
+<kart> {hitap}, divanda eşkıyayı kovmak için söz verildi ama tutulmadı; halk bayramda tok oturamıyor. Beyler bağlılık istiyor, eşkıya ise yolda. Verilen sözü tut, eşkıyanın üstüne git.
+<sol> Eşkıyanın üstüne git <halk+> <ordu->
+<sonuc> Eşkıya dağıldı, yollar açıldı, ama iki asker yaralandı.
+<sag> Sözü ertele <yonetim--> <halk->
+<sonuc> Beyler söze güvenmedi, eşkıya büyüdü ve bayramda yol kesildi.
+</kart>
+
+<yonetim:80> <halk:70> <para:60> <ordu:55> <konu:mal_saklayan_tüccarlar> <konuşan:kadi>
+<kart> {hitap}, sınır boyunda tüccar mal saklıyor; kadı olarak saç saça kavga eden tarafları ayırıyorum, uykusuz kaldım. Delil var, şahit var. Malı çıkar, pazarı aç.
+<sol> Malı çıkar, pazarı aç <halk+> <para->
+<sonuc> Mal pazara indi, fiyat düştü, halk rahatladı, ama tüccar küstü.
+<sag> Malı tüccarda bırak <halk--> <para+>
+<sonuc> Tüccar malı saklamayı sürdürdü, pazar darlığı büyüdü ve halk yakındı.
+</kart>
+
+<yonetim:50> <halk:30> <para:5> <ordu:40> <konu:elçi_hediyesi> <konuşan:koy_kethudasi>
+<kart> {hitap}, elçi hediyesi için kara topraklı köyden vergi toplandı; bir hatun çocuğuyla aç kaldı. Sitemkârım, hazine boş ama halk da perişan. Hediyeyi köylüden değil, saraydan ver.
+<sol> Hediyeyi saraydan ver <yonetim-> <halk+>
+<sonuc> Köylü rahatladı, elçi hediyesini aldı, ama sarayda kısıntı oldu.
+<sag> Vergiyi köyden topla <yonetim+> <halk-->
+<sonuc> Hediye tamamlandı, ama köylü aç kaldı ve kethüda saraya sitem etti.
+</kart>
+
+<yonetim:90> <halk:75> <para:50> <ordu:40> <konu:hastalıklı_sürü> <konuşan:hazinedar>
+<kart> {hitap}, gözetleme kulesinden mavi duman göründü; hastalıklı sürü yola yaklaşıyor, yolcu kervanı da orada. Hazinede az akçe var ama salgın büyürse hepsi gider. Sürüyü durdur.
+<sol> Sürüyü durdur <halk+> <para->
+<sonuc> Salgın önlendi, yolcular kurtuldu, ama hazineden akçe çıktı.
+<sag> Sürüyü geçir <halk-> <para-->
+<sonuc> Kervan geçti, ama salgın kervana bulaştı ve pazarda hayvan fiyatı düştü.
+</kart>
+
+<yonetim:70> <halk:5> <para:85> <ordu:80> <konu:kaçak_askerler> <konuşan:elci>
+<kart> {hitap}, kaçak askerler sınırdan geçmiş; komşu krallık onları koruyor, kibirle yalan söylüyor. Halk aç, ordu güçlü ama sınırda boşluk var. Elçi gönder, kaçakları geri iste.
+<sol> Kaçakları geri iste <yonetim-> <ordu+>
+<sonuc> Komşu krallık kaçakları verdi, ordu güçlendi, ama iki krallık arası soğukluk oldu.
+<sag> Kaçakları bırak <yonetim+> <ordu-->
+<sonuc> Komşu krallık memnun kaldı, ama asker kaçaklığı arttı ve ordu zayıfladı.
+</kart>
+
+<yonetim:55> <halk:60> <para:35> <ordu:5> <konu:kıtlık> <konuşan:hanci>
+<kart> {hitap}, kıtlık kapıda; handa zincir gibi uzun kuyruk var, kararsız yolcular ekmek bekliyor. Ambarda az buğday kaldı. Ambardan halka ekmek dağıt, yoksa kıtlık büyür.
+<sol> Ambardan ekmek dağıt <halk+> <para->
+<sonuc> Halk doydu, kıtlık dindi, ama ambar boşaldı.
+<sag> Ekmeği sakla <halk--> <para+>
+<sonuc> Ambar doldu, ama handa kuyruk büyüdü ve halk açlıktan yakındı.
+</kart>
+
+<yonetim:15> <halk:75> <para:75> <ordu:25> <konu:divan_düzeni> <konuşan:akinci_beyi>
+<kart> {hitap}, divan düzeni bozuk; silahsız beyler aygır gibi sınıra koşuyor ama buyruk yok. Yorgunum, atlılar hazır değil. Divana bir düzen koy, akına çıkayım.
+<sol> Divana düzen koy <yonetim+> <ordu->
+<sonuc> Buyruk tek elden çıktı, akın düzene girdi, ama bazı beyler küstü.
+<sag> Beyleri akına sür <yonetim-> <ordu->
+<sonuc> Beyler başıboş akına çıktı, birkaç at kaybedildi ve sınırda düzen bozuldu.
+</kart>
+
+<yonetim:20> <halk:20> <para:70> <ordu:25> <konu:kayıp_kayıtlar> <konuşan:tuccar>
+<kart> {hitap}, eski kayıtlar kayboldu; odun gibi yığılmış defterler arasında malımın kaydı yok. Huzursuz tüccarlar pazara mal indirmiyor. Kayıtları yeniden tut, ticaret açılsın.
+<sol> Kayıtları yeniden tut <yonetim-> <para+>
+<sonuc> Kayıtlar düzeldi, ticaret açıldı, ama kâtipler akçe istedi.
+<sag> Kayıtsız ticarete izin ver <yonetim-> <para-->
+<sonuc> Ticaret hızlandı, ama kaçak mal arttı ve hazine zarar gördü.
+</kart>
+
+<yonetim:80> <halk:10> <para:95> <ordu:30> <konu:adalet_şikâyeti> <konuşan:ahi_ustasi>
+<kart> {hitap}, mağarada saklanan esnaf adalet bekliyor; bir yoldaş haksız yere suçlandı, minnettar ustalar sana bakıyor. Halk fakir, ordu az ama adalet gerek. Suçsuzu bırak.
+<sol> Suçsuzu bırak <yonetim-> <halk+>
+<sonuc> Suçsuz esnaf serbest kaldı, ustalar minnettar oldu, ama suçlayanlar küstü.
+<sag> Suçlamayı sürdür <halk--> <para->
+<sonuc> Esnaf mağarada kaldı, ustalar sana küstü ve çarşıda iş durdu.
+</kart>
+
+<yonetim:55> <halk:25> <para:15> <ordu:30> <konu:tuz_yolu> <konuşan:kervan_basi>
+<kart> {hitap}, tuz yolunda yılan gibi kıvrılan bir geçit var; evsiz yolcular handan geri çevrilmiş, tanınmış kervan başı bile şaşkın. Yolcular perişan. Hana yolcuları al, tuz yolunu aç.
+<sol> Yolcuları hana al <halk+> <para->
+<sonuc> Yolcular ısındı, tuz yolu açıldı, ama handa yer kalmadı.
+<sag> Yolcuları geri çevir <halk-> <para-->
+<sonuc> Han rahat kaldı, ama yolda yolcular dondu ve tuz ticareti durdu.
+</kart>
+
+<yonetim:85> <halk:55> <para:15> <ordu:15> <konu:okçular> <konuşan:saray_hatun>
+<kart> {hitap}, kalede ölü kokusu var; okçular ailelerini bırakıp nöbete gitmiyor. Ailemi düşünüyorum ama görev de gerek. Okçulara ailelerini getirt, nöbete dönsünler.
+<sol> Okçuların ailesini kaleye getirt <para-> <ordu+>
+<sonuc> Okçular nöbete döndü, kale güçlendi, ama hazineden akçe gitti.
+<sag> Okçuları nöbete zorla <halk-> <ordu->
+<sonuc> Okçular kalede kaldı ama aileleri aç kaldı ve ordu moralini yitirdi.
+</kart>
+
+<yonetim:20> <halk:70> <para:25> <ordu:80> <konu:serbest> <konuşan:baskatip>
+<kart> {hitap}, fırtınalı gecede yıldırım ambarı tutuşturdu; köylü erzak bekliyor, ordu güçlü ama kayıtlar yandı. Ambardan erzak dağıt, yoksa kışın açlık çıkar.
+<sol> Ambardan erzak dağıt <halk+> <para->
+<sonuc> Köylü doydu, kış atlatıldı, ama ambar boşaldı.
+<sag> Erzağı orduya sakla <halk--> <ordu+>
+<sonuc> Ordu erzağı korundu, ama köylü aç kaldı ve ambara saldırdı.
+</kart>
+
+<yonetim:30> <halk:90> <para:75> <ordu:65> <konu:asker_toplama> <konuşan:sinir_beyi>
+<kart> {hitap}, sınırda huzur bozuldu; evsiz yolcular handan geri çevrilmiş, düşünceli halk ise asker toplamaya karşı. Asker gerek ama halk korkuyor. Asker toplamayı yumuşat, gönüllü al.
+<sol> Gönüllü asker al <halk+> <ordu->
+<sonuc> Halk rahatladı, orduya gönüllü katıldı, ama asker sayısı az kaldı.
+<sag> Zorla asker topla <halk--> <ordu+>
+<sonuc> Ordu doldu, ama halk öfkelendi ve yolcular sınırdan kaçtı.
+</kart>
+
+<yonetim:45> <halk:35> <para:95> <ordu:95> <konu:sel> <konuşan:coban>
+<kart> {hitap}, dağdan sel geliyor; duvar gibi yükselen su yaylayı basacak. Sürüler hazır ama çoban dalgın, kimse ses duymuyor. Sürüyü yüksek yere çek, seli bekle.
+<sol> Sürüyü yüksek yere çek <halk+> <para->
+<sonuc> Sürüler kurtuldu, sel zarar vermedi, ama otlak bir süre boş kaldı.
+<sag> Sürüyü yerinde bırak <halk-> <para-->
+<sonuc> Sel sürüyü vurdu, hayvanlar telef oldu ve yün pahalandı.
+</kart>
+
+<yonetim:5> <halk:50> <para:80> <ordu:15> <konu:çırak_yetiştirme> <konuşan:soytari>
+<kart> {hitap}, köy halkı ortak kilimi bölüşemiyor; minik çıraklar soy sop sorulup işe alınmıyor. Herkes başını sallıyor, kimse çırak yetiştirmiyor. Çırakları işe al, kilimi köye bırak.
+<sol> Çırakları işe al <halk+> <para->
+<sonuc> Çıraklar iş buldu, esnaf canlandı, ama eski ustalar küstü.
+<sag> Kilimi güçlüye ver <yonetim-> <halk-->
+<sonuc> Kilim güçlüde kaldı, çıraklar işsiz kaldı ve köyde kavga büyüdü.
+</kart>
+
+<yonetim:10> <halk:50> <para:30> <ordu:60> <konu:komşu_krallıkla_antlaşma> <konuşan:kale_kumandani>
+<kart> {hitap}, komşu krallık pençe gibi sınıra uzanıyor; ortak bir antlaşma sınırı rahatlatır. Kale güçlü ama hazine az. Elçi gönder, antlaşma yap.
+<sol> Antlaşma yap <yonetim+> <ordu->
+<sonuc> Sınır rahatladı, ordu kalede kaldı, ama komşu krallık biraz toprak aldı.
+<sag> Antlaşmayı reddet <yonetim+> <ordu->
+<sonuc> Sınırda çatışma çıktı, kale dayandı ama iki asker öldü.
+</kart>
+
+<yonetim:5> <halk:20> <para:30> <ordu:35> <konu:köyler_arası_kavga> <konuşan:ciftci>
+<kart> {hitap}, iki köy tarla sınırı yüzünden kavga ediyor; korkmuş bir baba çocuğunu saklıyor. Tarla boş kalırsa ekin olmaz. Sınırı kadıya çizdir, kavgayı durdur.
+<sol> Sınırı kadıya çizdir <yonetim-> <halk+>
+<sonuc> Sınır çizildi, kavga dindi, ama iki köy de az tarla aldı.
+<sag> Kavgayı kendi hâline bırak <halk--> <para->
+<sonuc> Kavga büyüdü, tarlalar sürülmedi ve köyde açlık başladı.
+</kart>
+
+<yonetim:65> <halk:40> <para:50> <ordu:45> <konu:yol_yapımı> <konuşan:ozan>
+<kart> {hitap}, bağ yolunda beyaz taşlar döşeniyor; işçi alımında yetenek değil akrabalık bakılıyor. Halk türküde bunu söylüyor. İşi yetenekliye ver, yolu bitir.
+<sol> İşi yetenekliye ver <yonetim-> <halk+>
+<sonuc> Yol sağlam yapıldı, halk sevindi, ama akrabalar küstü.
+<sag> Akrabaları işe al <yonetim--> <para->
+<sonuc> Akrabalar iş buldu, yol çürük yapıldı ve yağmurda yol kapandı.
+</kart>
+
+<yonetim:5> <halk:45> <para:65> <ordu:45> <konu:nöbet_düzeni> <konuşan:vezir>
+<kart> {hitap}, nöbet düzeninde dostluk iyi görünüyor ama buyruk karışık; iki komutan aynı nöbete asker veriyor. Düzen bozulursa sınır zayıflar. Nöbeti tek buyruğa bağla.
+<sol> Nöbeti tek buyruğa bağla <yonetim+> <ordu->
+<sonuc> Nöbet düzeldi, sınır sağlamlaştı, ama bir komutan küstü.
+<sag> Nöbeti komutanlara bırak <yonetim-> <ordu-->
+<sonuc> Komutanlar kendi başına nöbet tuttu, iki yerde boşluk kaldı ve sınır zayıfladı.
+</kart>
+
+<yonetim:90> <halk:45> <para:35> <ordu:40> <konu:kale_onarımı> <konuşan:beylerbeyi>
+<kart> {hitap}, kale gölge gibi çökmüş, dertli beyler onarım istiyor; halk ise vergiden yorgun. Kale onarılırsa ordu güçlenir, halk zorlanır. Kararı sen ver.
+<sol> Kaleyi onar <halk-> <ordu++>
+<sonuc> Kale güçlendi, ordu sağlamlaştı, ama halk vergiden yakındı.
+<sag> Kale onarımını ertele <halk+> <ordu-->
+<sonuc> Halk rahat kaldı, ama kale çöktü ve sınır savunması zayıfladı.
+</kart>
+
+<yonetim:75> <halk:70> <para:20> <ordu:45> <konu:eşkıya> <konuşan:kadi>
+<kart> {hitap}, eşkıya köy bastı; çaresiz halk kadıya koşuyor, hazine ise boş. Şahitler var, hüküm gerek. Eşkıyanın üstüne git, halkı koru.
+<sol> Eşkıyanın üstüne git <halk+> <para->
+<sonuc> Eşkıya dağıldı, köy korundu, ama hazineden akçe çıktı.
+<sag> Hükmü ertele <yonetim-> <halk-->
+<sonuc> Eşkıya köyde kaldı, halk kendi başının çaresine baktı ve düzen bozuldu.
+</kart>
+
+<yonetim:25> <halk:40> <para:15> <ordu:10> <konu:demir_ve_kömür> <konuşan:hazinedar>
+<kart> {hitap}, soğuk kışta demirci ocağı söndü; diş gibi kırılan aletler iş görmez. Kömür ve demir yok, hazine de boş. Kömür al, ocağı yak.
+<sol> Kömür al, ocağı yak <halk+> <para->
+<sonuc> Ocak yandı, aletler yapıldı, ama hazine iyice boşaldı.
+<sag> Ocağı kapalı tut <halk--> <para+>
+<sonuc> Hazine rahat kaldı, ama tarlada alet kalmadı ve ekin ekilemedi.
+</kart>
+
+<yonetim:95> <halk:5> <para:20> <ordu:60> <konu:taht_varisi> <konuşan:elci>
+<kart> {hitap}, sahil boyunda umutlu bir kalabalık taht varisi diye birini karşılıyor; halk aç, söylenti büyük. Bu iş karışıklık çıkarır. Elçi gönder, söylentiyi soruştur.
+<sol> Söylentiyi soruştur <yonetim+> <halk->
+<sonuc> Söylenti yatıştı, düzen korundu, ama halk umudunu yitirdi.
+<sag> Kalabalığı dağıt <yonetim--> <halk->
+<sonuc> Kalabalık dağıldı, ama halk öfkelendi ve sahilde toplanma büyüdü.
+</kart>
+
+<yonetim:55> <halk:75> <para:60> <ordu:65> <konu:serbest> <konuşan:hanci>
+<kart> {hitap}, handa fedakâr bir aşçı kümes gibi kalabalık yolculara yetişemiyor; gönül herkese yemek istiyor, hesap ise yetmiyor. Handaki yemeğe bir sınır koy, yoksa han kapanır.
+<sol> Yemek payını sınırla <halk-> <para+>
+<sonuc> Han ayakta kaldı, hesap düzeldi, ama yolcular az yemek buldu.
+<sag> Herkese yemek ver <halk+> <para-->
+<sonuc> Yolcular doydu, handa sevgi arttı, ama erzak bitti ve han kapandı.
+</kart>
+
+<yonetim:75> <halk:25> <para:10> <ordu:30> <konu:serbest> <konuşan:akinci_beyi>
+<kart> {hitap}, ormanda yasak avlanan vahşi atlılar türedi; köylü korkudan tarlaya gidemiyor. Atlılar hazır ama akın için para yok. Yasak avcıların üstüne git.
+<sol> Yasak avcıların üstüne git <halk+> <ordu->
+<sonuc> Avcılar dağıldı, orman güvenli oldu, ama iki atlı yaralandı.
+<sag> Avcıları kendi hâline bırak <halk--> <para->
+<sonuc> Avcılar çoğaldı, köylü tarladan korktu ve hasat azaldı.
+</kart>
+
+<yonetim:50> <halk:5> <para:10> <ordu:40> <konu:çeşme_onarımı> <konuşan:ahi_ustasi>
+<kart> {hitap}, deprem çeşmeyi yıktı; halk susuz, esnaf ise kârlı iş peşinde. Çeşmeyi onarmak huzur getirir, ama ün peşinde koşan ustalar onarımı savsaklıyor. Çeşmeyi onart.
+<sol> Çeşmeyi onart <halk+> <para->
+<sonuc> Çeşme açıldı, halk suya kavuştu, ama hazineden akçe çıktı.
+<sag> Onarımı ertele <yonetim-> <halk-->
+<sonuc> Halk susuz kaldı, çeşme başında kavga çıktı ve esnaf iş yapamadı.
+</kart>
+
+<yonetim:70> <halk:10> <para:10> <ordu:55> <konu:ambar> <konuşan:kervan_basi>
+<kart> {hitap}, at pazarında çadır gibi gerilmiş hünerli tüccarlar ambarı doldurmuş ama halk aç. Ambar boşaltılırsa pazar canlanır. Ambarı aç, halka erzak dağıt.
+<sol> Ambarı aç, erzak dağıt <halk+> <para->
+<sonuc> Halk doydu, pazar canlandı, ama tüccar zarar etti.
+<sag> Ambarı kapalı tut <halk--> <para+>
+<sonuc> Tüccar kazandı, halk aç kaldı ve at pazarında kavga çıktı.
+</kart>
+
+<yonetim:65> <halk:80> <para:15> <ordu:60> <konu:at_sürüsü> <konuşan:saray_hatun>
+<kart> {hitap}, at sürüsü dağda kaldı; sessiz bir kader gibi bekliyoruz. Atlar gelmezse ordu yürüyemez, ama hazinede akçe yok. Seyis gönder, sürüyü indir.
+<sol> Seyis gönder, sürüyü indir <para-> <ordu+>
+<sonuc> Atlar indi, ordu hazırlandı, ama hazineden akçe gitti.
+<sag> Sürüyü dağda bırak <halk-> <ordu-->
+<sonuc> Atlar dağda telef oldu, ordu yürüyemedi ve sınır zayıfladı.
+</kart>
+
+<yonetim:60> <halk:30> <para:35> <ordu:95> <konu:nöbet_düzeni> <konuşan:baskatip>
+<kart> {hitap}, nöbet düzeninde vefa kalmadı; yaşlı askerler son günlerinde nöbette unutuluyor. Ordu güçlü ama nöbet karışık. Nöbeti yeniden düzenle, yaşlılara yer ver.
+<sol> Nöbeti yeniden düzenle <yonetim+> <ordu->
+<sonuc> Nöbet düzeldi, yaşlılar rahatladı, ama bazı komutanlar küstü.
+<sag> Nöbeti eski düzende bırak <halk-> <ordu-->
+<sonuc> Nöbet karıştı, yaşlı askerler yoruldu ve sınırda boşluk kaldı.
+</kart>
+
+<yonetim:50> <halk:20> <para:30> <ordu:85> <konu:yangın> <konuşan:sinir_beyi>
+<kart> {hitap}, sınırda yangın çıktı; suçlu açıkta, köylü evini kurtarmaya çalışıyor. Ordu güçlü ama halk perişan. Askeri yangına sür, suçluyu da yakala.
+<sol> Askeri yangına sür <yonetim-> <halk+>
+<sonuc> Yangın söndü, halk kurtuldu, ama suçlu kaçtı.
+<sag> Suçluyu yakala <yonetim+> <halk-->
+<sonuc> Suçlu yakalandı, ama yangın büyüdü ve köy yandı.
+</kart>
+
+<yonetim:5> <halk:35> <para:85> <ordu:35> <konu:serbest> <konuşan:demirci_usta>
+<kart> {hitap}, bir bey halktan yüksek gizli haraç topluyor; yorgan gibi örttüğü işi demirci ocağında konuşuluyor. Halk yoksul, hazine ise bu haracı görmüyor. Beyden hesap sor.
+<sol> Beyden hesap sor <yonetim-> <halk+>
+<sonuc> Gizli haraç ortaya çıktı, halk rahatladı, ama bey sana küstü.
+<sag> Beyi koru <halk--> <para+>
+<sonuc> Bey haracı sürdürdü, halk yoksullaştı ve ocakta isyan sözü dolaştı.
+</kart>
+
+<yonetim:45> <halk:95> <para:50> <ordu:45> <konu:miras> <konuşan:soytari>
+<kart> {hitap}, açgözlü bir mirasçı fare gibi ambarı kemiriyor; halk ise teselli sözü bekliyor. Acı gerçeği söyleyeyim mi? Mirası hakça böl, yoksa ambar boşalır.
+<sol> Mirası hakça böl <halk+> <para->
+<sonuc> Miras bölündü, ambar kurtuldu, ama açgözlü mirasçı küstü.
+<sag> Mirası açgözlüye bırak <halk--> <para+>
+<sonuc> Ambar boşaldı, halk aç kaldı ve mirasçı daha da zenginleşti.
+</kart>
+
+<yonetim:30> <halk:45> <para:90> <ordu:95> <konu:okçular> <konuşan:kale_kumandani>
+<kart> {hitap}, kalede okçuların ekmeği yamalı; yayları eski, nöbet uzun. Ordu güçlü görünüyor ama okçu aç. Okçulara ekmek ve yeni yay ver.
+<sol> Okçulara ekmek ve yay ver <para-> <ordu+>
+<sonuc> Okçular güçlendi, kale sağlamlaştı, ama hazineden akçe çıktı.
+<sag> Okçuları eski hâlde bırak <halk-> <ordu-->
+<sonuc> Okçular aç kaldı, nöbette uyudu ve sınırda gedik açıldı.
+</kart>
+
+<yonetim:10> <halk:30> <para:5> <ordu:5> <konu:ambar> <konuşan:ciftci>
+<kart> {hitap}, köylünün borcu ulu dağ gibi büyümüş; ambar boş, tarla ekilemiyor. Borç affedilmezse köylü toprağı bırakır. Borçları sil, tohum ver.
+<sol> Borçları sil, tohum ver <halk+> <para->
+<sonuc> Köylü rahatladı, tarla ekildi, ama hazine iyice boşaldı.
+<sag> Borçları topla <halk--> <para+>
+<sonuc> Hazine biraz doldu, ama köylü toprağı bıraktı ve ambar boş kaldı.
+</kart>
+
+<yonetim:30> <halk:20> <para:30> <ordu:50> <konu:maden> <konuşan:ozan>
+<kart> {hitap}, madende çalışanlar işlemeli elbiselerle sohbet edip iş bırakmış; maden boş, hazine az. Halk türküde madenin kapanmasını söylüyor. Madene işçi gönder, üretimi başlat.
+<sol> Madene işçi gönder <halk-> <para+>
+<sonuc> Maden açıldı, demir çıktı, ama işçiler zorla çalıştı ve halk söylendi.
+<sag> Madeni kapat <halk+> <para->
+<sonuc> Maden kapandı, işçiler rahatladı, ama hazineye demir gelmedi.
+</kart>
+
+<yonetim:75> <halk:25> <para:95> <ordu:30> <konu:geçit_koruma> <konuşan:dervis>
+<kart> {hitap}, gece geçitte alçak bir yol var; yabancı atlılar oradan sızıyor, köylü korkuyor. Ordu az, hazine bol. Geçide asker koy, yolu kapat.
+<sol> Geçide asker koy <para-> <ordu+>
+<sonuc> Geçit kapandı, sızma durdu, ama asker sayısı azaldı.
+<sag> Geçidi açık bırak <yonetim--> <halk->
+<sonuc> Yabancı atlılar sızdı, köylü korktu ve sınırda karışıklık çıktı.
+</kart>
+
+<yonetim:75> <halk:10> <para:10> <ordu:95> <konu:kervansaray_yapımı> <konuşan:vezir>
+<kart> {hitap}, eski silahlar kullanılamaz hâle geldi; çekingen asker yeni silah bekliyor. Kervansaray yapımı için ayrılan akçe var ama hazine boş. Silaha akçe ayır.
+<sol> Silaha akçe ayır <para-> <ordu++>
+<sonuc> Asker yeni silah aldı, ordu güçlendi, ama kervansaray yapılamadı.
+<sag> Kervansarayı yap <para+> <ordu-->
+<sonuc> Kervansaray açıldı, ticaret arttı, ama ordu eski silahla kaldı.
+</kart>
+
+<yonetim:85> <halk:90> <para:80> <ordu:95> <konu:okçular> <konuşan:kadi>
+<kart> {hitap}, okçular arasında isyan söylentisi var; canlı kuş gibi uçan sözler her yere yayılıyor. Delil zayıf, şahit korkuyor. Söylentiyi araştır, suçluyu bul.
+<sol> Söylentiyi araştır <yonetim+> <ordu->
+<sonuc> Suçlu bulundu, isyan önlendi, ama okçular arasında kırgınlık kaldı.
+<sag> Söylentiyi bastır <yonetim-> <ordu-->
+<sonuc> Söylenti büyüdü, okçular toplandı ve isyan çıktı.
+</kart>
+
+<yonetim:35> <halk:65> <para:85> <ordu:60> <konu:saray_görevlileri> <konuşan:koy_kethudasi>
+<kart> {hitap}, saray görevlileri savurgan; köyde yenilgi gibi bir yoksulluk var. Vergi toplanıyor ama köye bir şey gelmiyor. Görevlilerin harcamasını denetle.
+<sol> Görevlileri denetle <yonetim-> <halk+>
+<sonuc> Savurganlık azaldı, köye akçe kaldı, ama görevliler küstü.
+<sag> Görevlileri serbest bırak <halk-> <para-->
+<sonuc> Görevliler harcamayı sürdürdü, hazine boşaldı ve köy yoksullaştı.
+</kart>
+
+<yonetim:25> <halk:65> <para:45> <ordu:5> <konu:yol_yapımı> <konuşan:hekim>
+<kart> {hitap}, sisli yolda bir baba çocuğuyla yolu kaybetmiş; patika çamur, hekim yetişemiyor. Yol yapılmazsa hasta köye ulaşamaz. Yolu yaptır, geçidi aç.
+<sol> Yolu yaptır <halk+> <para->
+<sonuc> Yol açıldı, hekim köye ulaştı, ama hazineden akçe çıktı.
+<sag> Yolu kendi hâline bırak <yonetim-> <halk-->
+<sonuc> Yol çamurda kaldı, hasta çocuk hekime ulaşamadı ve köyde korku büyüdü.
+</kart>
+
+<yonetim:10> <halk:40> <para:25> <ordu:90> <konu:divan_düzeni> <konuşan:kadi>
+<kart> Divanda herkes sözümü kesiyor, tepsi elden ele dolaşıyor ama hüküm çıkmıyor. Böyle giderse şerefli bir divan diye bir şey kalmayacak, {hitap}.
+<sol> Divana düzen koy <yonetim++> <ordu->
+<sonuc> Kadı sırayı belirledi, hükümler hızlandı, ama kıdemli beyler küstü.
+<sag> Divanı topla, kadıya bırak <yonetim+> <halk+> <ordu-->
+<sonuc> Kadı divanı tek başına yönetti, adalet işledi, ama beyler yetkisiz kaldı.
+</kart>
+
+<yonetim:65> <halk:30> <para:25> <ordu:60> <konu:kuraklık> <konuşan:demirci_usta>
+<kart> Ocağım su bulamıyor, kömür bile nemli. Uzun kuraklık nal işini bitirdi; komşudan su istemek gurura sığmıyor ama başka çare yok.
+<sol> Komşudan su iste <yonetim-> <para+> <ordu+>
+<sonuc> Su geldi, ocak yandı, ama komşu krallık karşılığında söz istedi.
+<sag> Kuyu kazdır <yonetim+> <para--> <ordu->
+<sonuc> Kuyu çıktı ama su az; demirci nalı zor yetiştirdi, gurur korundu.
+</kart>
+
+<yonetim:40> <halk:35> <para:70> <ordu:75> <konu:at_ve_nal> <konuşan:kervan_basi>
+<kart> Kervanın eyeri kırık, nal ustası utangaç utangaç yüzüme bakıyor. Yolda eşkıya var; sırrı saklayıp yola mı çıksam, dürüstçe geciktirsem mi?
+<sol> Sırrı sakla, yola çık <halk-> <para+> <ordu->
+<sonuc> Kervan karanlıkta geçti, yük kurtuldu, ama bir katır uçurumda kaldı.
+<sag> Dürüstçe geciktir <halk+> <para-> <ordu+>
+<sonuc> Kervan bir gün bekledi, nal yapıldı, eşkıya başka yola gitti; pazar gecikti.
+</kart>
+
+<yonetim:85> <halk:75> <para:65> <ordu:40> <konu:kale_savunması> <konuşan:saray_hatun>
+<kart> Kalenin süslü kapısı var ama arkası boş; surda yaprak gibi ince bir nöbet kalmış. İncelik isterim ama savunma da elden gitmesin.
+<sol> Suru kalınlaştır <yonetim+> <para-> <ordu++>
+<sonuc> Sur güçlendi, kapı sadeleşti, hazine biraz inceldi.
+<sag> Süsü koru <yonetim-> <para+> <ordu-->
+<sonuc> Saray göz alıcı kaldı, ama surda gedik açıldı.
+</kart>
+
+<yonetim:55> <halk:90> <para:10> <ordu:35> <konu:eşkıya> <konuşan:baskatip>
+<kart> Kayıtlarda eşkıya baskını bir beşik gibi her yıl tekrarlanıyor, taze haber yok. Defterim şaşkın, para da yok; ne yazayım, {hitap}?
+<sol> Kaydı kapat, sus <yonetim-> <halk--> <ordu->
+<sonuc> Defter kapandı, halk habersiz kaldı, eşkıya yine bastı.
+<sag> Kaydı açık tut, haber sal <yonetim+> <halk+> <para->
+<sonuc> Haber köylere ulaştı, halk tedbir aldı, ama defter masrafı arttı.
+</kart>
+
+<yonetim:45> <halk:20> <para:80> <ordu:15> <konu:serbest> <konuşan:elci>
+<kart> Bilgili bir kâtip ter içinde geldi, uzak yurtlarda isyan söylentisi var diyor. Elimde ordu yok; anlaşmayla mı bastırsak, haber mi yaysak?
+<sol> Anlaşma öner <yonetim+> <para-> <ordu->
+<sonuc> Söylenti dindi, ama karşı taraf taviz kopardı.
+<sag> Haber yay <yonetim-> <halk--> <para+>
+<sonuc> Halk söylentiyi duydu, telaş arttı, ordu toplanamadı.
+</kart>
+
+<yonetim:55> <halk:20> <para:90> <ordu:75> <konu:ambar> <konuşan:saray_hatun>
+<kart> Ambarda koç gibi iri buğday yığını var ama paylaşım şirin değil; halk aç, ambar dolu. İncelikle mi dağıtsak, sıkı mı tutsak?
+<sol> Ambarı aç <halk++> <para-> <ordu->
+<sonuc> Halk doydu, ambar boşaldı, ordu erzakı azaldı.
+<sag> Ambarı sıkı tut <yonetim+> <halk--> <ordu+>
+<sonuc> Erzak korundu, halk ambar kapısında bekledi, homurtu arttı.
+</kart>
+

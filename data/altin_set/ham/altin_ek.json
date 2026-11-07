@@ -1,0 +1,2180 @@
+[
+  {
+    "konusan": "ozan",
+    "konu": "han_ucretleri",
+    "metin": "{hitap}, hanlar yolcuya çok ücret alıyor; yolcular mağara gibi soğuk yerlerde yatıyor. Türkülerde bile han ücreti yakınılıyor. Han ücretine bir sınır gerek.",
+    "sol": {
+      "etiket": "Han ücretine sınır koy",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yolcular hana döndü, hanlar az kazandı, ama halk türküde seni andı."
+    },
+    "sag": {
+      "etiket": "Hanları kendi hâline bırak",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Hanlar kazandı, hazineye akçe geldi, ama yolcular çekildi ve hanlar boş kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "dervis",
+    "konu": "saray_harcamalari",
+    "metin": "{hitap}, sarayda sofra kurulurken kışlada asker ekmeği paylaşamıyor. Bir abla çocuğuyla kapıda perişan bekliyor. Saray harcamasını azalt, payı kışlaya ve yoksula ver.",
+    "sol": {
+      "etiket": "Saray harcamasını kıs",
+      "etki": {
+        "yonetim": -5,
+        "ordu": 5
+      },
+      "sonuc": "Kışla erzağı arttı, asker sustu, ama sarayda işler yavaşladı."
+    },
+    "sag": {
+      "etiket": "Saray sofrasını sürdür",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5,
+        "ordu": -10
+      },
+      "sonuc": "Sarayda düzen bozulmadı, ama kışlada kavga büyüdü ve yoksul kapıdan gitti."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "vezir",
+    "konu": "deprem",
+    "metin": "{hitap}, bahar gelmeden deprem oldu; kocaman taşlar yolu kapattı. Ordumuz az, kılıçla yol açamayız. İlim ehliyle ölçüp yolu açmak, halkı da rahatlatır.",
+    "sol": {
+      "etiket": "İlim ehlini çağır, yolu ölçtür",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yol ölçülüp açıldı, halk rahatladı, ama iş uzun sürdü ve hazine yoruldu."
+    },
+    "sag": {
+      "etiket": "Askeri yola sür",
+      "etki": {
+        "halk": -5,
+        "ordu": -10
+      },
+      "sonuc": "Asker taşları kaldıramadı, yol kapalı kaldı, ordu yorgun düştü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "beylerbeyi",
+    "konu": "divan_duzeni",
+    "metin": "{hitap}, divanda beyler dost gibi neşeyle oturuyor ama buyruk kimden çıkacağı belli değil. Uzak yurtlardan gelen beyler kendi başına iş yapıyor. Divana bir düzen koy.",
+    "sol": {
+      "etiket": "Divana sıra ve buyruk koy",
+      "etki": {
+        "yonetim": 10,
+        "ordu": -5
+      },
+      "sonuc": "Buyruklar tek yerden çıktı, beyler bağlandı, ama bazı beyler küstü."
+    },
+    "sag": {
+      "etiket": "Beyleri serbest bırak",
+      "etki": {
+        "yonetim": -10,
+        "halk": 5
+      },
+      "sonuc": "Beyler neşeyle iş gördü, ama sınır boyunda buyruk karıştı ve düzen bozuldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "serbest",
+    "metin": "{hitap}, iki köylü bir destanı kendi malı sayıp davalık oldu; şahit yok, delil zayıf. Kararlı bir hüküm gerek, yoksa herkes kendi hakkını kılıçla arar.",
+    "sol": {
+      "etiket": "Davayı kendi önünde gör",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Hüküm kesin çıktı, taraflar sustu, ama kadının işi uzadı ve yönetim yoruldu."
+    },
+    "sag": {
+      "etiket": "Davayı köy kethüdasına bırak",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Köyde taraf tutuldu, biri galip geldi, öteki küstü ve dava büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "koy_kethudasi",
+    "konu": "komutanlar_arasi_kavga",
+    "metin": "{hitap}, iki komutan pazarda halkın önünde birbirine girdi; köylü kurak tarladan gelip bunu gördü. Asker birbirine düşerse köyü kim korur? Bu kavgayı hemen kes.",
+    "sol": {
+      "etiket": "İki komutanı divana çağır",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Komutanlar divanda sustu, kavga kesildi, ama orduda kırgınlık kaldı."
+    },
+    "sag": {
+      "etiket": "Komutanları yerinde cezalandır",
+      "etki": {
+        "halk": -5,
+        "ordu": 5
+      },
+      "sonuc": "Cezayı gören asker korktu, kavga bitti, ama halk cezayı sert buldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hekim",
+    "konu": "yangin",
+    "metin": "{hitap}, mahallede yangın çıktı; bir çuval unu kurtarmak için koşan yaşlı yandı. Askeri su taşımaya versek yangın söner; ama kışlada nöbet boş kalır. Affedici ol, halkı koru.",
+    "sol": {
+      "etiket": "Askeri su taşımaya ver",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Yangın söndü, halk rahatladı, ama kışlada nöbet zayıfladı."
+    },
+    "sag": {
+      "etiket": "Askeri kışlada tut",
+      "etki": {
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Nöbet sağlam kaldı, ama yangın büyüdü ve mahalle yandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hazinedar",
+    "konu": "serbest",
+    "metin": "{hitap}, hazine boş; bir çırak upuzun bir gider defteri getirdi, her kalemde borç var. Askerin nalı, köylünün tohumu borçla alınıyor. Bir yerden kısmak gerek, yoksa defter kapanmaz.",
+    "sol": {
+      "etiket": "Saray giderini kıs",
+      "etki": {
+        "yonetim": -5,
+        "para": 5
+      },
+      "sonuc": "Hazine biraz nefes aldı, ama sarayda işler aksadı."
+    },
+    "sag": {
+      "etiket": "Vergiyi hemen topla",
+      "etki": {
+        "halk": -10,
+        "para": 10
+      },
+      "sonuc": "Hazine doldu, ama köylü vergiyi veremedi ve tarlayı bıraktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "elci",
+    "konu": "goc_edenler",
+    "metin": "{hitap}, komşu krallıktan göç edenler sınıra geldi; aralarında dilenci de var, alçak da. Komşu krallık onları geri istiyor. Onları alırsak komşuyla söz bozulur, almazsak yol açık kalır.",
+    "sol": {
+      "etiket": "Göç edenleri içeri al",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Gelenler yerleşti, tarla açtı, ama komşu krallık sınıra asker yığdı."
+    },
+    "sag": {
+      "etiket": "Göç edenleri geri çevir",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5
+      },
+      "sonuc": "Komşu krallık memnun kaldı, ama sınırda yolcular perişan oldu ve halk söylendi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hanci",
+    "konu": "evlilik",
+    "metin": "{hitap}, handa iki genç evlenmek istiyor; kızın babası başka köyden, oğlanın ailesi terazi gibi tartıp başlık istiyor. Atak bir söz gerek, yoksa iki köy birbirine girecek.",
+    "sol": {
+      "etiket": "Başlığı yasakla, düğünü yaptır",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Gençler evlendi, iki köy barıştı, ama başlık isteyen aileler küstü."
+    },
+    "sag": {
+      "etiket": "Başlığı aileye bırak",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10
+      },
+      "sonuc": "Aileler kendi arasında anlaştı, ama fakir oğlan kızı alamadı ve köyde kavga çıktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "akinci_beyi",
+    "konu": "beylerin_bagliligi",
+    "metin": "{hitap}, uzak yurtların beyleri şölene gelmiyor, bağlılık sözü vermiyor. Atlılar hazır, hız bizim işimiz. Bir akınla beyleri yerine getirirsek bağlılık sağlanır, ama kan dökülür.",
+    "sol": {
+      "etiket": "Beylere akın yap",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Beyler yerine geldi, bağlılık sağlandı, ama iki beyin köyü yandı ve halk korktu."
+    },
+    "sag": {
+      "etiket": "Beyleri şölende bekle",
+      "etki": {
+        "yonetim": -10,
+        "halk": -5
+      },
+      "sonuc": "Şölen boş geçti, beyler bağlılık sözü vermedi, uzak yurtlarda buyruk zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "tuccar",
+    "konu": "mal_saklayan_tuccarlar",
+    "metin": "{hitap}, sevilen bir kâtip malları ambarda saklıyor, pazarda fiyat yükseliyor. Herkes kazanacak diyor ama kazanan sadece o. Ambara bakılsa mal çıkar, pazar açılır.",
+    "sol": {
+      "etiket": "Saklanan mala el koy",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Ambar açıldı, mal pazara indi, ama tüccarlar korktu ve alışveriş durdu."
+    },
+    "sag": {
+      "etiket": "Tüccara kendi hâlini bırak",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Tüccar kazandı, hazineye akçe geldi, ama pazar pahalandı ve halk yakındı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ahi_ustasi",
+    "konu": "serbest",
+    "metin": "{hitap}, bağda bir aşçı berrak üzüm suyunu sulandırıp satıyor, esnafın adı bozuluyor. Dürüst tartı isteyen ustalar sana bakıyor. Bu hileye bir son ver.",
+    "sol": {
+      "etiket": "Hileli satışı yasakla",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Hile bitti, esnafın adı düzeldi, ama aşçı ve yandaşları küstü."
+    },
+    "sag": {
+      "etiket": "Esnafa kendi cezasını bırak",
+      "etki": {
+        "halk": -5,
+        "para": -5
+      },
+      "sonuc": "Ustalar aşçıyı dışladı, ama hile sürdü ve alıcılar kaçtı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "serbest",
+    "metin": "{hitap}, sarayda endişe var; hanedandan bir çocuk kayboldu, çobanlar yaylada onu arıyor. Asker sınıra gidecek diye arama yarım kalır. Gerekli olan, önce çocuğu bulmak.",
+    "sol": {
+      "etiket": "Askeri aramaya ver",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Çocuk bulundu, hanedan rahatladı, ama sınırda nöbet zayıfladı."
+    },
+    "sag": {
+      "etiket": "Askeri sınıra gönder",
+      "etki": {
+        "yonetim": -5,
+        "halk": -5,
+        "ordu": 5
+      },
+      "sonuc": "Sınır sağlam kaldı, ama çocuk bulunamadı ve sarayda endişe büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "baskatip",
+    "konu": "elci",
+    "metin": "{hitap}, komşu krallığın elçisi kule gibi yüksek bir hediye istiyor; hazine boş, defterde akçe yok. Elçi mutlu giderse anlaşma olur, ama hediyeyi köylüden toplamak gerek.",
+    "sol": {
+      "etiket": "Hediyeyi köylüden topla",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5
+      },
+      "sonuc": "Elçi memnun gitti, anlaşma oldu, ama köylü vergiden yakındı."
+    },
+    "sag": {
+      "etiket": "Elçiye sade hediye ver",
+      "etki": {
+        "yonetim": -5,
+        "para": 5
+      },
+      "sonuc": "Elçi gücendi, anlaşma gecikti, ama hazine ve köylü rahat kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "sinir_beyi",
+    "konu": "serbest",
+    "metin": "{hitap}, sur üstünde nöbet tutan savaşçılar soğukta titriyor; sıcak yemek yerine kuru ekmek veriliyor. Lezzetli bir aş yoksa asker nöbette uyukluyor. Sınıra sıcak yemek gönder.",
+    "sol": {
+      "etiket": "Sınıra sıcak aş gönder",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Asker ısındı, nöbet canlandı, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Kuru ekmeği sürdür",
+      "etki": {
+        "para": 5,
+        "ordu": -5
+      },
+      "sonuc": "Hazine rahat kaldı, ama nöbette uyuyan asker yüzünden bir geçit açık kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "coban",
+    "konu": "serbest",
+    "metin": "{hitap}, kuzular için çuval çuval yün topladık ama ordu yok; dağdan inen kurtlar sürüyü dağıtıyor. Şirin köyümüzde kimse silah tutmuyor. Sürüyü koruyacak birkaç asker gerek.",
+    "sol": {
+      "etiket": "Köye birkaç asker ver",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Kurtlar uzaklaştı, sürü kurtuldu, ama sarayda asker kalmadı."
+    },
+    "sag": {
+      "etiket": "Köylüye kendi sürüsünü korut",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Köylü sopayla kurtları kovaladı, sürünün yarısı gitti, yün pahalandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "gozcu_basi",
+    "konu": "saray_harcamalari",
+    "metin": "{hitap}, vergiyi toplayan görevli pahalı kumaşlar giyip hesap vermiyor; halkın bakışı sana döndü. Kulelerden görüyorum, köylü öfkeyle toplanıyor. Bu görevliden hesap sor.",
+    "sol": {
+      "etiket": "Görevliden hesap sor",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Görevli hesap verdi, halk rahatladı, ama sarayda bazıları tedirgin oldu."
+    },
+    "sag": {
+      "etiket": "Görevliyi koru",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Görevli işine devam etti, hazine doldu, ama köylü öfkesi büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "demirci_usta",
+    "konu": "maden",
+    "metin": "{hitap}, ocakta demir kalmadı; kırılan aletler yara gibi iş görmez. Heybetli bir maden bulundu ama çıkarmak için para yok. Madene akçe ver, ocak yine yansın.",
+    "sol": {
+      "etiket": "Madene akçe ver",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Ocak yandı, aletler yapıldı, ama hazine iyice boşaldı."
+    },
+    "sag": {
+      "etiket": "Madeni kendi hâline bırak",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Ocak söndü, tarlada alet kalmadı, köylü ekin ekip biçemedi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "soytari",
+    "konu": "esirler",
+    "metin": "{hitap}, esirler kafeste aç bekliyor; namuslu bir mızrak taşıyıcı bile hâline acıyor. Herkes başını sallıyor ama kimse ses çıkarmıyor. Esirleri serbest bıraksak mı, söyleyeyim mi?",
+    "sol": {
+      "etiket": "Esirleri serbest bırak",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Esirler gitti, halk rahatladı, ama ordu elindeki iş gücünü kaybetti."
+    },
+    "sag": {
+      "etiket": "Esirleri kafeste tut",
+      "etki": {
+        "halk": -5,
+        "ordu": 5
+      },
+      "sonuc": "İş gücü kaldı, ama halk soytarının sözünü tuttu ve sana kızdı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kale_kumandani",
+    "konu": "hekim_ihtiyaci",
+    "metin": "{hitap}, kalede yanık ve yaralı askerler için hekim yok; sofra başında yaralı inliyor. Hekim gelmezse asker kalede ölüyor. Kaleye bir hekim gönder.",
+    "sol": {
+      "etiket": "Kaleye hekim gönder",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Yaralılar iyileşti, asker güçlendi, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Yaralıları köye gönder",
+      "etki": {
+        "halk": -5,
+        "ordu": -5
+      },
+      "sonuc": "Kale hafifledi, ama köyde salgın korkusu çıktı ve asker morale düştü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ciftci",
+    "konu": "yetimler",
+    "metin": "{hitap}, köyde üç yetim kaldı; tohumları yok, tarlayı süremiyorlar. Güçlü ordu tarlayı korur ama yetim ekmezse köy aç kalır. Yetimlere tohum ve çift hayvanı ver.",
+    "sol": {
+      "etiket": "Yetimlere tohum ver",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yetimler tarla sürdü, köy rahatladı, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Yetimleri başkasına bırak",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Kimse sahip çıkmadı, tarla boş kaldı ve köyde hasat azaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ozan",
+    "konu": "ulak_ve_haberler",
+    "metin": "{hitap}, bir asker haksız yere suçlandı; anası kedi gibi sürekli kapında ağlıyor. Halk meydanda bu işi türkü yaptı. Ulağı gönder, gerçeği araştır.",
+    "sol": {
+      "etiket": "Ulağı gönder, işi araştır",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Gerçek çıktı, asker aklandı, halk sevindi, ama komutanlar tedirgin oldu."
+    },
+    "sag": {
+      "etiket": "Suçlamayı olduğu gibi kabul et",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Asker cezalandı, ama halk meydanda türküyü sana karşı söyledi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "dervis",
+    "konu": "serbest",
+    "metin": "{hitap}, kalede mancınık çürümüş, ordumuz zayıf; ama halk her yıl aynı şeyi yapıp kimse sormuyor. Alışkanlık bizi kör etmiş. Aklı öne çıkar, kaleyi onar.",
+    "sol": {
+      "etiket": "Kaleyi akılla onar",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Mancınık yenilendi, kale güçlendi, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Eski düzeni sürdür",
+      "etki": {
+        "yonetim": -5,
+        "ordu": -5
+      },
+      "sonuc": "Kimse bir şey sormadı, ama kale çürüdü ve sınır zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "vezir",
+    "konu": "serbest",
+    "metin": "{hitap}, halk arasında yasa bozuldu; köylü kendi başına hüküm veriyor. Şifalı bir söz gerek, yoksa herkes kılıca sarılır. Yeni bir düzen koy, ölçülü olsun.",
+    "sol": {
+      "etiket": "Yeni düzen koy",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5
+      },
+      "sonuc": "Düzen geri geldi, halk sustu, ama eski alışkanlıklar direndi."
+    },
+    "sag": {
+      "etiket": "Halkı kendi hâline bırak",
+      "etki": {
+        "yonetim": -10,
+        "ordu": -5
+      },
+      "sonuc": "Köylü kendi hükmünü verdi, düzen bozuldu ve ordu karıştı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "koyler_arasi_kavga",
+    "metin": "{hitap}, iki köy pınar başında kavgaya tutuştu; sevimsiz bir gün geçti, taşlar havada uçtu. Şahitler var, delil de var. Hükmü hemen ver, yoksa kan dökülür.",
+    "sol": {
+      "etiket": "Pınarı iki köye paylaştır",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Kavga dindi, iki köy suyu bölüştü, ama kimse tam memnun olmadı."
+    },
+    "sag": {
+      "etiket": "Pınarı güçlü köye ver",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10
+      },
+      "sonuc": "Güçlü köy kazandı, öteki köy kuyu kazdı ve kin büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "koy_kethudasi",
+    "konu": "serbest",
+    "metin": "{hitap}, karda yollar kapandı; cesaretli birkaç köylü yardım istemek için saraya yürüdü ama kapıda bekletiliyor. Köyde erzak bitiyor. Yolu açtır, yardım gönder.",
+    "sol": {
+      "etiket": "Yolu açtır, yardım gönder",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yol açıldı, erzak gitti, köy rahatladı, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Köylüyü kapıda beklet",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Köylü öfkelendi, erzak gelmedi ve köyde açlık başladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hekim",
+    "konu": "cekirge",
+    "metin": "{hitap}, çekirge bulutu tarlaya indi; temel ekin gitti. Saygılı köylü kapında ağlıyor, kışın aç kalacağız diyor. Ambardan tohum ver, yoksa köy boşalır.",
+    "sol": {
+      "etiket": "Ambardan tohum ver",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Köylü yeniden ekti, kış atlatıldı, ama ambar boşaldı."
+    },
+    "sag": {
+      "etiket": "Ambardan tohum verme",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Ambar doldu, ama köylü tarlayı bıraktı ve kışın açlık çıktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hazinedar",
+    "konu": "su_hakki",
+    "metin": "{hitap}, su hakkı davası hazineye yük oldu; yakın köyler sulama için akçe istiyor, hazinede ise yenilgi gibi boşluk var. Suyu olmayan tarla kurur. Su hakkını düzene koy.",
+    "sol": {
+      "etiket": "Su hakkını düzene koy",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Su paylaşıldı, tarlalar sulandı, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Suyu akçeyle sat",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Hazine biraz doldu, ama fakir köylü suyu alamadı ve tarla kurudu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "elci",
+    "konu": "taht_varisi",
+    "metin": "{hitap}, hamamda sis içinde iri bir yabancı taht varisi olduğunu söylüyor. Komşu krallık bu söylentiyi duymuş. Sözü kesmezsek karışıklık çıkar. Hemen elçi gönder, söylentiyi sor.",
+    "sol": {
+      "etiket": "Elçi gönder, söylentiyi sor",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5
+      },
+      "sonuc": "Söylenti yatıştı, komşu krallık ikna oldu, ama sarayda tedirginlik kaldı."
+    },
+    "sag": {
+      "etiket": "Söylentiyi görmezden gel",
+      "etki": {
+        "yonetim": -10,
+        "halk": -5
+      },
+      "sonuc": "Söylenti büyüdü, halk arasında taht kavgası konuşuldu ve düzen sarsıldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hanci",
+    "konu": "miras",
+    "metin": "{hitap}, handa iki kardeş miras yüzünden birbirine girdi; biri eğri fikirle malı saklıyor. Yolcular olanları dinliyor. Kadıya gönder, mirası hakça böl.",
+    "sol": {
+      "etiket": "Mirası kadıya götür",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Miras hakça bölündü, kardeşler sustu, ama handa söylenti bitti."
+    },
+    "sag": {
+      "etiket": "Kardeşleri kendi hâline bırak",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Kardeşler kavga etti, handa yolcular kaçtı ve ticaret azaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "akinci_beyi",
+    "konu": "han_gelirleri",
+    "metin": "{hitap}, han gelirleri eridi; çoban sevecen bir yolcu gibi handa oturup vergi bekliyor. Atlılar hazır, hızla yol açsak hanlar dolar. Bir akınla ticaret yolunu açalım mı?",
+    "sol": {
+      "etiket": "Ticaret yolunu akınla aç",
+      "etki": {
+        "para": 5,
+        "ordu": -5
+      },
+      "sonuc": "Yol açıldı, kervanlar geçti, hanlar doldu, ama sınırda çatışma çıktı."
+    },
+    "sag": {
+      "etiket": "Hanlara yardım et",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Hanlar ayakta kaldı, ama yol kapalı kaldı ve gelir artmadı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "tuccar",
+    "konu": "muhur",
+    "metin": "{hitap}, değerli mallar mühürsüz geçiyor; şahin gibi hızlı kaçakçılar sınırdan mal indiriyor. Mühür olmazsa pazar karışır. Her mala mühür vurdur.",
+    "sol": {
+      "etiket": "Her mala mühür vurdur",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Kaçakçılık azaldı, pazar düzeldi, ama tüccar mühür parasından yakındı."
+    },
+    "sag": {
+      "etiket": "Mührü kaldır",
+      "etki": {
+        "yonetim": -5,
+        "para": -10
+      },
+      "sonuc": "Ticaret hızlandı, ama kaçak mal pazarı sardı ve hazine zarar gördü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ahi_ustasi",
+    "konu": "nobet_duzeni",
+    "metin": "{hitap}, esnaf nöbet düzeninde yardımsever sesini duyuramıyor; nöbeti hep aynı ustalar tutuyor, çıraklar kaçıyor. Nöbeti hakça böl, yoksa esnaf iş bırakır.",
+    "sol": {
+      "etiket": "Nöbeti hakça böl",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Çıraklar rahatladı, esnaf işine döndü, ama nöbetler biraz aksadı."
+    },
+    "sag": {
+      "etiket": "Nöbeti eski düzende bırak",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Aynı ustalar nöbete devam etti, çıraklar kaçtı ve esnaf işi durdu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kervan_basi",
+    "konu": "kuraklik",
+    "metin": "{hitap}, kuraklık kervan yolunu kuruttu; kıskanç bir bey kuyu başını tutuyor, yolcular tepside su bekliyor. Kuyuyu halka açtır, yoksa kervan yürümez.",
+    "sol": {
+      "etiket": "Kuyuyu halka açtır",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Su paylaşıldı, kervan yürüdü, ama o bey sana küstü."
+    },
+    "sag": {
+      "etiket": "Kuyuyu beye bırak",
+      "etki": {
+        "halk": -5,
+        "para": -5
+      },
+      "sonuc": "Bey kazandı, kervan susuz kaldı ve yol kapanınca ticaret azaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "silah_ve_zirh",
+    "metin": "{hitap}, askerin yüzü durgun; zırhı eskimiş, silahı kırık. Halk fakir, hazine boş ama sınırda düşman atlısı var. Eldeki akçeyle silah ve zırh al.",
+    "sol": {
+      "etiket": "Silah ve zırh al",
+      "etki": {
+        "para": -5,
+        "ordu": 10
+      },
+      "sonuc": "Askerin silahı yenilendi, ordu güçlendi, ama hazine iyice boşaldı."
+    },
+    "sag": {
+      "etiket": "Askeri eski silahla bırak",
+      "etki": {
+        "para": 5,
+        "ordu": -10
+      },
+      "sonuc": "Hazine rahat kaldı, ama sınırda bir çatışmada ordu geri çekildi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "baskatip",
+    "konu": "komutanlar_arasi_kavga",
+    "metin": "{hitap}, kışlada iki komutan kavga etti; birinin cenazesi bile kalkmadan öteki suçlamaya başladı. Uyanık kâtip kayıtları tutuyor. Kayıtları aç, kavgayı divanda çöz.",
+    "sol": {
+      "etiket": "Kayıtları aç, divanda çöz",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Kayıtlar gerçeği gösterdi, kavga divanda bitti, ama komutanlardan biri küstü."
+    },
+    "sag": {
+      "etiket": "Kavgayı kışlada bastır",
+      "etki": {
+        "yonetim": -5,
+        "ordu": -10
+      },
+      "sonuc": "Kışlada kavga büyüdü, iki asker yaralandı ve nöbet aksadı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "sinir_beyi",
+    "konu": "yasli_askerlerin_hakki",
+    "metin": "{hitap}, sınırda yaşlı askerler hastalık içinde nöbet tutuyor; güçlü asker yok, hepsi yorgun. Buyruğumla yaşlıları terhis et, yerlerine genç al.",
+    "sol": {
+      "etiket": "Yaşlıları terhis et",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Yaşlılar rahatladı, ama sınırda asker kalmadı ve geçit zayıfladı."
+    },
+    "sag": {
+      "etiket": "Yaşlıları nöbette tut",
+      "etki": {
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Sınır sağlam kaldı, ama yaşlı askerler hastalandı ve halk isyan etti."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "coban",
+    "konu": "otlak_kavgasi",
+    "metin": "{hitap}, kayalık tepede iki oba otlak yüzünden kavga ediyor; çobanlar ter içinde sürüleri ayırıyor. Otlak yetmezse sürüler telef olur. Otlağı iki obaya böl.",
+    "sol": {
+      "etiket": "Otlağı ikiye böl",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Kavga dindi, sürüler otladı, ama iki oba da az otlakla yetindi."
+    },
+    "sag": {
+      "etiket": "Otlağı büyük obaya ver",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Büyük oba kazandı, küçük oba dağa çıktı ve sürüsünü kurtlara kaptırdı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "gozcu_basi",
+    "konu": "hastalikli_suru",
+    "metin": "{hitap}, kuzeyden hastalıklı sürü geldi; kızgın halk suçlanan beyi savunuyor, tabak gibi kırılan sözler dolaşıyor. Salgın yayılırsa köy boşalır. Sürüyü karantinaya al.",
+    "sol": {
+      "etiket": "Sürüyü karantinaya al",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Salgın durdu, halk rahatladı, ama ticaret yavaşladı."
+    },
+    "sag": {
+      "etiket": "Sürüyü pazara sok",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Pazar canlandı, ama salgın köye yayıldı ve hayvanlar telef oldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "demirci_usta",
+    "konu": "han_ucretleri",
+    "metin": "{hitap}, çeşme başında handa keyifsiz yolcular oturuyor; han ücreti yüksek, soy sop sorulup yolcu aşağılanıyor. Bu hâl yolcuları kaçırıyor. Han ücretini düşür, yolcuyu ağırla.",
+    "sol": {
+      "etiket": "Han ücretini düşür",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yolcular hana döndü, handa canlılık arttı, ama han geliri azaldı."
+    },
+    "sag": {
+      "etiket": "Han ücretini yüksek tut",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Han sahibi kazandı, ama yolcular handan kaçtı ve gelir düştü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "soytari",
+    "konu": "at_surusu",
+    "metin": "{hitap}, mevsim döndü, at sürüsü dağda kaldı; seyisler garip bir hâlde bekliyor. Atlar gelmezse ordu yürüyemez. Ama acı gerçeği söylemek de gerek: bakıcı yok.",
+    "sol": {
+      "etiket": "Atlara bakıcı gönder",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Atlar sağ salim indi, ordu hazırlandı, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Sürüyü kendi hâline bırak",
+      "etki": {
+        "para": 5,
+        "ordu": -10
+      },
+      "sonuc": "Atlar dağda kaldı, soğukta birkaçı telef oldu ve ordu zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kale_kumandani",
+    "konu": "koyler_arasi_kavga",
+    "metin": "{hitap}, ağaçlı yolda iki köy kavga ediyor; kuyruk gibi uzayan yolcular geçemiyor. Kale kapısını kapatırsak köyler korunur ama özgürlük kısıtlanır. Sen karar ver.",
+    "sol": {
+      "etiket": "Kale kapısını kapat",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Köyler korundu, ama yolcular kapıda kaldı ve ticaret durdu."
+    },
+    "sag": {
+      "etiket": "Kapıyı açık tut",
+      "etki": {
+        "halk": -5,
+        "ordu": -5
+      },
+      "sonuc": "Yolcular geçti, ama kavga büyüdü ve köylerde can kaybı oldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ciftci",
+    "konu": "asker_toplama",
+    "metin": "{hitap}, asker toplama zamanı; geniş tarlada çalışan oğlumuzu alıyorlar, patika kurudu. Tarla boş kalırsa ekin olmaz. Asker toplamayı hasattan sonraya bırak.",
+    "sol": {
+      "etiket": "Asker toplamayı hasat sonrasına bırak",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Hasat kurtuldu, köylü rahatladı, ama orduya geç asker katıldı."
+    },
+    "sag": {
+      "etiket": "Askeri hemen topla",
+      "etki": {
+        "halk": -5,
+        "ordu": 5
+      },
+      "sonuc": "Ordu doldu, ama tarla boş kaldı ve hasat yarıya indi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ozan",
+    "konu": "serbest",
+    "metin": "{hitap}, sınırda güçlü bir kale var ama kapıda bekleyen yolculara zarar veriyor; halk türküde özgürlük istiyor. Kapıyı sıkı tutarsak korunuruz, açarsak özgürlük gelir.",
+    "sol": {
+      "etiket": "Kapıyı sıkı tut",
+      "etki": {
+        "halk": -5,
+        "ordu": 5
+      },
+      "sonuc": "Sınır korundu, ama yolcular kapıda perişan oldu ve halk söylendi."
+    },
+    "sag": {
+      "etiket": "Kapıyı aç",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Yolcular geçti, halk sevindi, ama sınırdan bir casus girdi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "dervis",
+    "konu": "sel",
+    "metin": "{hitap}, sel geliyor; deveci cahil, köylü duymamış, hâlâ tarlada. Gönül istiyor ki herkes kurtulsun. Hemen haber sal, köyü yüksek yere taşı.",
+    "sol": {
+      "etiket": "Köyü yüksek yere taşı",
+      "etki": {
+        "halk": 10,
+        "para": -5
+      },
+      "sonuc": "Selden kimse ölmedi, halk sevindi, ama tarlalar su altında kaldı."
+    },
+    "sag": {
+      "etiket": "Köyü yerinde bırak",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Sel köyü vurdu, hayvanlar telef oldu ve halk sana küstü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "vezir",
+    "konu": "hekim_ihtiyaci",
+    "metin": "{hitap}, kervan başı zararını hazineden istiyor; saygılı bir hekim ise yolda yaralılara bakacak kimse yok diyor. Hekim ve yol güvenliği aynı akçeye bağlı. Önce hekimi gönder.",
+    "sol": {
+      "etiket": "Hekimi yola gönder",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yaralılar iyileşti, kervan yola devam etti, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Kervan başına akçe öde",
+      "etki": {
+        "halk": -5,
+        "para": -5
+      },
+      "sonuc": "Kervan başı sustu, hazine zayıfladı, ama yolda yaralılar kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "beylerbeyi",
+    "konu": "eskiya",
+    "metin": "{hitap}, divanda eşkıyayı kovmak için söz verildi ama tutulmadı; halk bayramda tok oturamıyor. Beyler bağlılık istiyor, eşkıya ise yolda. Verilen sözü tut, eşkıyanın üstüne git.",
+    "sol": {
+      "etiket": "Eşkıyanın üstüne git",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Eşkıya dağıldı, yollar açıldı, ama iki asker yaralandı."
+    },
+    "sag": {
+      "etiket": "Sözü ertele",
+      "etki": {
+        "yonetim": -10,
+        "halk": -5
+      },
+      "sonuc": "Beyler söze güvenmedi, eşkıya büyüdü ve bayramda yol kesildi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "mal_saklayan_tuccarlar",
+    "metin": "{hitap}, sınır boyunda tüccar mal saklıyor; kadı olarak saç saça kavga eden tarafları ayırıyorum, uykusuz kaldım. Delil var, şahit var. Malı çıkar, pazarı aç.",
+    "sol": {
+      "etiket": "Malı çıkar, pazarı aç",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Mal pazara indi, fiyat düştü, halk rahatladı, ama tüccar küstü."
+    },
+    "sag": {
+      "etiket": "Malı tüccarda bırak",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Tüccar malı saklamayı sürdürdü, pazar darlığı büyüdü ve halk yakındı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "koy_kethudasi",
+    "konu": "elci_hediyesi",
+    "metin": "{hitap}, elçi hediyesi için kara topraklı köyden vergi toplandı; bir hatun çocuğuyla aç kaldı. Sitemkârım, hazine boş ama halk da perişan. Hediyeyi köylüden değil, saraydan ver.",
+    "sol": {
+      "etiket": "Hediyeyi saraydan ver",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Köylü rahatladı, elçi hediyesini aldı, ama sarayda kısıntı oldu."
+    },
+    "sag": {
+      "etiket": "Vergiyi köyden topla",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10
+      },
+      "sonuc": "Hediye tamamlandı, ama köylü aç kaldı ve kethüda saraya sitem etti."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hazinedar",
+    "konu": "hastalikli_suru",
+    "metin": "{hitap}, gözetleme kulesinden mavi duman göründü; hastalıklı sürü yola yaklaşıyor, yolcu kervanı da orada. Hazinede az akçe var ama salgın büyürse hepsi gider. Sürüyü durdur.",
+    "sol": {
+      "etiket": "Sürüyü durdur",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Salgın önlendi, yolcular kurtuldu, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Sürüyü geçir",
+      "etki": {
+        "halk": -5,
+        "para": -10
+      },
+      "sonuc": "Kervan geçti, ama salgın kervana bulaştı ve pazarda hayvan fiyatı düştü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "elci",
+    "konu": "kacak_askerler",
+    "metin": "{hitap}, kaçak askerler sınırdan geçmiş; komşu krallık onları koruyor, kibirle yalan söylüyor. Halk aç, ordu güçlü ama sınırda boşluk var. Elçi gönder, kaçakları geri iste.",
+    "sol": {
+      "etiket": "Kaçakları geri iste",
+      "etki": {
+        "yonetim": -5,
+        "ordu": 5
+      },
+      "sonuc": "Komşu krallık kaçakları verdi, ordu güçlendi, ama iki krallık arası soğukluk oldu."
+    },
+    "sag": {
+      "etiket": "Kaçakları bırak",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -10
+      },
+      "sonuc": "Komşu krallık memnun kaldı, ama asker kaçaklığı arttı ve ordu zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hanci",
+    "konu": "kitlik",
+    "metin": "{hitap}, kıtlık kapıda; handa zincir gibi uzun kuyruk var, kararsız yolcular ekmek bekliyor. Ambarda az buğday kaldı. Ambardan halka ekmek dağıt, yoksa kıtlık büyür.",
+    "sol": {
+      "etiket": "Ambardan ekmek dağıt",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Halk doydu, kıtlık dindi, ama ambar boşaldı."
+    },
+    "sag": {
+      "etiket": "Ekmeği sakla",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Ambar doldu, ama handa kuyruk büyüdü ve halk açlıktan yakındı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "akinci_beyi",
+    "konu": "divan_duzeni",
+    "metin": "{hitap}, divan düzeni bozuk; silahsız beyler aygır gibi sınıra koşuyor ama buyruk yok. Yorgunum, atlılar hazır değil. Divana bir düzen koy, akına çıkayım.",
+    "sol": {
+      "etiket": "Divana düzen koy",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Buyruk tek elden çıktı, akın düzene girdi, ama bazı beyler küstü."
+    },
+    "sag": {
+      "etiket": "Beyleri akına sür",
+      "etki": {
+        "yonetim": -5,
+        "ordu": -5
+      },
+      "sonuc": "Beyler başıboş akına çıktı, birkaç at kaybedildi ve sınırda düzen bozuldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "tuccar",
+    "konu": "kayip_kayitlar",
+    "metin": "{hitap}, eski kayıtlar kayboldu; odun gibi yığılmış defterler arasında malımın kaydı yok. Huzursuz tüccarlar pazara mal indirmiyor. Kayıtları yeniden tut, ticaret açılsın.",
+    "sol": {
+      "etiket": "Kayıtları yeniden tut",
+      "etki": {
+        "yonetim": -5,
+        "para": 5
+      },
+      "sonuc": "Kayıtlar düzeldi, ticaret açıldı, ama kâtipler akçe istedi."
+    },
+    "sag": {
+      "etiket": "Kayıtsız ticarete izin ver",
+      "etki": {
+        "yonetim": -5,
+        "para": -10
+      },
+      "sonuc": "Ticaret hızlandı, ama kaçak mal arttı ve hazine zarar gördü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ahi_ustasi",
+    "konu": "adalet_sikayeti",
+    "metin": "{hitap}, mağarada saklanan esnaf adalet bekliyor; bir yoldaş haksız yere suçlandı, minnettar ustalar sana bakıyor. Halk fakir, ordu az ama adalet gerek. Suçsuzu bırak.",
+    "sol": {
+      "etiket": "Suçsuzu bırak",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Suçsuz esnaf serbest kaldı, ustalar minnettar oldu, ama suçlayanlar küstü."
+    },
+    "sag": {
+      "etiket": "Suçlamayı sürdür",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Esnaf mağarada kaldı, ustalar sana küstü ve çarşıda iş durdu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kervan_basi",
+    "konu": "tuz_yolu",
+    "metin": "{hitap}, tuz yolunda yılan gibi kıvrılan bir geçit var; evsiz yolcular handan geri çevrilmiş, tanınmış kervan başı bile şaşkın. Yolcular perişan. Hana yolcuları al, tuz yolunu aç.",
+    "sol": {
+      "etiket": "Yolcuları hana al",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yolcular ısındı, tuz yolu açıldı, ama handa yer kalmadı."
+    },
+    "sag": {
+      "etiket": "Yolcuları geri çevir",
+      "etki": {
+        "halk": -5,
+        "para": -10
+      },
+      "sonuc": "Han rahat kaldı, ama yolda yolcular dondu ve tuz ticareti durdu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "okcular",
+    "metin": "{hitap}, kalede ölü kokusu var; okçular ailelerini bırakıp nöbete gitmiyor. Ailemi düşünüyorum ama görev de gerek. Okçulara ailelerini getirt, nöbete dönsünler.",
+    "sol": {
+      "etiket": "Okçuların ailesini kaleye getirt",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Okçular nöbete döndü, kale güçlendi, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Okçuları nöbete zorla",
+      "etki": {
+        "halk": -5,
+        "ordu": -5
+      },
+      "sonuc": "Okçular kalede kaldı ama aileleri aç kaldı ve ordu moralini yitirdi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "baskatip",
+    "konu": "serbest",
+    "metin": "{hitap}, fırtınalı gecede yıldırım ambarı tutuşturdu; köylü erzak bekliyor, ordu güçlü ama kayıtlar yandı. Ambardan erzak dağıt, yoksa kışın açlık çıkar.",
+    "sol": {
+      "etiket": "Ambardan erzak dağıt",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Köylü doydu, kış atlatıldı, ama ambar boşaldı."
+    },
+    "sag": {
+      "etiket": "Erzağı orduya sakla",
+      "etki": {
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Ordu erzağı korundu, ama köylü aç kaldı ve ambara saldırdı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "sinir_beyi",
+    "konu": "asker_toplama",
+    "metin": "{hitap}, sınırda huzur bozuldu; evsiz yolcular handan geri çevrilmiş, düşünceli halk ise asker toplamaya karşı. Asker gerek ama halk korkuyor. Asker toplamayı yumuşat, gönüllü al.",
+    "sol": {
+      "etiket": "Gönüllü asker al",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Halk rahatladı, orduya gönüllü katıldı, ama asker sayısı az kaldı."
+    },
+    "sag": {
+      "etiket": "Zorla asker topla",
+      "etki": {
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Ordu doldu, ama halk öfkelendi ve yolcular sınırdan kaçtı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "coban",
+    "konu": "sel",
+    "metin": "{hitap}, dağdan sel geliyor; duvar gibi yükselen su yaylayı basacak. Sürüler hazır ama çoban dalgın, kimse ses duymuyor. Sürüyü yüksek yere çek, seli bekle.",
+    "sol": {
+      "etiket": "Sürüyü yüksek yere çek",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Sürüler kurtuldu, sel zarar vermedi, ama otlak bir süre boş kaldı."
+    },
+    "sag": {
+      "etiket": "Sürüyü yerinde bırak",
+      "etki": {
+        "halk": -5,
+        "para": -10
+      },
+      "sonuc": "Sel sürüyü vurdu, hayvanlar telef oldu ve yün pahalandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "soytari",
+    "konu": "cirak_yetistirme",
+    "metin": "{hitap}, köy halkı ortak kilimi bölüşemiyor; minik çıraklar soy sop sorulup işe alınmıyor. Herkes başını sallıyor, kimse çırak yetiştirmiyor. Çırakları işe al, kilimi köye bırak.",
+    "sol": {
+      "etiket": "Çırakları işe al",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Çıraklar iş buldu, esnaf canlandı, ama eski ustalar küstü."
+    },
+    "sag": {
+      "etiket": "Kilimi güçlüye ver",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Kilim güçlüde kaldı, çıraklar işsiz kaldı ve köyde kavga büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kale_kumandani",
+    "konu": "komsu_krallikla_antlasma",
+    "metin": "{hitap}, komşu krallık pençe gibi sınıra uzanıyor; ortak bir antlaşma sınırı rahatlatır. Kale güçlü ama hazine az. Elçi gönder, antlaşma yap.",
+    "sol": {
+      "etiket": "Antlaşma yap",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Sınır rahatladı, ordu kalede kaldı, ama komşu krallık biraz toprak aldı."
+    },
+    "sag": {
+      "etiket": "Antlaşmayı reddet",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Sınırda çatışma çıktı, kale dayandı ama iki asker öldü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ciftci",
+    "konu": "koyler_arasi_kavga",
+    "metin": "{hitap}, iki köy tarla sınırı yüzünden kavga ediyor; korkmuş bir baba çocuğunu saklıyor. Tarla boş kalırsa ekin olmaz. Sınırı kadıya çizdir, kavgayı durdur.",
+    "sol": {
+      "etiket": "Sınırı kadıya çizdir",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Sınır çizildi, kavga dindi, ama iki köy de az tarla aldı."
+    },
+    "sag": {
+      "etiket": "Kavgayı kendi hâline bırak",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Kavga büyüdü, tarlalar sürülmedi ve köyde açlık başladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ozan",
+    "konu": "yol_yapimi",
+    "metin": "{hitap}, bağ yolunda beyaz taşlar döşeniyor; işçi alımında yetenek değil akrabalık bakılıyor. Halk türküde bunu söylüyor. İşi yetenekliye ver, yolu bitir.",
+    "sol": {
+      "etiket": "İşi yetenekliye ver",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Yol sağlam yapıldı, halk sevindi, ama akrabalar küstü."
+    },
+    "sag": {
+      "etiket": "Akrabaları işe al",
+      "etki": {
+        "yonetim": -10,
+        "para": -5
+      },
+      "sonuc": "Akrabalar iş buldu, yol çürük yapıldı ve yağmurda yol kapandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "vezir",
+    "konu": "nobet_duzeni",
+    "metin": "{hitap}, nöbet düzeninde dostluk iyi görünüyor ama buyruk karışık; iki komutan aynı nöbete asker veriyor. Düzen bozulursa sınır zayıflar. Nöbeti tek buyruğa bağla.",
+    "sol": {
+      "etiket": "Nöbeti tek buyruğa bağla",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Nöbet düzeldi, sınır sağlamlaştı, ama bir komutan küstü."
+    },
+    "sag": {
+      "etiket": "Nöbeti komutanlara bırak",
+      "etki": {
+        "yonetim": -5,
+        "ordu": -10
+      },
+      "sonuc": "Komutanlar kendi başına nöbet tuttu, iki yerde boşluk kaldı ve sınır zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "beylerbeyi",
+    "konu": "kale_onarimi",
+    "metin": "{hitap}, kale gölge gibi çökmüş, dertli beyler onarım istiyor; halk ise vergiden yorgun. Kale onarılırsa ordu güçlenir, halk zorlanır. Kararı sen ver.",
+    "sol": {
+      "etiket": "Kaleyi onar",
+      "etki": {
+        "halk": -5,
+        "ordu": 10
+      },
+      "sonuc": "Kale güçlendi, ordu sağlamlaştı, ama halk vergiden yakındı."
+    },
+    "sag": {
+      "etiket": "Kale onarımını ertele",
+      "etki": {
+        "halk": 5,
+        "ordu": -10
+      },
+      "sonuc": "Halk rahat kaldı, ama kale çöktü ve sınır savunması zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "eskiya",
+    "metin": "{hitap}, eşkıya köy bastı; çaresiz halk kadıya koşuyor, hazine ise boş. Şahitler var, hüküm gerek. Eşkıyanın üstüne git, halkı koru.",
+    "sol": {
+      "etiket": "Eşkıyanın üstüne git",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Eşkıya dağıldı, köy korundu, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Hükmü ertele",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Eşkıya köyde kaldı, halk kendi başının çaresine baktı ve düzen bozuldu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hazinedar",
+    "konu": "demir_ve_komur",
+    "metin": "{hitap}, soğuk kışta demirci ocağı söndü; diş gibi kırılan aletler iş görmez. Kömür ve demir yok, hazine de boş. Kömür al, ocağı yak.",
+    "sol": {
+      "etiket": "Kömür al, ocağı yak",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Ocak yandı, aletler yapıldı, ama hazine iyice boşaldı."
+    },
+    "sag": {
+      "etiket": "Ocağı kapalı tut",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Hazine rahat kaldı, ama tarlada alet kalmadı ve ekin ekilemedi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "elci",
+    "konu": "taht_varisi",
+    "metin": "{hitap}, sahil boyunda umutlu bir kalabalık taht varisi diye birini karşılıyor; halk aç, söylenti büyük. Bu iş karışıklık çıkarır. Elçi gönder, söylentiyi soruştur.",
+    "sol": {
+      "etiket": "Söylentiyi soruştur",
+      "etki": {
+        "yonetim": 5,
+        "halk": -5
+      },
+      "sonuc": "Söylenti yatıştı, düzen korundu, ama halk umudunu yitirdi."
+    },
+    "sag": {
+      "etiket": "Kalabalığı dağıt",
+      "etki": {
+        "yonetim": -10,
+        "halk": -5
+      },
+      "sonuc": "Kalabalık dağıldı, ama halk öfkelendi ve sahilde toplanma büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hanci",
+    "konu": "serbest",
+    "metin": "{hitap}, handa fedakâr bir aşçı kümes gibi kalabalık yolculara yetişemiyor; gönül herkese yemek istiyor, hesap ise yetmiyor. Handaki yemeğe bir sınır koy, yoksa han kapanır.",
+    "sol": {
+      "etiket": "Yemek payını sınırla",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Han ayakta kaldı, hesap düzeldi, ama yolcular az yemek buldu."
+    },
+    "sag": {
+      "etiket": "Herkese yemek ver",
+      "etki": {
+        "halk": 5,
+        "para": -10
+      },
+      "sonuc": "Yolcular doydu, handa sevgi arttı, ama erzak bitti ve han kapandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "akinci_beyi",
+    "konu": "serbest",
+    "metin": "{hitap}, ormanda yasak avlanan vahşi atlılar türedi; köylü korkudan tarlaya gidemiyor. Atlılar hazır ama akın için para yok. Yasak avcıların üstüne git.",
+    "sol": {
+      "etiket": "Yasak avcıların üstüne git",
+      "etki": {
+        "halk": 5,
+        "ordu": -5
+      },
+      "sonuc": "Avcılar dağıldı, orman güvenli oldu, ama iki atlı yaralandı."
+    },
+    "sag": {
+      "etiket": "Avcıları kendi hâline bırak",
+      "etki": {
+        "halk": -10,
+        "para": -5
+      },
+      "sonuc": "Avcılar çoğaldı, köylü tarladan korktu ve hasat azaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ahi_ustasi",
+    "konu": "cesme_onarimi",
+    "metin": "{hitap}, deprem çeşmeyi yıktı; halk susuz, esnaf ise kârlı iş peşinde. Çeşmeyi onarmak huzur getirir, ama ün peşinde koşan ustalar onarımı savsaklıyor. Çeşmeyi onart.",
+    "sol": {
+      "etiket": "Çeşmeyi onart",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Çeşme açıldı, halk suya kavuştu, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Onarımı ertele",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Halk susuz kaldı, çeşme başında kavga çıktı ve esnaf iş yapamadı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kervan_basi",
+    "konu": "ambar",
+    "metin": "{hitap}, at pazarında çadır gibi gerilmiş hünerli tüccarlar ambarı doldurmuş ama halk aç. Ambar boşaltılırsa pazar canlanır. Ambarı aç, halka erzak dağıt.",
+    "sol": {
+      "etiket": "Ambarı aç, erzak dağıt",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Halk doydu, pazar canlandı, ama tüccar zarar etti."
+    },
+    "sag": {
+      "etiket": "Ambarı kapalı tut",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Tüccar kazandı, halk aç kaldı ve at pazarında kavga çıktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "at_surusu",
+    "metin": "{hitap}, at sürüsü dağda kaldı; sessiz bir kader gibi bekliyoruz. Atlar gelmezse ordu yürüyemez, ama hazinede akçe yok. Seyis gönder, sürüyü indir.",
+    "sol": {
+      "etiket": "Seyis gönder, sürüyü indir",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Atlar indi, ordu hazırlandı, ama hazineden akçe gitti."
+    },
+    "sag": {
+      "etiket": "Sürüyü dağda bırak",
+      "etki": {
+        "halk": -5,
+        "ordu": -10
+      },
+      "sonuc": "Atlar dağda telef oldu, ordu yürüyemedi ve sınır zayıfladı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "baskatip",
+    "konu": "nobet_duzeni",
+    "metin": "{hitap}, nöbet düzeninde vefa kalmadı; yaşlı askerler son günlerinde nöbette unutuluyor. Ordu güçlü ama nöbet karışık. Nöbeti yeniden düzenle, yaşlılara yer ver.",
+    "sol": {
+      "etiket": "Nöbeti yeniden düzenle",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Nöbet düzeldi, yaşlılar rahatladı, ama bazı komutanlar küstü."
+    },
+    "sag": {
+      "etiket": "Nöbeti eski düzende bırak",
+      "etki": {
+        "halk": -5,
+        "ordu": -10
+      },
+      "sonuc": "Nöbet karıştı, yaşlı askerler yoruldu ve sınırda boşluk kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "sinir_beyi",
+    "konu": "yangin",
+    "metin": "{hitap}, sınırda yangın çıktı; suçlu açıkta, köylü evini kurtarmaya çalışıyor. Ordu güçlü ama halk perişan. Askeri yangına sür, suçluyu da yakala.",
+    "sol": {
+      "etiket": "Askeri yangına sür",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Yangın söndü, halk kurtuldu, ama suçlu kaçtı."
+    },
+    "sag": {
+      "etiket": "Suçluyu yakala",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10
+      },
+      "sonuc": "Suçlu yakalandı, ama yangın büyüdü ve köy yandı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "demirci_usta",
+    "konu": "serbest",
+    "metin": "{hitap}, bir bey halktan yüksek gizli haraç topluyor; yorgan gibi örttüğü işi demirci ocağında konuşuluyor. Halk yoksul, hazine ise bu haracı görmüyor. Beyden hesap sor.",
+    "sol": {
+      "etiket": "Beyden hesap sor",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Gizli haraç ortaya çıktı, halk rahatladı, ama bey sana küstü."
+    },
+    "sag": {
+      "etiket": "Beyi koru",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Bey haracı sürdürdü, halk yoksullaştı ve ocakta isyan sözü dolaştı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "soytari",
+    "konu": "miras",
+    "metin": "{hitap}, açgözlü bir mirasçı fare gibi ambarı kemiriyor; halk ise teselli sözü bekliyor. Acı gerçeği söyleyeyim mi? Mirası hakça böl, yoksa ambar boşalır.",
+    "sol": {
+      "etiket": "Mirası hakça böl",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Miras bölündü, ambar kurtuldu, ama açgözlü mirasçı küstü."
+    },
+    "sag": {
+      "etiket": "Mirası açgözlüye bırak",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Ambar boşaldı, halk aç kaldı ve mirasçı daha da zenginleşti."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kale_kumandani",
+    "konu": "okcular",
+    "metin": "{hitap}, kalede okçuların ekmeği yamalı; yayları eski, nöbet uzun. Ordu güçlü görünüyor ama okçu aç. Okçulara ekmek ve yeni yay ver.",
+    "sol": {
+      "etiket": "Okçulara ekmek ve yay ver",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Okçular güçlendi, kale sağlamlaştı, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Okçuları eski hâlde bırak",
+      "etki": {
+        "halk": -5,
+        "ordu": -10
+      },
+      "sonuc": "Okçular aç kaldı, nöbette uyudu ve sınırda gedik açıldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ciftci",
+    "konu": "ambar",
+    "metin": "{hitap}, köylünün borcu ulu dağ gibi büyümüş; ambar boş, tarla ekilemiyor. Borç affedilmezse köylü toprağı bırakır. Borçları sil, tohum ver.",
+    "sol": {
+      "etiket": "Borçları sil, tohum ver",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Köylü rahatladı, tarla ekildi, ama hazine iyice boşaldı."
+    },
+    "sag": {
+      "etiket": "Borçları topla",
+      "etki": {
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Hazine biraz doldu, ama köylü toprağı bıraktı ve ambar boş kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "ozan",
+    "konu": "maden",
+    "metin": "{hitap}, madende çalışanlar işlemeli elbiselerle sohbet edip iş bırakmış; maden boş, hazine az. Halk türküde madenin kapanmasını söylüyor. Madene işçi gönder, üretimi başlat.",
+    "sol": {
+      "etiket": "Madene işçi gönder",
+      "etki": {
+        "halk": -5,
+        "para": 5
+      },
+      "sonuc": "Maden açıldı, demir çıktı, ama işçiler zorla çalıştı ve halk söylendi."
+    },
+    "sag": {
+      "etiket": "Madeni kapat",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Maden kapandı, işçiler rahatladı, ama hazineye demir gelmedi."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "dervis",
+    "konu": "gecit_koruma",
+    "metin": "{hitap}, gece geçitte alçak bir yol var; yabancı atlılar oradan sızıyor, köylü korkuyor. Ordu az, hazine bol. Geçide asker koy, yolu kapat.",
+    "sol": {
+      "etiket": "Geçide asker koy",
+      "etki": {
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Geçit kapandı, sızma durdu, ama asker sayısı azaldı."
+    },
+    "sag": {
+      "etiket": "Geçidi açık bırak",
+      "etki": {
+        "yonetim": -10,
+        "halk": -5
+      },
+      "sonuc": "Yabancı atlılar sızdı, köylü korktu ve sınırda karışıklık çıktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "vezir",
+    "konu": "kervansaray_yapimi",
+    "metin": "{hitap}, eski silahlar kullanılamaz hâle geldi; çekingen asker yeni silah bekliyor. Kervansaray yapımı için ayrılan akçe var ama hazine boş. Silaha akçe ayır.",
+    "sol": {
+      "etiket": "Silaha akçe ayır",
+      "etki": {
+        "para": -5,
+        "ordu": 10
+      },
+      "sonuc": "Asker yeni silah aldı, ordu güçlendi, ama kervansaray yapılamadı."
+    },
+    "sag": {
+      "etiket": "Kervansarayı yap",
+      "etki": {
+        "para": 5,
+        "ordu": -10
+      },
+      "sonuc": "Kervansaray açıldı, ticaret arttı, ama ordu eski silahla kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "okcular",
+    "metin": "{hitap}, okçular arasında isyan söylentisi var; canlı kuş gibi uçan sözler her yere yayılıyor. Delil zayıf, şahit korkuyor. Söylentiyi araştır, suçluyu bul.",
+    "sol": {
+      "etiket": "Söylentiyi araştır",
+      "etki": {
+        "yonetim": 5,
+        "ordu": -5
+      },
+      "sonuc": "Suçlu bulundu, isyan önlendi, ama okçular arasında kırgınlık kaldı."
+    },
+    "sag": {
+      "etiket": "Söylentiyi bastır",
+      "etki": {
+        "yonetim": -5,
+        "ordu": -10
+      },
+      "sonuc": "Söylenti büyüdü, okçular toplandı ve isyan çıktı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "koy_kethudasi",
+    "konu": "saray_gorevlileri",
+    "metin": "{hitap}, saray görevlileri savurgan; köyde yenilgi gibi bir yoksulluk var. Vergi toplanıyor ama köye bir şey gelmiyor. Görevlilerin harcamasını denetle.",
+    "sol": {
+      "etiket": "Görevlileri denetle",
+      "etki": {
+        "yonetim": -5,
+        "halk": 5
+      },
+      "sonuc": "Savurganlık azaldı, köye akçe kaldı, ama görevliler küstü."
+    },
+    "sag": {
+      "etiket": "Görevlileri serbest bırak",
+      "etki": {
+        "halk": -5,
+        "para": -10
+      },
+      "sonuc": "Görevliler harcamayı sürdürdü, hazine boşaldı ve köy yoksullaştı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "hekim",
+    "konu": "yol_yapimi",
+    "metin": "{hitap}, sisli yolda bir baba çocuğuyla yolu kaybetmiş; patika çamur, hekim yetişemiyor. Yol yapılmazsa hasta köye ulaşamaz. Yolu yaptır, geçidi aç.",
+    "sol": {
+      "etiket": "Yolu yaptır",
+      "etki": {
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Yol açıldı, hekim köye ulaştı, ama hazineden akçe çıktı."
+    },
+    "sag": {
+      "etiket": "Yolu kendi hâline bırak",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10
+      },
+      "sonuc": "Yol çamurda kaldı, hasta çocuk hekime ulaşamadı ve köyde korku büyüdü."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kadi",
+    "konu": "divan_duzeni",
+    "metin": "Divanda herkes sözümü kesiyor, tepsi elden ele dolaşıyor ama hüküm çıkmıyor. Böyle giderse şerefli bir divan diye bir şey kalmayacak, {hitap}.",
+    "sol": {
+      "etiket": "Divana düzen koy",
+      "etki": {
+        "yonetim": 10,
+        "ordu": -5
+      },
+      "sonuc": "Kadı sırayı belirledi, hükümler hızlandı, ama kıdemli beyler küstü."
+    },
+    "sag": {
+      "etiket": "Divanı topla, kadıya bırak",
+      "etki": {
+        "yonetim": 5,
+        "halk": 5,
+        "ordu": -10
+      },
+      "sonuc": "Kadı divanı tek başına yönetti, adalet işledi, ama beyler yetkisiz kaldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "demirci_usta",
+    "konu": "kuraklik",
+    "metin": "Ocağım su bulamıyor, kömür bile nemli. Uzun kuraklık nal işini bitirdi; komşudan su istemek gurura sığmıyor ama başka çare yok.",
+    "sol": {
+      "etiket": "Komşudan su iste",
+      "etki": {
+        "yonetim": -5,
+        "para": 5,
+        "ordu": 5
+      },
+      "sonuc": "Su geldi, ocak yandı, ama komşu krallık karşılığında söz istedi."
+    },
+    "sag": {
+      "etiket": "Kuyu kazdır",
+      "etki": {
+        "yonetim": 5,
+        "para": -10,
+        "ordu": -5
+      },
+      "sonuc": "Kuyu çıktı ama su az; demirci nalı zor yetiştirdi, gurur korundu."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "kervan_basi",
+    "konu": "at_ve_nal",
+    "metin": "Kervanın eyeri kırık, nal ustası utangaç utangaç yüzüme bakıyor. Yolda eşkıya var; sırrı saklayıp yola mı çıksam, dürüstçe geciktirsem mi?",
+    "sol": {
+      "etiket": "Sırrı sakla, yola çık",
+      "etki": {
+        "halk": -5,
+        "para": 5,
+        "ordu": -5
+      },
+      "sonuc": "Kervan karanlıkta geçti, yük kurtuldu, ama bir katır uçurumda kaldı."
+    },
+    "sag": {
+      "etiket": "Dürüstçe geciktir",
+      "etki": {
+        "halk": 5,
+        "para": -5,
+        "ordu": 5
+      },
+      "sonuc": "Kervan bir gün bekledi, nal yapıldı, eşkıya başka yola gitti; pazar gecikti."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "kale_savunmasi",
+    "metin": "Kalenin süslü kapısı var ama arkası boş; surda yaprak gibi ince bir nöbet kalmış. İncelik isterim ama savunma da elden gitmesin.",
+    "sol": {
+      "etiket": "Suru kalınlaştır",
+      "etki": {
+        "yonetim": 5,
+        "para": -5,
+        "ordu": 10
+      },
+      "sonuc": "Sur güçlendi, kapı sadeleşti, hazine biraz inceldi."
+    },
+    "sag": {
+      "etiket": "Süsü koru",
+      "etki": {
+        "yonetim": -5,
+        "para": 5,
+        "ordu": -10
+      },
+      "sonuc": "Saray göz alıcı kaldı, ama surda gedik açıldı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "baskatip",
+    "konu": "eskiya",
+    "metin": "Kayıtlarda eşkıya baskını bir beşik gibi her yıl tekrarlanıyor, taze haber yok. Defterim şaşkın, para da yok; ne yazayım, {hitap}?",
+    "sol": {
+      "etiket": "Kaydı kapat, sus",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10,
+        "ordu": -5
+      },
+      "sonuc": "Defter kapandı, halk habersiz kaldı, eşkıya yine bastı."
+    },
+    "sag": {
+      "etiket": "Kaydı açık tut, haber sal",
+      "etki": {
+        "yonetim": 5,
+        "halk": 5,
+        "para": -5
+      },
+      "sonuc": "Haber köylere ulaştı, halk tedbir aldı, ama defter masrafı arttı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "elci",
+    "konu": "serbest",
+    "metin": "Bilgili bir kâtip ter içinde geldi, uzak yurtlarda isyan söylentisi var diyor. Elimde ordu yok; anlaşmayla mı bastırsak, haber mi yaysak?",
+    "sol": {
+      "etiket": "Anlaşma öner",
+      "etki": {
+        "yonetim": 5,
+        "para": -5,
+        "ordu": -5
+      },
+      "sonuc": "Söylenti dindi, ama karşı taraf taviz kopardı."
+    },
+    "sag": {
+      "etiket": "Haber yay",
+      "etki": {
+        "yonetim": -5,
+        "halk": -10,
+        "para": 5
+      },
+      "sonuc": "Halk söylentiyi duydu, telaş arttı, ordu toplanamadı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  },
+  {
+    "konusan": "saray_hatun",
+    "konu": "ambar",
+    "metin": "Ambarda koç gibi iri buğday yığını var ama paylaşım şirin değil; halk aç, ambar dolu. İncelikle mi dağıtsak, sıkı mı tutsak?",
+    "sol": {
+      "etiket": "Ambarı aç",
+      "etki": {
+        "halk": 10,
+        "para": -5,
+        "ordu": -5
+      },
+      "sonuc": "Halk doydu, ambar boşaldı, ordu erzakı azaldı."
+    },
+    "sag": {
+      "etiket": "Ambarı sıkı tut",
+      "etki": {
+        "yonetim": 5,
+        "halk": -10,
+        "ordu": 5
+      },
+      "sonuc": "Erzak korundu, halk ambar kapısında bekledi, homurtu arttı."
+    },
+    "kaynak": "altin_set",
+    "lisans": "sadece_ders"
+  }
+]
