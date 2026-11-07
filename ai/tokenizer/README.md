@@ -11,7 +11,7 @@
 cd AI
 # temiz kartları önce eğitim metnine çevir (temiz hikâyeler jsonl'den doğrudan okunur)
 python -m ai.ortak.kart_bicimi temiz/model_ciktilari.jsonl temiz/model_kart_egitim.txt
-python -m ai.tokenizer.egit_tokenizer --girdi temiz/model_ciktilari.jsonl temiz/model_kart_egitim.txt data/altin_set/ham/altin_set_egitim.txt
+python -m ai.tokenizer.egit_tokenizer --girdi temiz/model_ciktilari.jsonl temiz/model_kart_egitim.txt data/altin_set/ham/altin_set_egitim.txt data/altin_set/ham/altin_ek_egitim.txt
 python -m ai.tokenizer.incele
 # Hugging Face'e yükleme (HF_TOKEN gerekir):
 python -m ai.tokenizer.egit_tokenizer --girdi ... --hf-depo <kurum>/kaydir-tokenizer
@@ -23,4 +23,4 @@ her belgenin sonunda `<|son|>`. Kart kayıtları ham dosyadan alınmaz (satırl�
 
 3 Kasım ilk deneme: 3.592 hikâye + 1.448 altın set kartı, örnek kart 72 token. `cikti/` Git'e girmez.
 
-5 Kasım: 9.702 temiz hikâye + 6.728 temiz kart + 1.542 altın set kartı = 17.972 belge, 2,2 milyon token, örnek kart 70 token. Cumartesi yeniden eğitilip HF'ye yüklenecek.
+7 Kasım son eğitim: 11.539 temiz hikâye + 7.995 temiz kart + 1.542 altın set kartı = 21.076 belge, 2,58 milyon token. Etiketlerin hepsi tek token. Hugging Face'e yükleme, depo ve token belli olunca yapılacak.
