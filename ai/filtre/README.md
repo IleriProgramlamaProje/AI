@@ -1,6 +1,14 @@
-# filtre/ (1. hafta)
-- `filtre.py`: ham üretimi temizler, kaç tanesinin neden atıldığını raporlar
-- `kurallar.py`: uzunluk, yasak kelime, aşırı nadir kelime (yumuşak sınır), tekrar, biçim
-- `duzenle.py`: şu an kullanılan temizlik (`python ai/filtre/duzenle.py <veri klasörü>`). `ham/` ve `altin/` okur, `temiz/` ve `silindi/` yazar, girdileri değiştirmez; elenen her kaydın sebebi `silindi/` içinde. Test: `ai/testler/test_duzenle.py`
+# filtre/
+- `filtre.py` (S1): ham üretimi filtreler, hangi kuraldan kaç kaydın atıldığını raporlar.
+  `python ai/filtre/filtre.py <veri klasörü>` → `<veri>/filtre/temiz/`, `elenen/`, `rapor.md`, `rapor.json`.
+  - Biçim çözme, sınırlar ve prompt kuralları `duzenle.py` ile ortaktır.
+  - Bunlara ek olarak boş çıktıyı, bozuk kelimeyi (ünlü uyumu), modern kelimeyi ve verilen kelimeleri kontrol eder.
+  - Kartta `kart` alanı S2'nin (`kart_bicimi.py`) okuduğu sözlüktür.
+  - `--kelimeye-bakma` verilen kelime kuralını kapatır. Kural açıkken kartların yaklaşık yarısı bu yüzden elenir (8 Kasım verisi: kart %51 / %92, hikâye %69 / %89).
+  - Test: `ai/testler/test_filtre.py`
+- `duzenle.py`: 7 Kasım'a kadarki temiz verinin geçtiği temizlik. `python ai/filtre/duzenle.py <veri klasörü>` komutuyla çalışır.
+  - `ham/` ve `altin/` okur; `temiz/` ve `silindi/` yazar. Girdileri değiştirmez.
+  - Altın seti de işleyen tek betik budur.
+  - Test: `ai/testler/test_duzenle.py`
 
-`filtre.py` (S1) gelene kadar temiz verinin tamamı `duzenle.py`'den geçer. Sınırlar ve açık kararlar: `kararlar.md` 7 Kasım.
+Sınırlar ve açık kararlar: `kararlar.md` 7 Kasım. Hangi betiğin esas olacağı ve verilen kelime kuralı toplantıda kesinleşir.
