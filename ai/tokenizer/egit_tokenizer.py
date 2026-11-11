@@ -1,6 +1,6 @@
 """Tokenizer eğitimi (görev M5). BPE, Hugging Face `tokenizers` kütüphanesiyle.
 
-    python -m ai.tokenizer.egit_tokenizer --girdi ~/Downloads/kaydir_veri/ham/hikaye_*.jsonl data/altin_set/ham/altin_set_egitim.txt
+    python -m ai.tokenizer.egit_tokenizer --girdi ~/Downloads/kaydir_veri/ham/hikaye_*.jsonl
     python -m ai.tokenizer.egit_tokenizer --girdi ... --boyut 8000 --hf-depo IleriProgramlamaProje/kaydir-tokenizer
 
 Girdi dosyaları:

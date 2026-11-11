@@ -11,6 +11,6 @@ Burada sadece **küçük** veriler durur. Büyükler:
 | Klasör | İçinde |
 | --- | --- |
 | `torbalar/` | Drive’daki `Torba_Listesi` tablosu (asıl kaynak, bu depoda değil) + kodun okuduğu dışa aktarımlar (.csv / .txt) |
-| `altin_set/` | Ekibin elle ürettiği kartlar (bkz. `altin_set/README.md`) |
+| `altin_set/` | Sınav seti ve yedek deste için yer (altın set 11 Kasım'da çıkarıldı, bkz. `altin_set/README.md`) |
 | `uretilen/ornekler/` | Öğretmen üretiminden küçük örnekler (okumak için) |
 | `edebiyat/` | Lisansı temiz metinler (Dede Korkut vb.) + kaynak/lisans notu (2. hafta) |

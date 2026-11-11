@@ -24,18 +24,26 @@ def _sahte(sayilar):
 
 
 def test_oran_tutar_ve_kit_kaynak_sinirlar():
-    kaynak, uzunluk = _sahte({"hikaye": 100, "kart": 100, "altin": 10})
+    kaynak, uzunluk = _sahte({"hikaye": 100, "kart": 100})
     train, val, rapor = hazirla.karistir(kaynak, uzunluk, hazirla.ORANLAR)
     # BİLGEM ve edebiyat yok: payları diğerlerine oranla dağıtılır
-    assert rapor["hikaye"]["hedef_oran"] == pytest.approx(0.60 / 0.825, abs=1e-3)
+    assert rapor["hikaye"]["hedef_oran"] == pytest.approx(0.63 / 0.85, abs=1e-3)
     assert rapor["bilgem"]["train_token"] == 0
     # Hikâye en kıt kaynak (oranına göre): hepsi kullanılır, diğerlerinden oranı kadar alınır
     assert rapor["hikaye"]["kullanilmayan_belge"] == 0
-    for ad in ("hikaye", "kart", "altin"):
+    for ad in ("hikaye", "kart"):
         assert rapor[ad]["gercek_oran"] == pytest.approx(rapor[ad]["hedef_oran"], abs=0.02)
     assert len(train) == len(set(train)), "belge tekrar etmemeli"
     assert not set(train) & set(val), "val belgesi train'de olmamalı"
     assert sum(b.startswith("hikaye") for b in val) == 5          # her kaynağın %5'i val
+
+
+def test_orani_sifir_kaynak_val_e_de_girmez():
+    kaynak, uzunluk = _sahte({"hikaye": 100, "kart": 100})
+    oran = dict(hazirla.ORANLAR, kart=0)
+    train, val, rapor = hazirla.karistir(kaynak, uzunluk, oran)
+    assert rapor["kart"]["val_belge"] == 0 and rapor["kart"]["train_belge"] == 0
+    assert not any(b.startswith("kart") for b in train + val)
 
 
 def test_oran_degistirilebilir():
@@ -46,19 +54,18 @@ def test_oran_degistirilebilir():
 
 
 def test_kaynaklari_oku(tmp_path):
-    temiz, altin, hazir = tmp_path / "temiz", tmp_path / "altin", tmp_path / "hazir"
-    for d in (temiz, altin, hazir / "bilgem", hazir / "klasik"):
+    temiz, hazir = tmp_path / "temiz", tmp_path / "hazir"
+    for d in (temiz, hazir / "bilgem", hazir / "klasik"):
         d.mkdir(parents=True)
     kayitlar = [{"tur": "hikaye", "cikti": HIKAYE},
                 {"tur": "kart", "cikti": "...", "kart": COBAN_KART, "malzeme": COBAN_MALZEME}]
     (temiz / "a.jsonl").write_text("".join(json.dumps(k, ensure_ascii=False) + "\n" for k in kayitlar), encoding="utf-8")
-    (altin / "altin_set_egitim.txt").write_text("birinci kart\n\nikinci kart\n", encoding="utf-8")
     (hazir / "bilgem" / "b.txt").write_text("basit hikâye\n", encoding="utf-8")
     (hazir / "klasik" / "e.txt").write_text("eski metin bir\n\neski metin iki\n", encoding="utf-8")
-    kaynak = hazirla.kaynaklari_oku(temiz, altin, hazir)
+    kaynak = hazirla.kaynaklari_oku(temiz, hazir)
     assert kaynak["hikaye"] == [HIKAYE]
     assert kaynak["kart"] == [egitim_metni(COBAN_KART, COBAN_MALZEME)]
-    assert kaynak["altin"] == ["birinci kart", "ikinci kart"]
+    assert set(kaynak) == {"hikaye", "kart", "bilgem", "edebiyat"}
     assert kaynak["bilgem"] == ["basit hikâye"]
     assert kaynak["edebiyat"] == ["eski metin bir", "eski metin iki"]
 
@@ -79,7 +86,7 @@ def test_uctan_uca_bin_yazar(tmp_path):
                [{"tur": "kart", "cikti": "...", "kart": COBAN_KART, "malzeme": COBAN_MALZEME} for _ in range(20)]
     (temiz / "a.jsonl").write_text("".join(json.dumps(k, ensure_ascii=False) + "\n" for k in kayitlar), encoding="utf-8")
     cikti = tmp_path / "egitim"
-    subprocess.run([sys.executable, str(BETIK), str(tmp_path), "--temiz", str(temiz), "--altin", str(tmp_path / "yok"),
+    subprocess.run([sys.executable, str(BETIK), str(tmp_path), "--temiz", str(temiz),
                     "--hazir", str(tmp_path / "yok"), "--tokenizer", str(tmp_path / "tok.json"), "--cikti", str(cikti)],
                    check=True, capture_output=True)
     rapor = json.loads((cikti / "rapor.json").read_text(encoding="utf-8"))

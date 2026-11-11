@@ -139,42 +139,6 @@ def test_bozuk_metin_hata_verir(ad):
         metinden_karta(BOZUK[ad])
 
 
-# ---------- altın set: sitenin JavaScript dönüşümüyle aynı çıktı ----------
-# data/altin_set/ham/ dosyaları sitenin Veri sekmesinden ya da 3 Kasım dönüşümünden gelir; yoksa test atlanır.
-
-HAM = KOK / "data" / "altin_set" / "ham"
-
-
-def _satirli_oku(cikti):
-    """Altın setin satırlı çıktısı -> kart. (Bu iş aslında S1'in; burada sadece test için.)"""
-    a = {}
-    for satir in cikti.splitlines():
-        etiket, _, deger = satir.partition(": ")
-        a[etiket] = deger.strip()
-    def etki(s):
-        out = {}
-        for parca in s.split(", "):
-            ad, isaret = parca.rsplit(" ", 1)
-            out[{"Yönetim": "yonetim", "Halk": "halk", "Para": "para", "Ordu": "ordu"}[ad]] = ETKI_KADEMELERI[isaret]
-        return out
-    return {"metin": a["Metin"],
-            "sol": {"karar": a["Sol"], "sonuc": a["Sol sonuç"], "etki": etki(a["Sol etki"])},
-            "sag": {"karar": a["Sağ"], "sonuc": a["Sağ sonuç"], "etki": etki(a["Sağ etki"])}}
-
-
-@pytest.mark.skipif(not (HAM / "altin_set_ham.jsonl").exists(), reason="altın set dosyaları yok")
-def test_altin_set_site_ile_ayni():
-    kayitlar = [json.loads(s) for s in open(HAM / "altin_set_ham.jsonl", encoding="utf-8") if s.strip()]
-    beklenen_metin = open(HAM / "altin_set_egitim.txt", encoding="utf-8").read().strip().split("\n\n")
-    beklenen_json = json.load(open(HAM / "altin_set.json", encoding="utf-8"))
-    assert len(kayitlar) == len(beklenen_metin) == len(beklenen_json)
-    for kayit, metin, j in zip(kayitlar, beklenen_metin, beklenen_json):
-        kart, malzeme = _satirli_oku(kayit["cikti"]), kayit["malzeme"]
-        assert egitim_metni(kart, malzeme) == metin, kayit["id"]
-        assert oyun_json(kart, malzeme, kaynak="altin_set") == j, kayit["id"]
-        assert metinden_karta(metin)[0] == kart, kayit["id"]
-
-
 SATIRLI = """Metin: Koyunlar aç kaldı {hitap}.
 Sol: Otlağı aç
 Sol sonuç: Sürü doydu.
