@@ -1,0 +1,11 @@
+# ~10M parametre. En olası aday; ~50M token ister, daha azında val kaybı yükselince erken durur.
+sozluk: 8000
+baglam: 256
+katman: 6
+kafa: 5
+genislik: 320
+dropout: 0.1
+# eğitim
+ogrenme_orani: 0.001
+yigin: 64
+tur: 4

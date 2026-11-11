@@ -1,0 +1,11 @@
+# ~1,2M parametre (çoğu gömme tablosu: 8000 x 96). İlk deneme: hat çalışıyor mu, kayıp düşüyor mu.
+sozluk: 8000
+baglam: 256
+katman: 4
+kafa: 4
+genislik: 96
+dropout: 0.0
+# eğitim
+ogrenme_orani: 0.002
+yigin: 64
+tur: 4

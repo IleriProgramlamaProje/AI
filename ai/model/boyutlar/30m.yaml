@@ -1,0 +1,11 @@
+# ~30M parametre. ~150M+ token ister; veri azsa ezberler, dropout bu yüzden yüksek.
+sozluk: 8000
+baglam: 256
+katman: 8
+kafa: 8
+genislik: 512
+dropout: 0.2
+# eğitim
+ogrenme_orani: 0.0006
+yigin: 32
+tur: 4
