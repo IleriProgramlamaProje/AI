@@ -3,7 +3,7 @@
 Bir kart üç biçimde dolaşır:
   1. Temiz kayıt (S1 filtresinin çıktısı): iki Python sözlüğü, `kart` ve `malzeme`.
   2. Etiketli metin: modelin okuyup yazdığı biçim (eğitim verisi).
-  3. Oyun JSON'u: Godot'nun ve altın set sitesinin okuduğu biçim.
+  3. Oyun JSON'u: Godot'nun okuduğu biçim.
 
     egitim_metni(kart, malzeme)  1 -> 2
     oyun_json(kart, malzeme)     1 -> 3
@@ -20,9 +20,6 @@ Temiz kayıt şöyle görünür:
     malzeme = {"karakter": "Hazinedar",                       # unvan, tema.json'daki gibi
                "durum": {"Yönetim": 50, "Halk": 40, "Para": 25, "Ordu": 60},
                "ekstra": {"konu": "ekmek"}}                   # konu yoksa "serbest" sayılır
-
-Altın set sitesi (ai/altin_set/sablon.html) aynı dönüşümleri JavaScript'te yapar (egitimMetni, oyunJson);
-ikisi aynı çıktıyı vermeli. test_kart_bicimi.py bunu 1.448 altın set kartında kontrol eder.
 """
 import argparse
 import json

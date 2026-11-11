@@ -7,8 +7,7 @@
   - `--kelimeye-bakma` verilen kelime kuralını kapatır. Kural açıkken kartların yaklaşık yarısı bu yüzden elenir (8 Kasım verisi: kart %51 / %92, hikâye %69 / %89).
   - Test: `ai/testler/test_filtre.py`
 - `duzenle.py`: 7 Kasım'a kadarki temiz verinin geçtiği temizlik. `python ai/filtre/duzenle.py <veri klasörü>` komutuyla çalışır.
-  - `ham/` ve `altin/` okur; `temiz/` ve `silindi/` yazar. Girdileri değiştirmez.
-  - Altın seti de işleyen tek betik budur.
+  - `ham/` (ve varsa eski `altin/`) okur; `temiz/` ve `silindi/` yazar. Girdileri değiştirmez. Altın set 11 Kasım'da çıkarıldı, `altin/` klasörü yoksa o kısım atlanır.
   - Test: `ai/testler/test_duzenle.py`
 
 Sınırlar ve açık kararlar: `kararlar.md` 7 Kasım. Hangi betiğin esas olacağı ve verilen kelime kuralı toplantıda kesinleşir.

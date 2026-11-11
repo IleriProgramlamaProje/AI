@@ -7,12 +7,11 @@
 Kaynaklar (her biri bir "belge" listesi):
   hikaye   : <veri>/filtre/temiz/*.jsonl, tur == "hikaye" → hikâye metni
   kart     : aynı dosyalar, tur == "kart" → kart_bicimi.egitim_metni (etiketli metin)
-  altin    : data/altin_set/ham/*_egitim.txt (etiketli kartlar, aralarında boş satır)
   bilgem   : data/edebiyat/bilgem/*.txt      (S3; aralarında boş satır)
   edebiyat : data/edebiyat/ altındaki diğer *.txt (S3)
 
 Adımlar:
-  1. Her kaynağın belgeleri karıştırılır (sabit tohum), %5'i val'e ayrılır. Val her kaynaktan pay alır ve tekrar içermez.
+  1. Her kaynağın belgeleri karıştırılır (sabit tohum), %5'i val'e ayrılır. Val sadece oranı 0'dan büyük kaynaklardan pay alır, tekrar içermez.
   2. Karışım oranı (README) train için uygulanır. Olmayan kaynağın payı diğerlerine oranla dağıtılır.
      Toplam boyut, oranına göre en kıt kaynağa göre belirlenir; diğer kaynaklardan o kadarı alınır. Hiçbir belge tekrar edilmez.
   3. Train belgeleri kaynaklar birbirine karışacak şekilde sıralanır; kodla() her belgenin sonuna <|son|> koyup uint16 yazar.
@@ -31,8 +30,8 @@ sys.path.insert(0, str(KOK))
 from ai.ortak.kart_bicimi import egitim_metni  # noqa: E402
 from ai.tokenizer.egit_tokenizer import CIKTI as TOKENIZER  # noqa: E402
 
-# README: hikâye %55–65 · kart %15–20 · altın ~%5 · BİLGEM ~%10 · edebiyat ~%5 (aralıkların ortası)
-ORANLAR = {"hikaye": 0.60, "kart": 0.175, "altin": 0.05, "bilgem": 0.10, "edebiyat": 0.05}
+# 11 Kasım: altın set çıkarıldı (yasal sebep, Docs/kararlar.md); payı hikâye ve karta dağıtıldı.
+ORANLAR = {"hikaye": 0.63, "kart": 0.22, "bilgem": 0.10, "edebiyat": 0.05}
 VAL_PAYI = 0.05
 TOHUM = 1337
 
@@ -45,7 +44,7 @@ def txt_belgeleri(dosyalar):
     return belgeler
 
 
-def kaynaklari_oku(temiz, altin, hazir):
+def kaynaklari_oku(temiz, hazir):
     kaynak = {ad: [] for ad in ORANLAR}
     for yol in sorted(glob.glob(str(Path(temiz) / "*.jsonl"))):
         for satir in open(yol, encoding="utf-8"):
@@ -56,7 +55,6 @@ def kaynaklari_oku(temiz, altin, hazir):
                 kaynak["hikaye"].append(r["cikti"])
             elif r["tur"] == "kart":
                 kaynak["kart"].append(egitim_metni(r["kart"], r["malzeme"]))
-    kaynak["altin"] = txt_belgeleri(glob.glob(str(Path(altin) / "*_egitim.txt")))
     hazir = Path(hazir)
     kaynak["bilgem"] = txt_belgeleri(glob.glob(str(hazir / "bilgem" / "*.txt")))
     kaynak["edebiyat"] = txt_belgeleri(p for p in glob.glob(str(hazir / "**" / "*.txt"), recursive=True)
@@ -75,6 +73,8 @@ def karistir(kaynak, uzunluk, oranlar, val_payi=VAL_PAYI, tohum=TOHUM):
     train_aday, val, rapor = {}, [], {}
     for ad, belgeler in kaynak.items():
         sira = list(range(len(belgeler)))
+        if oranlar.get(ad, 0) <= 0:          # kullanılmayan kaynak val'e de girmez
+            sira = []
         rnd.shuffle(sira)
         n_val = round(len(sira) * val_payi)
         val += [belgeler[i] for i in sira[:n_val]]
@@ -115,7 +115,6 @@ def main():
     ap = argparse.ArgumentParser(description="Temiz veriden karışım oranına göre train.bin / val.bin üretir.")
     ap.add_argument("veri", help="filtre.py'nin çalıştırıldığı veri klasörü")
     ap.add_argument("--temiz", help="temiz jsonl klasörü (varsayılan: <veri>/filtre/temiz)")
-    ap.add_argument("--altin", default=str(KOK / "data" / "altin_set" / "ham"))
     ap.add_argument("--hazir", default=str(KOK / "data" / "edebiyat"), help="hazır veriler (S3); büyük dosyalar Drive'dan")
     ap.add_argument("--tokenizer", default=str(TOKENIZER))
     ap.add_argument("--cikti", help="çıktı klasörü (varsayılan: <veri>/egitim)")
@@ -136,7 +135,7 @@ def main():
             raise SystemExit(f"bilinmeyen kaynak: {ad} ({', '.join(oranlar)})")
         oranlar[ad] = float(deger)
 
-    kaynak = kaynaklari_oku(temiz, a.altin, a.hazir)
+    kaynak = kaynaklari_oku(temiz, a.hazir)
     tok = Tokenizer.from_file(a.tokenizer)
     uzunluk = {ad: token_sayilari(tok, b) for ad, b in kaynak.items()}
     train, val, rapor = karistir(kaynak, uzunluk, oranlar, tohum=a.tohum)
