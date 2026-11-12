@@ -16,7 +16,7 @@ Kurallar:
 - İki karar aynı derde verilen iki farklı cevaptır. Her biri 2-5 kelimelik emir cümlesidir ("Ambarı aç", "Ustalara altın öde"). Evet/hayır ya da soyut başlık yazma.
 - Her kararın sonucu, o karar verilince ne olduğunu anlatan tek cümledir.
 - Etkiyi sonuca bakarak yaz: sonuçta ne artıyorsa +, ne azalıyorsa -. + az, ++ orta, +++ çok (düşüş: -, --, ---).
-- Her karar 1-3 göstergeyi etkiler. HER İKİ kararda da en az bir gösterge ARTAR, en az bir gösterge DÜŞER: yani iki seçenek de bir şey kazandırır, bir şey kaybettirir. Bir seçenek salt kazanç ya da salt kayıp olmasın; hangisinin seçileceği baştan belli olmasın (ikisi de birer ikilem olsun). Hangi göstergelerin değişeceğini derde göre sen seç; her kartta aynı göstergeleri kullanma.
+- Her karar 1-3 göstergeyi etkiler ve her kararda en az bir gösterge düşer. Hangi göstergelerin değişeceğini derde göre sen seç; her kartta aynı göstergeleri kullanma.
 - Sade Türkçe. Modern kelime kullanma ({yasak} gibi). Başka kişilerden sadece unvanla bahset, isim verme.
 - Sadece aşağıdaki 7 satırı yaz; başka hiçbir şey ekleme.
 
