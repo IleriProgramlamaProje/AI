@@ -67,6 +67,7 @@ SEBEPLER = {
     f"hikaye>{HIKAYE_MAX}": f"Hikâye {HIKAYE_MAX} kelimeden uzun.",
     "karakter_gecmiyor": "Verilen karakter hikâyede geçmiyor (tahmini kontrol).",
     "kararda_dusus_yok": "Prompt kuralı: kararlardan birinde hiçbir gösterge düşmüyor.",
+    "kararda_kazanc_yok": "Prompt kuralı: kararlardan biri salt kayıp (hiçbir gösterge artmıyor); seçim bariz oluyor.",
     "gosterge_dusurmuyor": "Prompt kuralı: kararlardan birinde hiçbir gösterge düşmüyor.",
     "etki>3_gosterge": "Prompt kuralı: bir karar 3'ten fazla göstergeyi etkiliyor.",
     "iki_secenek_ayni": "İki karar ya da iki sonuç aynı.",
@@ -321,6 +322,8 @@ def icerik_sorunlari(tur, cikti, malzeme):
     for ad in ("Sol etki", "Sağ etki"):
         if "-" not in alan[ad]:
             sorun.append("kararda_dusus_yok")
+        if "+" not in alan[ad]:
+            sorun.append("kararda_kazanc_yok")
         if len(alan[ad].split(",")) > 3:
             sorun.append("etki>3_gosterge")
     if _kucuk(alan["Sol"]) == _kucuk(alan["Sağ"]) or alan["Sol sonuç"] == alan["Sağ sonuç"]:
