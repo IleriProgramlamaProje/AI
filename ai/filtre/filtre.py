@@ -59,7 +59,7 @@ SEBEPLER.update({
     "bos_cikti": "Model çıktı üretemedi ([BOŞ ÇIKTI]).",
     "bozuk_kelime": "Ünlü uyumu bozuk kelime var (taşleri, halkınin).",
     "modern_kelime": "Modern kelime var (tema.json yasak_kelimeler).",
-    "kelime_gecmiyor": "Verilen kelimeler geçmiyor (kartta ikisinden en az biri, hikâyede üçü de gerekli).",
+    "kelime_gecmiyor": "Verilen kelimeler geçmiyor (yalnız hikâyede, üçü de gerekli).",
 })
 
 
@@ -137,7 +137,7 @@ def kayit_sorunlari(r, kelime_kontrolu=True):
     if modern:
         sorun.append("modern_kelime")
         ayrinti["modern"] = modern
-    if kelime_kontrolu and kelime_gecmiyor(tur, yazi, malzeme):
+    if kelime_kontrolu and tur == "hikaye" and kelime_gecmiyor(tur, yazi, malzeme):  # kartta bakılmaz
         sorun.append("kelime_gecmiyor")
     kart = None
     if tur == "kart" and not sorun:

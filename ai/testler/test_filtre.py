@@ -65,9 +65,7 @@ def test_kart_kurallari():
     assert _sorun(_kayit(1, "[BOŞ ÇIKTI]")) == ["bos_cikti"]
     assert "bozuk_kelime" in _sorun(_kayit(1, _kart(METIN.replace("çobanlar", "çobanler"))))
     assert "modern_kelime" in _sorun(_kayit(1, _kart(METIN.replace("çobanlar", "memurlar") + " Bakan da kızgın.")))
-    assert _sorun(_kayit(1, _kart(), kelimeler=("hisar", "kısa"))) == ["kelime_gecmiyor"]
-    assert _sorun(_kayit(1, _kart(), kelimeler=("hisar", "aç"))) == []          # kartta ikisinden biri yeter
-    assert _sorun(_kayit(1, _kart(), kelimeler=("hisar", "kısa")), kelime_kontrolu=False) == []
+    assert _sorun(_kayit(1, _kart(), kelimeler=("hisar", "kısa"))) == []        # kartta verilen kelimeye bakılmaz
     assert "yasak_hitap" in _sorun(_kayit(1, _kart(METIN.replace("{hitap}", "Beyim"))))
     assert "karar>5" in _sorun(_kayit(1, _kart(sol="Yeni ve geniş bir otlak hemen aç")))
     # Model satır başına ** ya da - koyabilir: tolere edilir
