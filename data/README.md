@@ -11,6 +11,7 @@ Burada sadece **küçük** veriler durur. Büyükler:
 | Klasör | İçinde |
 | --- | --- |
 | `torbalar/` | Drive’daki `Torba_Listesi` tablosu (asıl kaynak, bu depoda değil) + kodun okuduğu dışa aktarımlar (.csv / .txt) |
-| `altin_set/` | Sınav seti ve yedek deste için yer (altın set 11 Kasım'da çıkarıldı, bkz. `altin_set/README.md`) |
+| `uretilen/ham/` | Öğretmen üretiminin ham hâli, iki sürüm: `ham_iliskili/` (saray kartlarında `istedigi` var) ve `ham_iliskisiz/` (`istedigi` yok). jsonl'ler Git LFS'te, bkz. `uretilen/ham/README.md` |
+| `uretilen/iliski_deneme/` | İlişki denemesi: Gemma'nın "konuşan hangi kararı istiyor?" sorusuna tutarlılığı (600 kart) |
 | `uretilen/ornekler/` | Öğretmen üretiminden küçük örnekler (okumak için) |
 | `edebiyat/` | Lisansı temiz metinler (Dede Korkut vb.) + kaynak/lisans notu (2. hafta) |

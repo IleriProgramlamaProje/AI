@@ -4,6 +4,8 @@
   python ai/filtre/filtre.py ~/Downloads/kaydir_veri          # 1) ham → filtre/temiz
   python ai/veri_hazirlama/hazirla.py ~/Downloads/kaydir_veri # 2) filtre/temiz + hazır veri → egitim/
   ```
+- `bilgem_indir.py`: BİLGEM hikâyelerini Hugging Face'ten indirip temizler, `data/edebiyat/bilgem/bilgem.txt` yazar (İngilizce, forum, modern kelimeli kayıtlar atılır; masal tarzı önce). Sayılar ve kaynak: `data/edebiyat/bilgem/KAYNAK.md`. Test: `ai/testler/test_bilgem_indir.py`.
+- `vikikaynak_temizle.py`: Vikikaynak'tan indirilen .txt'leri (Ömer Seyfettin, Nasreddin Hoca) temizleyip `data/edebiyat/` altına yazar. Test: `ai/testler/test_vikikaynak_temizle.py`.
 - **Karışım** (aralıkların ortası; `--oran ad=değer` ile değişir): öğretmen hikâyeleri %63 · öğretmen kartları %22 · BİLGEM %10 · edebiyat %5. Altın set 11 Kasım'da çıkarıldı (yasal sebep).
   - Olmayan kaynağın payı diğerlerine oranla dağıtılır.
   - Toplam boyutu, oranına göre en kıt kaynak belirler. Belge tekrar edilmez; fazlası kullanılmaz ve raporda "kalan" sütununda görünür.
