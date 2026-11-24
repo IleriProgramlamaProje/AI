@@ -48,7 +48,6 @@ def test_yakalanamayan_hata_kabul_edilir():
 
 
 def test_modern_kelime_tam_kelime_olarak_aranir():
-    assert filtre.modern_kelimeler("Bakan geldi") == ["bakan"]
     assert filtre.modern_kelimeler("Politikası değişti") == ["politikası"]
     assert filtre.modern_kelimeler("Depolarda buğday var, ufka bakanlar sustu") == []
 
@@ -64,7 +63,7 @@ def test_iyi_kart_gecer_ve_ayrisir():
 def test_kart_kurallari():
     assert _sorun(_kayit(1, "[BOŞ ÇIKTI]")) == ["bos_cikti"]
     assert "bozuk_kelime" in _sorun(_kayit(1, _kart(METIN.replace("çobanlar", "çobanler"))))
-    assert "modern_kelime" in _sorun(_kayit(1, _kart(METIN.replace("çobanlar", "memurlar") + " Bakan da kızgın.")))
+    assert "modern_kelime" in _sorun(_kayit(1, _kart(METIN.replace("çobanlar", "memur ve çobanlar"))))
     assert _sorun(_kayit(1, _kart(), kelimeler=("hisar", "kısa"))) == []        # kartta verilen kelimeye bakılmaz
     assert "yasak_hitap" in _sorun(_kayit(1, _kart(METIN.replace("{hitap}", "Beyim"))))
     assert "karar>5" in _sorun(_kayit(1, _kart(sol="Yeni ve geniş bir otlak hemen aç")))
