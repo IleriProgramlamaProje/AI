@@ -198,6 +198,8 @@ def filtrele(veri, cikti_klasoru, kelime_kontrolu=True):
                     gorulen_metin.add(cikti.split("\n", 1)[0])
                 say[r["tur"] + "_temiz"] += 1
                 temiz = {k: r.get(k) for k in ("id", "tur", "malzeme", "prompt", "model", "motor", "tohum")}
+                if "istedigi" in r:  # saray kartlarının ilişki etiketi (ham_iliskili)
+                    temiz["istedigi"] = r["istedigi"]
                 temiz.update({"kaynak_id": kaynak_id, "cikti": cikti})
                 if kart is not None:
                     temiz["kart"] = kart

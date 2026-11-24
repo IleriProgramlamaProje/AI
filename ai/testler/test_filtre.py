@@ -100,3 +100,18 @@ def test_filtre_uctan_uca(tmp_path):
     rapor = json.loads((cikti / "rapor.json").read_text(encoding="utf-8"))
     assert rapor["sebep"] == {"mukerrer": 1, "bos_cikti": 1, "bozuk_kelime": 1}
     assert "bozuk_kelime" in (cikti / "rapor.md").read_text(encoding="utf-8")
+
+
+def test_istedigi_korunur(tmp_path):
+    (tmp_path / "ham").mkdir()
+    saray = _kayit(1, _kart(), karakter="Hazinedar")
+    saray["istedigi"] = "Sol"
+    diger = _kayit(2, _kart(METIN.replace("Koyunlarım", "Keçilerim")))
+    (tmp_path / "ham" / "kart_t.jsonl").write_text(
+        "".join(json.dumps(k, ensure_ascii=False) + "\n" for k in (saray, diger)), encoding="utf-8")
+    subprocess.run([sys.executable, str(BETIK), str(tmp_path)], check=True, capture_output=True)
+    temiz = [json.loads(s) for s in
+             (tmp_path / "filtre" / "temiz" / "kart_t.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert len(temiz) == 2
+    assert temiz[0]["istedigi"] == "Sol"
+    assert "istedigi" not in temiz[1]
