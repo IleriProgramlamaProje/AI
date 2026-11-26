@@ -5,7 +5,7 @@ Bir kart üç biçimde dolaşır:
   2. Etiketli metin: modelin okuyup yazdığı biçim (eğitim verisi).
   3. Oyun JSON'u: Godot'nun okuduğu biçim.
 
-    egitim_metni(kart, malzeme)  1 -> 2
+    egitim_metni(kart, malzeme, istedigi=None)  1 -> 2   (istedigi verilirse durum satırına <istiyor:sol|sag|belirsiz>)
     oyun_json(kart, malzeme)     1 -> 3
     metinden_karta(metin)        2 -> 1   (bozuk metinde KartBicimHatasi fırlatır)
     satirli_karta(cikti)         öğretmenin satırlı çıktısı -> kart (Metin:/Sol:/.../Sağ etki:)
@@ -42,6 +42,11 @@ ANAHTAR_UNVAN = {v: k for k, v in UNVAN_ANAHTAR.items()}           # "akinci_bey
 ETIKET_AD = {v: k for k, v in GOSTERGELER.items()}                 # "yonetim" -> "Yönetim"
 SIRA = list(GOSTERGELER.values())                                  # yonetim, halk, para, ordu: etiketler hep bu sırada
 ISARET = {v: k for k, v in ETKI_KADEMELERI.items()}                # 10 -> "++", -15 -> "---"
+
+# Saray kartlarında danışmanın hükümdardan istediği karar (ham_iliskili verisindeki `istedigi` alanı).
+# Etiketli metinde isteğe bağlı <istiyor:…> etiketi olur; yoksa kart etiketsiz yazılır.
+ISTEDIGI_ETIKET = {"Sol": "sol", "Sağ": "sag", "Belirsiz": "belirsiz"}
+ETIKET_ISTEDIGI = {v: k for k, v in ISTEDIGI_ETIKET.items()}
 
 KAYNAKLAR = ("ogretmen", "model", "altin_set")
 SERBEST = "serbest"
@@ -83,8 +88,18 @@ def _etki_etiketleri(etki):
 
 # ---------- 1 -> 2: eğitim metni ----------
 
-def egitim_metni(kart, malzeme):
-    """Temiz kayıttan etiketli metin. Örnek çıktı:
+def _istedigi_etiketi(istedigi):
+    """"Sol" / "Sağ" / "Belirsiz" -> " <istiyor:sol>"; None -> ""."""
+    if istedigi is None:
+        return ""
+    if istedigi not in ISTEDIGI_ETIKET:
+        raise ValueError(f"geçersiz istedigi: {istedigi!r} ({', '.join(ISTEDIGI_ETIKET)} olmalı)")
+    return f" <istiyor:{ISTEDIGI_ETIKET[istedigi]}>"
+
+
+def egitim_metni(kart, malzeme, istedigi=None):
+    """Temiz kayıttan etiketli metin. `istedigi` verilirse ("Sol"/"Sağ"/"Belirsiz") durum satırının sonuna
+    <istiyor:sol> gibi bir etiket eklenir; verilmezse eklenmez. Örnek çıktı:
 
     <yonetim:10> <halk:15> <para:50> <ordu:25> <konu:serbest> <konuşan:coban>
     <kart> Koyunları otlatırken ...
@@ -97,7 +112,7 @@ def egitim_metni(kart, malzeme):
     # Durum satırı: dört gösterge (görünen ad -> etiket adı), sonra konu (boşluk -> _), sonra konuşan anahtarı.
     durum = " ".join(f"<{etiket}:{int(malzeme['durum'][ad])}>" for ad, etiket in GOSTERGELER.items())
     konu = re.sub(r"\s+", "_", _konu(malzeme).strip())
-    satirlar = [f"{durum} <konu:{konu}> <konuşan:{_anahtar(malzeme['karakter'])}>",
+    satirlar = [f"{durum} <konu:{konu}> <konuşan:{_anahtar(malzeme['karakter'])}>{_istedigi_etiketi(istedigi)}",
                 f"<kart> {kart['metin'].strip()}"]
     for taraf in ("sol", "sag"):
         s = kart[taraf]
@@ -135,7 +150,7 @@ _ETKI = re.compile(r"<([a-z]+)([^<>]*)>")
 
 
 def _durum_oku(satir):
-    """İlk satır -> (durum, konu, karakter)."""
+    """İlk satır -> (durum, konu, karakter, istedigi). istedigi: <istiyor:…> yoksa None."""
     etiketler = dict(_DURUM_ETIKET.findall(satir))
     durum = {}
     for etiket in SIRA:
@@ -151,7 +166,13 @@ def _durum_oku(satir):
     anahtar = etiketler.get("konuşan", etiketler.get("konusan", "")).strip()
     if anahtar not in ANAHTAR_UNVAN:
         raise KartBicimHatasi(f"bilinmeyen konuşan: {anahtar!r} (tema.json'da yok)")
-    return durum, konu.replace("_", " "), ANAHTAR_UNVAN[anahtar]
+    istedigi = None
+    if "istiyor" in etiketler:
+        deger = etiketler["istiyor"].strip()
+        if deger not in ETIKET_ISTEDIGI:
+            raise KartBicimHatasi(f"<istiyor:{deger}>: {', '.join(ETIKET_ISTEDIGI)} olmalı")
+        istedigi = ETIKET_ISTEDIGI[deger]
+    return durum, konu.replace("_", " "), ANAHTAR_UNVAN[anahtar], istedigi
 
 
 def _secenek_oku(ad, govde, sonuc):
@@ -193,7 +214,7 @@ def metinden_karta(metin):
     if "\n" not in metin:
         raise KartBicimHatasi("durum satırı ya da kart gövdesi yok")
     ilk_satir, govde = metin.split("\n", 1)
-    durum, konu, karakter = _durum_oku(ilk_satir)
+    durum, konu, karakter, istedigi = _durum_oku(ilk_satir)
     if "</kart>" not in govde:
         raise KartBicimHatasi("</kart> yok (metin yarıda kesilmiş olabilir)")
     m = _GOVDE.search(govde)
@@ -209,6 +230,8 @@ def metinden_karta(metin):
             "sol": _secenek_oku("sol", m.group(2), m.group(3)),
             "sag": _secenek_oku("sag", m.group(4), m.group(5))}
     malzeme = {"karakter": karakter, "durum": durum, "ekstra": {"konu": konu}}
+    if istedigi is not None:
+        malzeme["istedigi"] = istedigi
     return kart, malzeme
 
 

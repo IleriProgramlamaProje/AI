@@ -163,3 +163,26 @@ def test_satirli_karta_bozuk(bozuk):
     with pytest.raises(KartBicimHatasi):
         satirli_karta(bozuk)
 
+
+
+# ---------- istedigi (<istiyor:…>) ----------
+
+@pytest.mark.parametrize("istedigi,etiket", [("Sol", "sol"), ("Sağ", "sag"), ("Belirsiz", "belirsiz")])
+def test_istedigi_durum_satirina_eklenir_ve_geri_okunur(istedigi, etiket):
+    metin = egitim_metni(COBAN_KART, COBAN_MALZEME, istedigi)
+    assert metin.splitlines()[0].endswith(f"<konuşan:coban> <istiyor:{etiket}>")
+    kart, malzeme = metinden_karta(metin)
+    assert kart == COBAN_KART and malzeme["istedigi"] == istedigi
+
+
+def test_istedigi_yoksa_etiket_yok():
+    assert egitim_metni(COBAN_KART, COBAN_MALZEME, None) == egitim_metni(COBAN_KART, COBAN_MALZEME)
+    assert "<istiyor:" not in egitim_metni(COBAN_KART, COBAN_MALZEME)
+    assert "istedigi" not in metinden_karta(COBAN_METIN)[1]
+
+
+def test_gecersiz_istedigi_hata():
+    with pytest.raises(ValueError):
+        egitim_metni(COBAN_KART, COBAN_MALZEME, "Yukarı")
+    with pytest.raises(KartBicimHatasi):
+        metinden_karta(COBAN_METIN.replace("<konuşan:coban>", "<konuşan:coban> <istiyor:yukari>", 1))

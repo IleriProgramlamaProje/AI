@@ -26,3 +26,15 @@ her belgenin sonunda `<|son|>`. Kart kayıtları ham dosyadan alınmaz (satırl�
 7 Kasım son eğitim: 11.539 temiz hikâye + 7.995 temiz kart + 1.542 altın set kartı = 21.076 belge, 2,58 milyon token. Etiketlerin hepsi tek token. Hugging Face'e yükleme, depo ve token belli olunca yapılacak.
 
 **11 Kasım:** Altın set çıkarıldı. 7 Kasım tokenizer'ı altın set metniyle eğitildiği için eğitime başlamadan **bir kez yalnızca temiz Gemma verisiyle yeniden eğitilip dondurulmalı**; ardından `hazirla.py` yeniden çalıştırılır (token numaraları tokenizer'a bağlı).
+
+**26 Kasım (donduruldu):** 73.472 temiz hikâye + 43.462 temiz kart + BİLGEM + edebiyat = 121.389 belge, kelime dağarcığı 8000.
+Yeni: tırnak/kesme/tire tek biçim (normalizer), `<istiyor:sol|sag|belirsiz>` etiketleri, 20 boş `<yedek_N>` etiketi.
+Temiz kart kaydı (`kart` alanı) doğrudan okunur, ayrı çevirme adımı gerekmez. Eğitildiği komut:
+
+```sh
+python -m ai.tokenizer.egit_tokenizer --girdi <filtre>/temiz/hikaye.jsonl <filtre>/temiz/kart.jsonl \
+    data/edebiyat/bilgem/bilgem.txt data/edebiyat/omer_seyfettin.txt data/edebiyat/nasreddin_hoca.txt
+```
+
+Bu tokenizer'la iki veri üretildi (`--oran edebiyat=0.015`, ~15,4 M train token): `egitim/duz/` ve `egitim/istedigi/` (`hazirla.py --istedigi`).
+Yeni etiket gerekirse tokenizer yeniden eğitilmez; `tokenizer.json`'da bir `<yedek_N>`'in adı değiştirilir.

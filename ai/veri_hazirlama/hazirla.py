@@ -3,10 +3,12 @@
 
     python ai/veri_hazirlama/hazirla.py ~/Downloads/kaydir_veri          # önce: python ai/filtre/filtre.py ~/Downloads/kaydir_veri
     python ai/veri_hazirlama/hazirla.py ~/Downloads/kaydir_veri --oran hikaye=0.65 --oran kart=0.15
+    python ai/veri_hazirlama/hazirla.py ~/Downloads/kaydir_veri --istedigi --cikti <veri>/egitim_istedigi   # saray kartlarına <istiyor:…>
 
 Kaynaklar (her biri bir "belge" listesi):
   hikaye   : <veri>/filtre/temiz/*.jsonl, tur == "hikaye" → hikâye metni
-  kart     : aynı dosyalar, tur == "kart" → kart_bicimi.egitim_metni (etiketli metin)
+  kart     : aynı dosyalar, tur == "kart" → kart_bicimi.egitim_metni (etiketli metin);
+             --istedigi verilirse `istedigi` alanı olan kartlara <istiyor:sol|sag|belirsiz> eklenir
   bilgem   : data/edebiyat/bilgem/*.txt      (S3; aralarında boş satır)
   edebiyat : data/edebiyat/ altındaki diğer *.txt (S3)
 
@@ -44,7 +46,7 @@ def txt_belgeleri(dosyalar):
     return belgeler
 
 
-def kaynaklari_oku(temiz, hazir):
+def kaynaklari_oku(temiz, hazir, istedigi=False):
     kaynak = {ad: [] for ad in ORANLAR}
     for yol in sorted(glob.glob(str(Path(temiz) / "*.jsonl"))):
         for satir in open(yol, encoding="utf-8"):
@@ -54,7 +56,7 @@ def kaynaklari_oku(temiz, hazir):
             if r["tur"] == "hikaye":
                 kaynak["hikaye"].append(r["cikti"])
             elif r["tur"] == "kart":
-                kaynak["kart"].append(egitim_metni(r["kart"], r["malzeme"]))
+                kaynak["kart"].append(egitim_metni(r["kart"], r["malzeme"], r.get("istedigi") if istedigi else None))
     hazir = Path(hazir)
     kaynak["bilgem"] = txt_belgeleri(glob.glob(str(hazir / "bilgem" / "*.txt")))
     kaynak["edebiyat"] = txt_belgeleri(p for p in glob.glob(str(hazir / "**" / "*.txt"), recursive=True)
@@ -120,6 +122,7 @@ def main():
     ap.add_argument("--cikti", help="çıktı klasörü (varsayılan: <veri>/egitim)")
     ap.add_argument("--oran", action="append", default=[], metavar="AD=ORAN", help="örn. --oran hikaye=0.65")
     ap.add_argument("--tohum", type=int, default=TOHUM)
+    ap.add_argument("--istedigi", action="store_true", help="saray kartlarına <istiyor:…> etiketi ekle (ham_iliskili verisi)")
     a = ap.parse_args()
 
     from tokenizers import Tokenizer
@@ -135,7 +138,7 @@ def main():
             raise SystemExit(f"bilinmeyen kaynak: {ad} ({', '.join(oranlar)})")
         oranlar[ad] = float(deger)
 
-    kaynak = kaynaklari_oku(temiz, a.hazir)
+    kaynak = kaynaklari_oku(temiz, a.hazir, istedigi=a.istedigi)
     tok = Tokenizer.from_file(a.tokenizer)
     uzunluk = {ad: token_sayilari(tok, b) for ad, b in kaynak.items()}
     train, val, rapor = karistir(kaynak, uzunluk, oranlar, tohum=a.tohum)
@@ -144,7 +147,7 @@ def main():
     n_train = kodla(a.tokenizer, train, cikti / "train.bin")
     n_val = kodla(a.tokenizer, val, cikti / "val.bin")
     ozet = {"train_token": n_train, "val_token": n_val, "train_belge": len(train), "val_belge": len(val),
-            "tokenizer": a.tokenizer, "tohum": a.tohum, "oranlar": oranlar, "kaynaklar": rapor}
+            "tokenizer": a.tokenizer, "tohum": a.tohum, "istedigi": a.istedigi, "oranlar": oranlar, "kaynaklar": rapor}
     (cikti / "rapor.json").write_text(json.dumps(ozet, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"{'kaynak':9} {'belge':>7} {'token':>9} {'train':>9} {'val':>7} {'hedef':>6} {'gerçek':>6} {'kalan':>6}")

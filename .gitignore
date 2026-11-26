@@ -15,6 +15,9 @@ data/uretilen/*
 !data/uretilen/ornekler/
 !data/uretilen/ham/
 !data/uretilen/iliski_deneme/
+# eğitim verisi (train.bin/val.bin + dondurulmuş tokenizer) ekip için depoda; filtre çıktıları yeniden üretilebilir, girmez
+!data/uretilen/egitim/
+!data/uretilen/egitim/**/*.bin
 
 # tokenizer çıktısı Hugging Face'e gider (yol_haritasi.md)
 ai/tokenizer/cikti/

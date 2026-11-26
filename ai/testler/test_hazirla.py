@@ -95,3 +95,15 @@ def test_uctan_uca_bin_yazar(tmp_path):
     assert len(train) == rapor["train_token"] and len(val) == rapor["val_token"]
     assert (train == tok.token_to_id(SON)).sum() == rapor["train_belge"]
     assert rapor["kaynaklar"]["hikaye"]["train_belge"] > 0 and rapor["kaynaklar"]["kart"]["train_belge"] > 0
+
+
+def test_istedigi_bayragi(tmp_path):
+    temiz = tmp_path / "temiz"
+    temiz.mkdir()
+    kayitlar = [{"tur": "kart", "kart": COBAN_KART, "malzeme": COBAN_MALZEME, "istedigi": "Sağ"},
+                {"tur": "kart", "kart": COBAN_KART, "malzeme": COBAN_MALZEME}]
+    (temiz / "a.jsonl").write_text("".join(json.dumps(k, ensure_ascii=False) + "\n" for k in kayitlar), encoding="utf-8")
+    duz = hazirla.kaynaklari_oku(temiz, tmp_path / "yok")["kart"]
+    etiketli = hazirla.kaynaklari_oku(temiz, tmp_path / "yok", istedigi=True)["kart"]
+    assert duz == [egitim_metni(COBAN_KART, COBAN_MALZEME)] * 2
+    assert etiketli == [egitim_metni(COBAN_KART, COBAN_MALZEME, "Sağ"), egitim_metni(COBAN_KART, COBAN_MALZEME)]
