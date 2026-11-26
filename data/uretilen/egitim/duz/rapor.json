@@ -1,0 +1,61 @@
+{
+ "train_token": 15358454,
+ "val_token": 894939,
+ "train_belge": 108218,
+ "val_belge": 6070,
+ "tokenizer": "/home/wert/Projects/ileri_proje/AI/ai/tokenizer/cikti/tokenizer.json",
+ "tohum": 1337,
+ "istedigi": false,
+ "oranlar": {
+  "hikaye": 0.63,
+  "kart": 0.22,
+  "bilgem": 0.1,
+  "edebiyat": 0.015
+ },
+ "kaynaklar": {
+  "hikaye": {
+   "belge": 73472,
+   "token": 10551496,
+   "val_belge": 3674,
+   "val_token": 526593,
+   "hedef_oran": 0.6528,
+   "train_belge": 69798,
+   "train_token": 10024903,
+   "kullanilmayan_belge": 0,
+   "gercek_oran": 0.6527
+  },
+  "kart": {
+   "belge": 43462,
+   "token": 4255000,
+   "val_belge": 2173,
+   "val_token": 212813,
+   "hedef_oran": 0.228,
+   "train_belge": 35767,
+   "train_token": 3500828,
+   "kullanilmayan_belge": 5522,
+   "gercek_oran": 0.2279
+  },
+  "bilgem": {
+   "belge": 4217,
+   "token": 2721877,
+   "val_belge": 211,
+   "val_token": 137416,
+   "hedef_oran": 0.1036,
+   "train_belge": 2469,
+   "train_token": 1592087,
+   "kullanilmayan_belge": 1537,
+   "gercek_oran": 0.1037
+  },
+  "edebiyat": {
+   "belge": 238,
+   "token": 294159,
+   "val_belge": 12,
+   "val_token": 18117,
+   "hedef_oran": 0.0155,
+   "train_belge": 184,
+   "train_token": 240636,
+   "kullanilmayan_belge": 42,
+   "gercek_oran": 0.0157
+  }
+ }
+}
